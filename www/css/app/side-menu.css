@@ -1,0 +1,29 @@
+.main-menu ion-header-bar .title{
+
+	text-align: left !important;
+	    margin-left: 8px;
+
+}
+
+
+.main-menu ion-header-bar img{
+	    height: 22px;
+    padding-right: 30px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+
+.main-menu .list .item{
+	border:0 ;
+	font-size: 1.0em;
+	color:#101010;
+
+}
+
+
+.main-menu .list .icon{
+	font-size: 1.4em;
+	margin-right:15px;
+	color: #6d6d6d;
+	}
