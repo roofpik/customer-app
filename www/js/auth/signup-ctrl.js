@@ -33,6 +33,7 @@ catch(e){
                });
             }
             else if(response.StatusCode == '200'){
+               $scope.user = {};
                $ionicPopup.alert({
                   title: "Message",
                   template: response.Message

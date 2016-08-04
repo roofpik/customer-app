@@ -1,41 +1,57 @@
 <ion-view>
-	<ion-content id="full-content-slider" scroll="false">
-		<ion-slide-box on-slide-changed="slideChanged(index)">
-          <ion-slide>
-            <ion-content>
-              <div class="box background-white">
-                <img ng-src="img/app/intro1.jpg" align="middle">                
-              </div>
-            </ion-content>
-          </ion-slide>
-          <ion-slide>
-            <ion-content>
-              <div class="box background-white">
-                <img ng-src="img/app/intro2.jpg" align="middle"> 
-              </div>
-            </ion-content>
-          </ion-slide>
-          <ion-slide>
-            <ion-content>
-              <div class="box background-white">
-               <img ng-src="img/app/intro3.jpg" align="middle"> 
-              </div>
-            </ion-content>
-          </ion-slide>
-          <ion-slide>
-            <ion-content>
-              <div class="box background-white">
-               <img ng-src="img/app/intro4.jpg" align="middle">               
-              </div>
-            </ion-content>
-          </ion-slide>
-          
+    <style>
+    .no-pager .slider-pager {
+        display: none;
+    }
+    </style>
+    <ion-content id="full-content-slider" scroll="false">
+        <ion-slide-box on-slide-changed="slideChanged(index)" show-pager="true" ng-class="{'no-pager':pager}">
+            <ion-slide>
+                <ion-content>
+                    <div class="box background-white">
+                        <img ng-src="img/app/intro1.jpg" align="middle">
+                    </div>
+                </ion-content>
+            </ion-slide>
+            <ion-slide>
+                <ion-content>
+                    <div class="box background-white">
+                        <img ng-src="img/app/intro2.jpg" align="middle">
+                    </div>
+                </ion-content>
+            </ion-slide>
+            <ion-slide>
+                <ion-content>
+                    <div class="box background-white">
+                        <img ng-src="img/app/intro3.jpg" align="middle">
+                    </div>
+                </ion-content>
+            </ion-slide>
+            <ion-slide>
+                <ion-content>
+                    <div class="box background-white">
+                        <img ng-src="img/app/intro4.jpg" align="middle">
+                    </div>
+                </ion-content>
+            </ion-slide>
+            <ion-slide>
+                <ion-content>
+                    <div class="box background-white">
+                        <img ng-src="img/app/intro5.jpg" align="middle">
+                    </div>
+                </ion-content>
+            </ion-slide>
         </ion-slide-box>
-	</ion-content>
-  <ion-footer-bar>
-    <div class="bar bar-footer bar-dark">
-    <button ng-click="skipSlide()" class="button button-clear pull-left padding-right">Skip</button>
-    <button ng-click="nextSlide($index)" class="button button-clear pull-right padding-right">Next</button>
-  </div>
-  </ion-footer-bar>
+    </ion-content>
+    <ion-footer-bar ng-hide="pager">
+        <div class="bar bar-footer bar-dark">
+            <button ng-click="skipSlide()" class="button button-clear pull-left padding-right">Skip</button>
+            <button ng-click="nextSlide($index)" class="button button-clear pull-right padding-right">Next</button>
+        </div>
+    </ion-footer-bar>
+    <script id="templates/loading.html" type="text/ng-template">
+        <ion-spinner class="light"></ion-spinner>
+        <br />
+        <span>Please wait a few seconds...</span>
+    </script>
 </ion-view>

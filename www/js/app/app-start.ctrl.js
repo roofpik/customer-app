@@ -1,7 +1,7 @@
 app.controller('appLandingCtrl', function($scope, $timeout, $ionicLoading, $state, $cordovaDevice, $cordovaNetwork, $ionicPopup, $rootScope) {
 
-    // localStorage.clear();
-    // console.log("cleared Local Storage");
+    localStorage.clear();
+    console.log("cleared Local Storage");
 
 
 
@@ -35,41 +35,41 @@ app.controller('appLandingCtrl', function($scope, $timeout, $ionicLoading, $stat
                 console.log('newstatus', newStatus);
                 console.log('currentstatus', currentStatus);
                 if (newStatus.live == true) {
-                    updateAppStatus(snapshot.val());
+                 //   updateAppStatus(snapshot.val());
                     console.log("app is live");
 
                     if (newStatus.version > currentStatus.version) {
                         console.log("new version is available");
-                        if (newStatus.locationVersion > currentStatus.locationVersion) {
+                        // if (newStatus.locationVersion > currentStatus.locationVersion) {
 
-                            updateLocationData();
-                        }
-                        if (newStatus.nearbyVersion > currentStatus.nearbyVersion) {
+                        //     updateLocationData();
+                        // }
+                        // if (newStatus.nearbyVersion > currentStatus.nearbyVersion) {
 
-                            updateNearbyData();
-                        }
-                        if (newStatus.projectVersion > currentStatus.projectVersion) {
+                        //     updateNearbyData();
+                        // }
+                        // if (newStatus.projectVersion > currentStatus.projectVersion) {
 
-                            updateProjectData();
-                        }
+                        //     updateProjectData();
+                        // }
                         $ionicLoading.hide();
                        
                         $state.go('update');
                     } else {
                         //Checks
 
-                        if (newStatus.locationVersion > currentStatus.locationVersion) {
+                        // if (newStatus.locationVersion > currentStatus.locationVersion) {
 
-                            updateLocationData();
-                        }
-                        if (newStatus.nearbyVersion > currentStatus.nearbyVersion) {
+                        //     updateLocationData();
+                        // }
+                        // if (newStatus.nearbyVersion > currentStatus.nearbyVersion) {
 
-                            updateNearbyData();
-                        }
-                        if (newStatus.projectVersion > currentStatus.projectVersion) {
+                        //     updateNearbyData();
+                        // }
+                        // if (newStatus.projectVersion > currentStatus.projectVersion) {
 
-                            updateProjectData();
-                        }
+                        //     updateProjectData();
+                        // }
                         checkLoginStatus();
                     }
                 } else {
@@ -88,11 +88,11 @@ app.controller('appLandingCtrl', function($scope, $timeout, $ionicLoading, $stat
                     $state.go('underconstruction');
                 } else {
                     console.log("app is live");
-                    updateAppStatus(snapshot.val());
-                    updateLocationData();
-                    console.log()
-                    updateNearbyData();
-                    updateProjectData();
+                  //  updateAppStatus(snapshot.val());
+                    // updateLocationData();
+                    // console.log()
+                    // updateNearbyData();
+                    // updateProjectData();
                     $ionicLoading.hide();
                     $state.go('intro-slider');
                 }
@@ -100,53 +100,35 @@ app.controller('appLandingCtrl', function($scope, $timeout, $ionicLoading, $stat
         }
     }
 
-    function updateAppStatus(newData) {
-        var appStatus = {
-            live: '',
-            locationVersion: '',
-            nearbyVersion: '',
-            projectVersion: '',
-            version: 1
-        }
 
-        appStatus.live = newData.live;
-        appStatus.locationVersion = newData.locationVersion;
-        appStatus.nearbyVersion = newData.nearbyVersion;
-        appStatus.projectVersion = newData.projectVersion;
+    // function updateLocationData() {
+ //     console.log('new location data');
+ //     db.ref('location/' + location.cityId).once('value', function(data) {
+ //         window.localStorage['allLocations'] = JSON.stringify(data.val());
+ //     })
+ // }
 
-        console.log(appStatus);
-        window.localStorage['appStatus'] = JSON.stringify(appStatus);
+ // function updateNearbyData() {
+ //     console.log('new nearby data');
+ //     db.ref('nearby/' + location.cityId).once('value', function(data) {
+ //         window.localStorage['allnearbyLocations'] = JSON.stringify(data.val());
+ //     });
 
-    }
+ //     db.ref('nearbyDistance/' + location.cityId).once('value', function(data2) {
+ //         window.localStorage['allnearbyDistances'] = JSON.stringify(data2.val());
+ //     });
+ // }
 
-    function updateLocationData() {
-        console.log('new location data');
-        db.ref('location/' + location.cityId).once('value', function(data) {
-            window.localStorage['allLocations'] = JSON.stringify(data.val());
-        })
-    }
+ // function updateProjectData() {
+ //     console.log('new project data');
+ //     db.ref('projects/' + location.cityId + '/residential').once('value', function(data) {
+ //         window.localStorage['allProjectsData'] = JSON.stringify(data.val());
+ //     });
 
-    function updateNearbyData() {
-        console.log('new nearby data');
-        db.ref('nearby/' + location.cityId).once('value', function(data) {
-            window.localStorage['allnearbyLocations'] = JSON.stringify(data.val());
-        });
-
-        db.ref('nearbyDistance/' + location.cityId).once('value', function(data2) {
-            window.localStorage['allnearbyDistances'] = JSON.stringify(data2.val());
-        });
-    }
-
-    function updateProjectData() {
-        console.log('new project data');
-        db.ref('projects/' + location.cityId + '/residential').once('value', function(data) {
-            window.localStorage['allProjectsData'] = JSON.stringify(data.val());
-        });
-
-        db.ref('projectDisplayData/' + location.cityId + '/residential').once('value', function(data2) {
-            window.localStorage['allDisplayData'] = JSON.stringify(data2.val());
-        });
-    }
+ //     db.ref('projectDisplayData/' + location.cityId + '/residential').once('value', function(data2) {
+ //         window.localStorage['allDisplayData'] = JSON.stringify(data2.val());
+ //     });
+ // }
 
 
     function checkLoginStatus() {
