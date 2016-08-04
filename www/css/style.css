@@ -5,3 +5,6 @@
 @import url("auth/login.css");
 @import url("auth/logout.css");
 @import url("auth/signup.css");
+@import url("home/home.css");
+@import url("home/side-menu.css");
+@import url("projects/review.css");

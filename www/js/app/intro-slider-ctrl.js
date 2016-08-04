@@ -1,6 +1,25 @@
 app.controller('IntroSliderCtrl', ['$scope', '$ionicSlideBoxDelegate', '$state', '$ionicLoading', '$interval', function($scope, $ionicSlideBoxDelegate, $state, $ionicLoading, $interval) {
     $scope.pager = false;
     var count = 0;
+    var location = {};
+    var hasLocation = checkLocalStorage('selectedLocation');
+    if(hasLocation){
+        location = JSON.parse(window.localStorage['selectedLocation']);
+    }else {
+        location = {
+            cityId: "-KN7HFa3un2SPyrUKosy",
+            cityName: "Gurgaon",
+            country: "India",
+            latitude: 28.459497,
+            locationId: "-KNDfjUlaCq6cFL2nOXo",
+            locationName: "Sohna Road",
+            longitude: 77.026638,
+            state: "Haryana",
+            zoneId: "-KND_fEhR2niMrnPUSs-",
+            zoneName: "Sohna Road"
+        }
+        window.localStorage['selectedLocation'] = JSON.stringify(location);
+    }
     updateLocalData();
 
     function updateLocalData() {
@@ -19,8 +38,10 @@ app.controller('IntroSliderCtrl', ['$scope', '$ionicSlideBoxDelegate', '$state',
 
     function updateLocationData() {
         console.log('new location data');
+        console.log(location.cityId);
         db.ref('location/' + location.cityId).once('value', function(data) {
             window.localStorage['allLocations'] = JSON.stringify(data.val());
+            console.log(data.val());
             count = count + 1;
         })
     }

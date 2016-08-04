@@ -75,26 +75,26 @@ app.controller('HomeCtrl', function($scope, $state, $http, $ionicPopup, $timeout
   }
 
 
-  $ionicModal.fromTemplateUrl('templates/filters/nearby-edit.html', {
-    id: '1',
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) {
-    $scope.modal1 = modal;
-  });
+  // $ionicModal.fromTemplateUrl('templates/filters/nearby-edit.html', {
+  //   id: '1',
+  //   scope: $scope,
+  //   animation: 'slide-in-up'
+  // }).then(function(modal) {
+  //   $scope.modal1 = modal;
+  // });
 
-  $scope.openNearby = function() {
-    $scope.modal1.show();
-  };
+  // $scope.openNearby = function() {
+  //   $scope.modal1.show();
+  // };
 
-  $scope.cancelNearbyFilters = function() {
-    console.log("Cancel filters...");
-    $scope.modal1.hide();
-  };
-  // Cleanup the modal when we're done with it!
-  $scope.$on('$destroy', function() {
-    $scope.modal1.remove();
-  });
+  // $scope.cancelNearbyFilters = function() {
+  //   console.log("Cancel filters...");
+  //   $scope.modal1.hide();
+  // };
+  // // Cleanup the modal when we're done with it!
+  // $scope.$on('$destroy', function() {
+  //   $scope.modal1.remove();
+  // });
 
 
   $scope.selectedNearByDistance = true;

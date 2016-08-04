@@ -4,7 +4,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         abstract: true,
         templateUrl: 'templates/home/side-menu.html',
         controller: 'AppCtrl'
-    })
+    });
 
     $stateProvider.state('app.home', {
       url: '/home',
@@ -15,6 +15,26 @@ app.config(function($stateProvider, $urlRouterProvider) {
          }
       }
     });
+
+    $stateProvider.state('select-location', {
+      url: '/select-location',
+      templateUrl: 'templates/home/select-location.html',
+      controller: 'selectLocationCtrl'
+    });
+
+    $stateProvider.state('project-search', {
+      url: '/project-search/:type',
+      templateUrl: 'templates/home/project-search.html',
+     controller: 'ProjectSearchCtrl'
+    })
+
+    $stateProvider.state('review', {
+      url: '/review/:id/:name/:landmark/:city',
+      templateUrl: 'templates/projects/review.html',
+      controller: 'ReviewCtrl'
+    })
+
+
 
     // .state('app.search', {
     //     url: '/search',
@@ -48,7 +68,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         abstract: false,
         templateUrl: 'templates/app/landing.html',
         controller: 'appLandingCtrl'
-    })
+    });
 
 
     $stateProvider.state('intro-slider', {

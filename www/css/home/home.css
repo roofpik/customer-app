@@ -1,0 +1,122 @@
+#home-page .bluebgcolor{
+	background-color: #1DAED0;
+}
+
+#home-page .refer-friend{
+	height: 143px;
+	width: 100%;
+}
+
+#home-page .home-page-search-icon{
+	font-size: 1.2em;
+	color:#F0563B;
+}
+
+#home-page .list {
+	margin-bottom:0px;
+}
+
+
+#home-page .col-text{
+	/*padding: 20px !important;*/
+}
+#home-page .menu-heading{
+	/*padding: 25px 15px 15px;*/
+	padding: 10% 10% 0% 10%;
+	font-size: 1.2em;
+	/*text-align: center;*/
+}
+#home-page .menu-text{
+	padding: 5% 10% 0% 10%;
+	font-size: 0.9em;
+	color: #5f5f5f;
+	/*text-align: center;*/
+}
+
+#home-page #orangebgcolor{
+	background-color: #F0563B;
+}
+
+#home-page .scrollBar ion-scroll div {
+	display:inline-block;
+	width:80%;
+}
+
+
+#home-page .wide-as-needed {
+	overflow: scroll;
+	white-space: nowrap;
+}
+#home-page .scroll {
+	min-width: 100%;
+
+}
+
+#home-page .scrollBar {
+	margin-top:5px;
+	position:relative;
+}
+
+#home-page .SliderImg {
+	width: 100%;
+	border-radius: 5px;
+	height: 120px;
+}
+
+
+/*Chat*/
+
+#home-page .top-search{
+	background: #E5E5E5;
+	padding:10px 30px;
+}
+
+#home-page .item-input{
+	padding:0 10px;
+	border-radius:5px;
+}
+
+#home-page .reviewNearBy{
+	padding:15px 0;
+	background-color:#E5E5E5;
+	width:100%;
+	text-align:center;
+}
+
+#home-page .reviewNearBy #orangebgcolor{
+	margin-right:30px;
+}
+
+#home-page .reviewNearBy button{
+	border-radius: 10px;
+}
+
+#home-page .reviewNearBy button img{
+	vertical-align: middle;
+}
+
+#home-page .SliderImg {
+	width: 100%;
+	border-radius: 5px;
+	height: 120px;
+}
+#home-page .SliderImg img{
+	width:100%;
+}
+
+#home-page .MenuItems img{
+	width:100%;
+	display: block;
+}
+
+#home-page .popular{
+	padding:10px 15px;
+}
+
+#home-page .MenuItems{
+	border-top: 1px solid #888;
+}
+
+#home-page .MenuItems .row,  .MenuItems .row .col{
+	padding: 0px;
+}

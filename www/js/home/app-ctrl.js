@@ -71,7 +71,6 @@ app.controller('AppCtrl', function($scope, $location, $timeout, $ionicModal, $st
 	}
 
 	$scope.gotoLocation = function(){
-	
 		$state.go('select-location');
 	}
 
