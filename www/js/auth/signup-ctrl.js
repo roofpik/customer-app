@@ -1,4 +1,4 @@
-app.controller("SignupCtrl", ['$scope', '$http', '$ionicPopup', '$ionicHistory', '$ionicLoading', function($scope, $http, $ionicPopup, $ionicHistory, $ionicLoading){
+app.controller("SignupCtrl", ['$scope', '$http', '$ionicPopup', '$ionicHistory', '$ionicLoading', '$state', function($scope, $http, $ionicPopup, $ionicHistory, $ionicLoading, $state){
 
    $scope.user = {};
    $ionicHistory.clearHistory();
@@ -48,5 +48,9 @@ catch(e){
                template: response.Message
             });
          });
+   }
+
+   $scope.goToLogin = function(){
+      $state.go('login');
    }
 }]);

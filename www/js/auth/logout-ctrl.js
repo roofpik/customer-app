@@ -1,4 +1,4 @@
-app.controller("LogoutCtrl", ['$scope', '$ionicHistory', '$timeout', '$location', function($scope, $ionicHistory, $timeout, $location){
+app.controller("LogoutCtrl", ['$scope', '$ionicHistory', '$timeout', '$location', '$state', function($scope, $ionicHistory, $timeout, $location, $state){
    delete window.localStorage.userUid;
    delete window.localStorage.userEmail;
    delete window.localStorage.userName;
@@ -6,7 +6,8 @@ app.controller("LogoutCtrl", ['$scope', '$ionicHistory', '$timeout', '$location'
    delete window.localStorage.currentChannel;
    $ionicHistory.clearHistory();
    $ionicHistory.clearCache();
+   db.auth().signOut();
    $timeout(function () {
-      $location.path("/intro-slider");
+      $state.go("intro-slider");
    }, 5000);
 }])
