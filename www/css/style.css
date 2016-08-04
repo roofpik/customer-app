@@ -1,3 +1,7 @@
 /* Empty. Add your own CSS if you like */
 
 @import url("app/side-menu.css");
+@import url("app/intro-slider.css");
+@import url("auth/login.css");
+@import url("auth/logout.css");
+@import url("auth/signup.css");

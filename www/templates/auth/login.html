@@ -1,0 +1,26 @@
+<ion-view>
+   <ion-content id="loginform">
+      <div id="formdetails">
+         <center>
+            <img src="img/roofpik.png" width=40 height=60>
+         </center>
+         <h3 style="text-align: center">Roofpik</h3>
+         <div class="list list-inset" >
+            <label class="item item-input ion-ios-email-outline" id="formborder1">
+               <input type="email" placeholder="Email Address" class="login-roofpik" ng-model="user.userEmail">
+            </label>
+            <label class="item item-input ion-ios-locked-outline" id="formborder2">
+               <input type="password" placeholder="Password" ng-model="user.userPassword" class="login-roofpik">
+            </label>
+         </div>
+         <button class="button button-block" id="bluebgcolor" ng-click="loginEmail()">Log In</button>
+         <div id="forgotpassword">
+            Forgot Password? <a id="bluecolor" ng-click="showPopup()"><strong>Reset</strong></a>
+         </div>
+
+      </div>
+      <div id="askforaccount">
+         Don't have an account? <a id="bluecolor" href="#/signup"><strong>Create one</strong></a>
+      </div>
+   </ion-content>
+</ion-view>

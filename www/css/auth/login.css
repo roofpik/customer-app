@@ -1,0 +1,42 @@
+#loginform{
+	background: url("../../img/chat-background-1.png");
+	background-size: cover;
+}
+#loginform #formdetails{
+	margin-top: 25%;
+	margin-left: 7%;
+	margin-right: 7%;
+}
+
+#loginform #bluecolor{
+	color:#1DAED0;
+}
+.bluecolor{
+	background-color: #1DAED0;
+	color: #fff;
+}
+
+#loginform #bluebgcolor{
+	background-color:#1DAED0;
+	margin-top:35px;
+	color:#fff;
+}
+
+#loginform #formdetails #forgotpassword{
+	text-align:center;
+}
+
+#loginform #askforaccount {
+	font-size: 0.9em;
+	margin-top: 20px;
+	text-align: center;
+}
+
+#loginform #askforaccount a, #loginform #forgotpassword a {
+	text-decoration: underline;
+}
+
+.login-roofpik{
+	margin-left: 10px !important;
+	padding-right: 5px !important;
+}

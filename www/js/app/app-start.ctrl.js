@@ -1,14 +1,20 @@
-app.controller('appStatusCtrl', function($scope, $timeout, $ionicLoading, $state, $cordovaDevice, $cordovaNetwork, $ionicPopup, $rootScope) {
+app.controller('appLandingCtrl', function($scope, $timeout, $ionicLoading, $state, $cordovaDevice, $cordovaNetwork, $ionicPopup, $rootScope) {
 
-    $ionicLoading.show();
+    // localStorage.clear();
+    // console.log("cleared Local Storage");
+
+
+
+    $ionicLoading.show({ templateUrl: "templates/loading.html" });
     var appInfo = {};
     var location = {};
     checkAppInfo();
 
     function checkAppInfo() {
+        console.log("app Info called");
         var hasAppInfo = checkLocalStorage("appInfo");
-        alert("hasAppInfo", hasAppInfo);
         if (!hasAppInfo) {
+            console.log("app info not available");
             initialiseAppInfo();
             initialiseLocation();
         }
@@ -16,57 +22,112 @@ app.controller('appStatusCtrl', function($scope, $timeout, $ionicLoading, $state
     }
 
     function checkAppStatus() {
+        console.log("checkAppStatus");
         var checkNewUser = checkLocalStorage('appStatus');
         if (checkNewUser) {
+            console.log('old user');
             db.ref('appStatus').once('value', function(snapshot) {
                 var newStatus = snapshot.val();
+
                 var currentStatus = JSON.parse(window.localStorage['appStatus']);
+
+                //   window.localStorage['appStatus'] = JSON.stringify(snapshot.val());
+                console.log('newstatus', newStatus);
+                console.log('currentstatus', currentStatus);
                 if (newStatus.live == true) {
-                    if (newStatus.version > currentStatus.appversion) {
-                        $ionicLoading.hide();
-                        //$state.go('update');
-                    } else {
-                        //Checks
+                    updateAppStatus(snapshot.val());
+                    console.log("app is live");
+
+                    if (newStatus.version > currentStatus.version) {
+                        console.log("new version is available");
                         if (newStatus.locationVersion > currentStatus.locationVersion) {
+
                             updateLocationData();
                         }
                         if (newStatus.nearbyVersion > currentStatus.nearbyVersion) {
+
                             updateNearbyData();
                         }
+                        if (newStatus.projectVersion > currentStatus.projectVersion) {
+
+                            updateProjectData();
+                        }
+                        $ionicLoading.hide();
+                       
+                        $state.go('update');
+                    } else {
+                        //Checks
+
+                        if (newStatus.locationVersion > currentStatus.locationVersion) {
+
+                            updateLocationData();
+                        }
                         if (newStatus.nearbyVersion > currentStatus.nearbyVersion) {
+
+                            updateNearbyData();
+                        }
+                        if (newStatus.projectVersion > currentStatus.projectVersion) {
+
                             updateProjectData();
                         }
                         checkLoginStatus();
                     }
                 } else {
+                    console.log("app is not live");
                     $ionicLoading.hide();
-                    //$state.go('underconstruction');
+                    $state.go('underconstruction');
                 }
             });
         } else {
-            if (newStatus.live == false) {
-                $ionicLoading.hide();
-                //$state.go('underconstruction');
-            } else {
-                db.ref('appStatus').once('value', function(snapshot) {
-                    window.localStorage['appStatus'] = JSON.stringify(snapshot.val())
-                })
-                updateLocationData();
-                updateNearbyData();
-                updateProjectData();
-                $ionicLoading.hide();
-                //$state.go('intro-slider');
-            }
+            console.log("new user");
+            db.ref('appStatus').once('value', function(snapshot) {
+                var newStatus = snapshot.val();
+                if (newStatus.live == false) {
+                    console.log("app is not live");
+                    $ionicLoading.hide();
+                    $state.go('underconstruction');
+                } else {
+                    console.log("app is live");
+                    updateAppStatus(snapshot.val());
+                    updateLocationData();
+                    console.log()
+                    updateNearbyData();
+                    updateProjectData();
+                    $ionicLoading.hide();
+                    $state.go('intro-slider');
+                }
+            });
         }
     }
 
+    function updateAppStatus(newData) {
+        var appStatus = {
+            live: '',
+            locationVersion: '',
+            nearbyVersion: '',
+            projectVersion: '',
+            version: 1
+        }
+
+        appStatus.live = newData.live;
+        appStatus.locationVersion = newData.locationVersion;
+        appStatus.nearbyVersion = newData.nearbyVersion;
+        appStatus.projectVersion = newData.projectVersion;
+
+        console.log(appStatus);
+        window.localStorage['appStatus'] = JSON.stringify(appStatus);
+
+    }
+
     function updateLocationData() {
+        console.log('new location data');
         db.ref('location/' + location.cityId).once('value', function(data) {
             window.localStorage['allLocations'] = JSON.stringify(data.val());
         })
     }
 
     function updateNearbyData() {
+        console.log('new nearby data');
         db.ref('nearby/' + location.cityId).once('value', function(data) {
             window.localStorage['allnearbyLocations'] = JSON.stringify(data.val());
         });
@@ -77,6 +138,7 @@ app.controller('appStatusCtrl', function($scope, $timeout, $ionicLoading, $state
     }
 
     function updateProjectData() {
+        console.log('new project data');
         db.ref('projects/' + location.cityId + '/residential').once('value', function(data) {
             window.localStorage['allProjectsData'] = JSON.stringify(data.val());
         });
@@ -94,16 +156,17 @@ app.controller('appStatusCtrl', function($scope, $timeout, $ionicLoading, $state
             //$state.go('app.home')
         } else {
             $ionicLoading.hide();
-            //$state.go('signup')
+            $state.go('signup')
         }
     }
 
     function initialiseAppInfo() {
+        console.log('initialiseAppInfo');
         var date = new Date();
         var currTimeStamp = date.getTime();
         appInfo = {
-            udid: 'na',
-            uuid: 'na',
+            udid: '',
+            uuid: currTimeStamp,
             os: '',
             platform: '',
             version: '',
@@ -117,6 +180,7 @@ app.controller('appStatusCtrl', function($scope, $timeout, $ionicLoading, $state
     }
 
     function registerDevice() {
+        console.log('registerDevice');
         try {
             var deviceInformation = $cordovaDevice.getDevice();
             appInfo.udid = deviceInformation.serial;
@@ -126,15 +190,18 @@ app.controller('appStatusCtrl', function($scope, $timeout, $ionicLoading, $state
             appInfo.version = deviceInformation.version;
             appInfo.model = deviceInformation.model;
             appInfo.manufacture = deviceInformation.manufacturer;
-            appInfo. = timeStamp;
+            db.ref('deviceInformation/' + appInfo.uuid).update(appInfo).then(function() {});
         } catch (e) {
-            appInfo.error = e;
+            appInfo.error = e.message;
+            var newPostKey = db.ref().child('deviceInformation').push().key;
+            db.ref('deviceInformation/notRegistered/' + newPostKey).update(appInfo).then(function() {});
         };
         window.localStorage['appInfo'] = JSON.stringify(appInfo);
-        db.ref('deviceInformation/' + appInfo.uuid).update(appInfo).then(function() {});
+        // console.log('appInfo: ', appInfo);
     }
 
     function initialiseLocation() {
+        console.log('initialiseLocation');
         location = {
             cityId: "-KN7HFa3un2SPyrUKosy",
             cityName: "Gurgaon",
@@ -148,6 +215,7 @@ app.controller('appStatusCtrl', function($scope, $timeout, $ionicLoading, $state
             zoneName: "Sohna Road"
         }
         window.localStorage['selectedLocation'] = JSON.stringify(location);
+        // console.log(location);
     }
 
 });

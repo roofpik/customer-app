@@ -1,0 +1,59 @@
+#signupform{
+	background: url("../../img/auth/background.jpg");
+	height:100%;
+	width:100%;
+}
+
+#backbutton {
+	height: 35px;
+   margin-top: -50px;
+   width: 60px;
+   border-top-right-radius: 6em;
+   border-bottom-right-radius: 6em;
+   margin-left: -2px;
+	background-color: #1DAED0;
+   position: fixed;
+}
+
+
+#signupform #detailsform
+{
+	margin: 20px 7%;
+
+}
+
+#signupform #detailsform .list  *:before
+{
+	width:20px;
+}
+
+
+#signupform #detailsform .item-input{
+	padding:4px 0 4px 16px !important;
+}
+
+#signupform #detailsform .button{
+	min-height: 40px !important;
+}
+
+#signupform #detailsform center img{
+height:48px;
+}
+
+#bluebgcolor
+{
+	background-color:#1DAED0;
+	margin-top:25px;
+	color:#fff;
+}
+
+.signup-roofpik{
+	margin-left: 10px !important;
+	padding-right: 5px !important;
+}
+
+#askforaccount {
+	font-size: 0.9em;
+	margin-top: 20px;
+	text-align: center;
+}
