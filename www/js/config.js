@@ -1,12 +1,20 @@
 app.config(function($stateProvider, $urlRouterProvider) {
-    $stateProvider
-
-        .state('app', {
+    $stateProvider.state('app', {
         url: '/app',
         abstract: true,
-        templateUrl: 'templates/app/side-menu.html',
+        templateUrl: 'templates/home/side-menu.html',
         controller: 'AppCtrl'
     })
+
+    $stateProvider.state('app.home', {
+      url: '/home',
+      views: {
+         'menuContent': {
+            templateUrl: 'templates/home/home.html',
+            controller: 'HomeCtrl'
+         }
+      }
+    });
 
     // .state('app.search', {
     //     url: '/search',
@@ -35,7 +43,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     //         }
     //     })
 
-    .state('landing', {
+    $stateProvider.state('landing', {
         url: '/landing',
         abstract: false,
         templateUrl: 'templates/app/landing.html',
@@ -43,7 +51,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
 
-    .state('intro-slider', {
+    $stateProvider.state('intro-slider', {
         url: '/intro-slider',
         templateUrl: 'templates/app/intro-slider.html',
         controller: 'IntroSliderCtrl'
@@ -83,6 +91,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/auth/signup.html',
       controller: 'SignupCtrl'
    });
+
 
     // .state('app.single', {
     //     url: '/playlists/:playlistId',
