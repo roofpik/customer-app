@@ -1,4 +1,4 @@
-app.controller('LoginCtrl', ['$scope', 'AuthenticationService', '$ionicPopup', function($scope, AuthenticationService, $ionicPopup){
+app.controller('LoginCtrl', ['$scope', 'AuthenticationService', '$ionicPopup', '$state', function($scope, AuthenticationService, $ionicPopup, $state){
 
 	// AuthenticationService.Logout();
 
@@ -69,5 +69,9 @@ app.controller('LoginCtrl', ['$scope', 'AuthenticationService', '$ionicPopup', f
       //  template: 'It might taste good'
      });
    };
+
+   $scope.goToSignup = function(){
+      $state.go('signup');
+   }
 
 }]);

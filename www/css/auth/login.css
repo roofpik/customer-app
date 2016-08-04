@@ -27,8 +27,9 @@
 }
 
 #loginform #askforaccount {
-	font-size: 0.9em;
+	font-size: 1.2em;
 	margin-top: 20px;
+	padding:10px 0;
 	text-align: center;
 }
 
@@ -36,7 +37,13 @@
 	text-decoration: underline;
 }
 
-.login-roofpik{
+#loginform .login-roofpik{
 	margin-left: 10px !important;
 	padding-right: 5px !important;
+}
+
+
+#loginform #forgotpassword{
+	margin:20px 0 0;
+	padding:10px 0;
 }

@@ -14,13 +14,13 @@
             </label>
          </div>
          <button class="button button-block" id="bluebgcolor" ng-click="loginEmail()">Log In</button>
-         <div id="forgotpassword">
-            Forgot Password? <a id="bluecolor" ng-click="showPopup()"><strong>Reset</strong></a>
+         <div id="forgotpassword" ng-click="showPopup()">
+            Forgot Password? <a id="bluecolor" ><strong>Reset</strong></a>
          </div>
 
       </div>
-      <div id="askforaccount">
-         Don't have an account? <a id="bluecolor" href="#/signup"><strong>Create one</strong></a>
+      <div id="askforaccount" ng-click="goToSignup()">
+         Don't have an account? <a id="bluecolor"><strong>Create one</strong></a>
       </div>
    </ion-content>
 </ion-view>
