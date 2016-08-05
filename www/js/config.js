@@ -85,6 +85,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
     });
 
+    $stateProvider.state('refer-friend', {
+        url: '/refer-friend',
+        templateUrl: 'templates/user/refer-friend.html',
+        controller: 'referFriendCtrl'
+    });
+
     $stateProvider.state('select-location', {
         url: '/select-location',
         templateUrl: 'templates/home/select-location.html',
@@ -109,5 +115,5 @@ app.config(function($stateProvider, $urlRouterProvider) {
       controller: 'PropertiesCtrl'
     });
 
-    $urlRouterProvider.otherwise('/app-start');
+    $urlRouterProvider.otherwise('/refer-friend');
 });
