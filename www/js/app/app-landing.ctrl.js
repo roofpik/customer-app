@@ -3,7 +3,7 @@ app.controller('appLandingCtrl', function($scope, $timeout, $ionicHistory, $ioni
     $ionicHistory.clearHistory();
     $ionicHistory.clearCache();
     $ionicLoading.show({ templateUrl: "templates/loading.html" });
-    localStorage.clear();
+    //localStorage.clear();
 
     var appInfo = {};
     var location = {};
