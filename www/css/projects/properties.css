@@ -88,6 +88,10 @@
     font-size: 0.8em;
  }
 
+ .properties .BHK .row, .properties .BHK .col{
+  padding-top:2px;
+  padding-bottom:2px;
+ }
 .properties .locationandfav{
     position: absolute;
     bottom: 10px;
@@ -108,7 +112,7 @@
     left: 5px;
 }
  .properties .property-info{
-    height: 56px;
+    height: 60px;
   /*border:1px solid #0DBCA9;*/
 }
 .properties .project-name {
