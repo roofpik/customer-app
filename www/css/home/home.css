@@ -1,5 +1,6 @@
 #home-page .bluebgcolor {
     background-color: #1DAED0;
+    width:32%;
 }
 
 #home-page .refer-friend {
@@ -8,7 +9,7 @@
 }
 
 #home-page .home-page-search-icon {
-    font-size: 1.2em;
+    font-size: 1.4em;
     color: #F0563B;
 }
 
@@ -65,6 +66,7 @@
 }
 
 #home-page .reviewNearBy #orangebgcolor {
+    width:32%;
     margin-right: 30px;
 }
 
@@ -74,6 +76,7 @@
 
 #home-page .reviewNearBy button img {
     vertical-align: middle;
+    margin-left: 8px;
 }
 
 #home-page .MenuItems img {

@@ -119,7 +119,19 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/nearby',
       templateUrl: 'templates/projects/nearby.html',
       controller: 'nearbyCtrl'
-       });
+    });
+
+    $stateProvider.state('terms-n-conditions', {
+      url: '/terms-n-conditions',
+      templateUrl: 'templates/legal/terms-n-conditions.html',
+      controller: 'termsConditionsCtrl'
+    });
+
+    $stateProvider.state('privacy-policy', {
+      url: '/privacy-policy',
+      templateUrl: 'templates/legal/privacy-policy.html',
+      controller: 'privacyPolicyCtrl'
+    });
 
     $stateProvider.state("profile", {
       url: '/profile',
