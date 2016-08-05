@@ -102,7 +102,7 @@ app.controller('IntroSliderCtrl', ['$scope', '$ionicSlideBoxDelegate', '$state',
                 if (count == 5) {
                     $ionicLoading.hide();
                     $interval.cancel(stop);
-                    $state.go('signup');
+                    $state.go('app.home');
                 }
             }, 200);
         }

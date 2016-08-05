@@ -1,11 +1,6 @@
 app.controller('HomeCtrl', function($scope, $state, $ionicLoading, $timeout , $ionicScrollDelegate) {
    $scope.data = {};
-   $ionicLoading.show({});
-
-    $timeout(function () {
-      $ionicLoading.hide();
-      $ionicScrollDelegate.resize();
-   }, 2000);
+  
 
 	$scope.goToProjectSearch = function(val){
         $ionicLoading.show();
