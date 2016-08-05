@@ -3,7 +3,7 @@ app.controller('appLandingCtrl', function($scope, $timeout, $ionicHistory, $ioni
     $ionicHistory.clearHistory();
     $ionicHistory.clearCache();
     $ionicLoading.show({ templateUrl: "templates/loading.html" });
-    //localStorage.clear();
+    localStorage.clear();
 
     var appInfo = {};
     var location = {};
@@ -11,7 +11,6 @@ app.controller('appLandingCtrl', function($scope, $timeout, $ionicHistory, $ioni
     checkAppInfo();
 
     function checkAppInfo() {
-
         var hasAppInfo = checkLocalStorage("appInfo");
         if (!hasAppInfo) {
             initialiseAppInfo();
@@ -76,7 +75,8 @@ app.controller('appLandingCtrl', function($scope, $timeout, $ionicHistory, $ioni
                 model: '',
                 manufacture: '',
                 deviceToken: 0,
-                error: '',
+                error: null,
+                device: null,
                 timeStamp: currTimeStamp
             };
         } catch (e) {}
@@ -94,15 +94,18 @@ app.controller('appLandingCtrl', function($scope, $timeout, $ionicHistory, $ioni
                 appInfo.version = deviceInformation.version;
                 appInfo.model = deviceInformation.model;
                 appInfo.manufacture = deviceInformation.manufacturer;
+                appInfo.device = "cordova";
                 firebase.database().ref('deviceInformation/' + appInfo.uuid).update(appInfo).then(function() {});
 
             } catch (e) {
                 appInfo.error = e.message;
+                appInfo.device = "notCordova";
                 var newPostKey = firebase.database().ref().child('deviceInformation').push().key;
                 firebase.database().ref('deviceInformation/notRegistered/' + newPostKey).update(appInfo).then(function() {});
             };
             window.localStorage['appInfo'] = JSON.stringify(appInfo);
         } else {
+            appInfo.device = "notCordova";
             appInfo.error = "not cordova";
             var newPostKey = firebase.database().ref().child('deviceInformation').push().key;
             firebase.database().ref('deviceInformation/notRegistered/' + newPostKey).update(appInfo).then(function() {});

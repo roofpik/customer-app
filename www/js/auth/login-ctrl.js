@@ -1,38 +1,25 @@
 app.controller('LoginCtrl', ['$scope', 'AuthenticationService', '$ionicPopup', '$state', function($scope, AuthenticationService, $ionicPopup, $state){
 
 	// AuthenticationService.Logout();
-
-	console.log("login controller");
-
 	$scope.user = {
       userEmail: '',
       userPassword: '',
    }
 
 	$scope.loginEmail = function(){
-		console.log("email login clicked");
-		// console.log($scope.user.userEmail, $scope.user.userPassword);
       AuthenticationService.LoginEmail($scope.user.userEmail, $scope.user.userPassword, function(result){
-         console.log(result);
-
-         if(result === true){
-            console.log(result);
-         }
-         else{
-            console.log("result = false, error in login");
-         }
       });
    }
-	$scope.loginGmail = function(){
-		console.log("gmail login button clicked");
-		AuthenticationService.LoginGmail();
-	}
+	// $scope.loginGmail = function(){
+	// 	console.log("gmail login button clicked");
+	// 	AuthenticationService.LoginGmail();
+	// }
 
 	$scope.showPopup = function() {
       $scope.data = {}
       // Custom popup
       var myPopup = $ionicPopup.show({
-         template: '<input type = "text" ng-model = "data.model">',
+         template: '<input type = "email" ng-model = "data.model">',
          title: 'Reset Password',
          subTitle: 'Enter your email address',
          scope: $scope,
@@ -47,14 +34,11 @@ app.controller('LoginCtrl', ['$scope', 'AuthenticationService', '$ionicPopup', '
                         //don't allow the user to close unless he enters model...
                            e.preventDefault();
                      } else {
-								console.log($scope.data.model);
 								var auth = firebase.auth();
 						      var emailAddress = $scope.data.model;
 						      auth.sendPasswordResetEmail(emailAddress).then(function() {
-						         console.log("email sent");
 									sentPopup();
 						      }, function(error) {
-						         console.log(error);
 						      });
                         return $scope.data.model;
                      }
