@@ -144,7 +144,7 @@ app.controller('nearbyCtrl', function($scope, $timeout, $state, $ionicHistory) {
 
         window.localStorage['filteredProjectList'] = JSON.stringify(unique);
         console.log(unique);
-        //    $state.go('properties', { buyOrRent: 'buy', from: 1 });
+        $state.go('properties', {from: 2});
     };
 
 

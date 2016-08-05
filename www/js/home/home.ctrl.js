@@ -2,6 +2,7 @@ app.controller('HomeCtrl', function($scope, $state, $ionicLoading, $timeout , $i
    $scope.data = {};
   
 
+  localStorage.removeItem('filteredProjectList');
 	$scope.goToProjectSearch = function(val){
         $ionicLoading.show();
         $timeout(function(){
