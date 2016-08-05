@@ -103,5 +103,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       controller: 'ReviewCtrl'
     });
 
+    $stateProvider.state('properties', {
+      url: '/properties/:from',
+      templateUrl: 'templates/projects/properties.html',
+      controller: 'PropertiesCtrl'
+    });
+
     $urlRouterProvider.otherwise('/app-start');
 });

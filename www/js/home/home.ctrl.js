@@ -1,8 +1,6 @@
 app.controller('HomeCtrl', function($scope, $state, $ionicLoading, $timeout , $ionicScrollDelegate) {
    $scope.data = {};
-   $ionicLoading.show({
-      template: 'Loading...'
-    });
+   $ionicLoading.show({});
 
     $timeout(function () {
       $ionicLoading.hide();
@@ -22,7 +20,15 @@ app.controller('HomeCtrl', function($scope, $state, $ionicLoading, $timeout , $i
 			}  
         }, 500);
 	}
-   
+	$scope.takeToProjects = function(){
+		$ionicLoading.show();
+        $timeout(function(){
+            $ionicLoading.hide();
+        }, 2000);
+        $timeout(function(){
+        	$state.go('properties', {from: 1});
+        }, 500);
+	}
 
 });
 
