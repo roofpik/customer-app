@@ -1,0 +1,34 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+<ion-tabs class="tabs-icon-top tabs-color-active-positive tab-color-override">
+
+  <!-- Overview Tab -->
+  <ion-tab title="Overview" icon-off="overview-off" icon-on="overview-on" href="#/project-details/overview">
+    <ion-nav-view name="tab-overview"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Reviews Tab -->
+  <ion-tab title="Reviews" icon-off="reviews-off" icon-on="reviews-on" href="#/project-details/reviews">
+    <ion-nav-view name="tab-reviews"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Pricing Tab -->
+  <ion-tab title="Pricing" icon-off="pricing-off" icon-on="pricing-on" href="#/project-details/pricing">
+    <ion-nav-view name="tab-pricing"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Amenities Tab -->
+  <ion-tab title="Amenities" icon-off="amenities-off" icon-on="amenities-on" href="#/project-details/amenities">
+    <ion-nav-view name="tab-amenities"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Near Me Tab -->
+  <ion-tab title="Near Me" icon-off="nearme-off" icon-on="nearme-on" href="#/project-details/nearme">
+    <ion-nav-view name="tab-nearme"></ion-nav-view>
+  </ion-tab>
+
+
+</ion-tabs>

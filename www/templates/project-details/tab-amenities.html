@@ -1,0 +1,128 @@
+<ion-view class="projectDetails-view" view-title="Amenities">
+  <data ng-include="'templates/project-details/header.html'"></data>
+  <ion-content class="has-header project-details amenities-content">
+     <div class="list">
+        <div class="item-divider c-item-divider"></div>
+        <div ng-if="project.security" class="header">
+           <p>Security</p>
+        </div>
+        <div ng-if="project.security" class="item with-header">
+          Main Gate
+          <div ng-if="project.security.mainGateSecurityContact" class="right-align-abs">
+            <p>Contact No.</p>
+            <p>{{project.security.mainGateSecurityContact}}</p>
+          </div>
+          <div ng-if="project.security.mainGate" class="row left-align">
+              <ul class="col">
+                 <li ng-repeat="(key, value) in project.security.mainGate"><span>{{key | camelCaseToHuman}}</span></li>
+              </ul>
+           </div>
+           Tower
+           <div class="row left-align">
+              <ul ng-if="project.security.tower" class="col">
+                 <li ng-repeat="(key, value) in project.security.tower"><span>{{key | camelCaseToHuman}}</span></li>
+              </ul>
+              <ul class="col">
+                 <li ng-if="project.security.tagsForVehicles"><span>Tags For Vehicles</span></li>
+                 <li ng-if="project.security.stickersForVehicles"><span>Stickers For Vehicle</span></li>
+                 <li ng-if="project.security.videoDoorPhone"><span>Video Door Phone</span></li>
+              </ul>
+           </div>
+        </div>
+        <div ng-if="project.sportsActivities" class="item-divider c-item-divider"></div>
+        <div ng-if="project.sportsActivities" class="header">
+           <p>Sports & Clubhouses</p>
+        </div>
+        <div ng-if="project.sportsActivities || project.clubHouse" class="item with-header sports">
+           <div ng-if="project.sportsActivities" class="row1 auto-line-change-fix">
+              <span style="display: block; text-align: left !important;">Sports</span>
+              <div ng-repeat="(key, value) in project.sportsActivities" class="col1">
+                 <img ng-if="key != 'kidsSwimmingPool' && key !='tableTennis'" class="c-icon-h" ng-src="icons/{{key}}_color.png" alt="">
+                 <img ng-if="key === 'kidsSwimmingPool'" class="c-icon-h" ng-src="icons/swimmingPool_color.png" alt="">
+                 <img ng-if="key === 'tableTennis'" class="c-icon-h" ng-src="icons/tennis_color.png" alt="">
+                 <p class="fix-white-space-wrap" style="font-size: 12px;">{{key | camelCaseToHuman}}</p>
+              </div>
+           </div>
+           <div ng-if="project.clubHouse" class="row left-align">
+              <span style="position: absolute;">ClubHouses</span>
+              <div style="margin-top: 30px;" ng-if="project.clubHouse.operatingTimes.start || project.clubHouse.operatingTimes.end" class="col">
+                 <p>Timings</p>
+                 <span>{{project.clubHouse.operatingTimes.start}} to {{project.clubHouse.operatingTimes.end}}</span>
+              </div>
+              <div style="margin-top: 30px;" ng-if="project.clubHouse.operatingTimes.holiday" class="col">
+                 <p>Holidays</p>
+                 <span ng-repeat="(key, value) in project.clubHouse.operatingTimes.holiday">{{key | camelCaseToHuman}},</span>
+              </div>
+           </div>
+           <div class="row left-align">
+              <ul class="col">
+                 <li ng-repeat="(key, value) in clubHouse.left"><span>{{key | camelCaseToHuman}}</span></li>
+              </ul>
+              <ul class="col">
+                 <li ng-repeat="(key, value) in clubHouse.right"><span>{{key | camelCaseToHuman}}</span></li>
+              </ul>
+           </div>
+        </div>
+        <div 
+          class="item-divider c-item-divider"
+          ng-if="projectFiltered.studyRoom
+                 || projectFiltered.servantRoom
+                 || projectFiltered.pujaStoreRoom
+                 || projectFiltered.familyLounge"></div>
+        <div 
+          class="header"
+          ng-if="projectFiltered.studyRoom
+                 || projectFiltered.servantRoom
+                 || projectFiltered.pujaStoreRoom
+                 || projectFiltered.familyLounge">
+           <p>Extras</p>
+        </div>
+        <div 
+          class="item with-header"
+          ng-if="projectFiltered.studyRoom
+                 || projectFiltered.servantRoom
+                 || projectFiltered.pujaStoreRoom
+                 || projectFiltered.familyLounge">
+           <div class="row1 auto-line-change-fix">
+              <div ng-if="projectFiltered.studyRoom" class="col1 col-33">
+                <i class="icon ion-star"></i>
+                <span>Study Room</span>
+              </div>
+              <div ng-if="projectFiltered.servantRoom" class="col1 col-33">
+                <i class="icon ion-star"></i>
+                <span>Servant Room</span>
+              </div>
+              <div ng-if="projectFiltered.pujaStoreRoom" class="col1 col-33">
+                <i class="icon ion-star"></i>
+                <span>Pooja Room</span>
+              </div>
+              <div ng-if="projectFiltered.familyLounge" class="col1 col-33">
+                <i class="icon ion-star"></i>
+                <span>Family Lounge</span>
+              </div>
+            </div>
+        </div>
+        <div class="item-divider c-item-divider"></div>
+        <div class="header">
+           <p>Other Details</p>
+        </div>
+        <div class="item with-header">
+           <div class="row left-align">
+              <ul class="col">
+                 <li><span>Power Backup</span></li>
+                 <li><span>Pet Friendly</span></li>
+                 <li><span>Play School</span></li>
+                 <li><span>ATM</span></li>
+              </ul>
+              <ul class="col">
+                 <li><span>Maintainence</span></li>
+                 <li><span>Wheelchair Friendly</span></li>
+                 <li><span>Daycare</span></li>
+                 <li><span>Grocery</span></li>
+              </ul>
+           </div>
+        </div>
+        <div class="item-divider c-item-divider"></div>
+     </div>
+  </ion-content>
+</ion-view>
