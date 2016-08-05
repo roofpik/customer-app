@@ -115,5 +115,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
       controller: 'PropertiesCtrl'
     });
 
+    $stateProvider.state("profile", {
+      url: '/profile',
+      templateUrl: 'templates/user/profile.html',
+      controller: 'profileCtrl',
+      resolve: {
+         currentAuth: function(AuthenticationService){
+            return AuthenticationService.checkAuthentication();
+         }
+      }
+    });
+
     $urlRouterProvider.otherwise('/app-start');
 });
