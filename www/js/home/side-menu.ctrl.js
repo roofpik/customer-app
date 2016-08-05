@@ -19,6 +19,10 @@ app.controller('sideMenuCtrl', function($scope, $state, $ionicLoading, $timeout)
 
     }
 
+    $scope.myProfile = function(){
+        $state.go('profile');
+    }
+
     $scope.logoutFunc = function() {
         console.log("called logoutFunc");
         AuthenticationService.Logout();

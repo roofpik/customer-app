@@ -119,6 +119,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/nearby',
       templateUrl: 'templates/projects/nearby.html',
       controller: 'nearbyCtrl'
+       });
+
+    $stateProvider.state("profile", {
+      url: '/profile',
+      templateUrl: 'templates/user/profile.html',
+      controller: 'profileCtrl',
+      resolve: {
+         currentAuth: function(AuthenticationService){
+            return AuthenticationService.checkAuthentication();
+         }
+      }
+
     });
 
     $urlRouterProvider.otherwise('/app-start');
