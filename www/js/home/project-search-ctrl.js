@@ -25,7 +25,7 @@ app.controller('ProjectSearchCtrl', function($scope, $state, $timeout, $statePar
     $scope.selectProject = function(project){
         console.log(project);
         if(type == 'review'){
-            $state.go('review', {id:project.projectId, name: project.projectName, landmark: project.projectDetails.address.landmark, city: $scope.selectedLocation.cityId});
+            $state.go('review', {id:project.projectId, name: project.projectName, landmark: project.projectDetails.address.landmark, city: project.projectDetails.address.cityId});
         } else {
             $state.go('projectDetails.overview', {projectId:project.projectId});
         }

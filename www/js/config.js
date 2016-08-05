@@ -97,5 +97,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
         controller: 'ProjectSearchCtrl'
     });
 
+    $stateProvider.state('review', {
+      url: '/review/:id/:name/:landmark/:city',
+      templateUrl: 'templates/projects/review.html',
+      controller: 'ReviewCtrl'
+    });
+
     $urlRouterProvider.otherwise('/app-start');
 });
