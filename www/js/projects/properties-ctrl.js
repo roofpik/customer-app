@@ -125,7 +125,7 @@ app.controller('PropertiesCtrl', function($state,$scope, $timeout, $stateParams,
       var denomination = '';
 
       if(value2Len <= 5){
-         denomination = ' Th';
+         denomination = ' K';
          value1 = value1/1000;
          value1 = parseFloat((value1).toFixed(2));
          value2 = value2/1000;
