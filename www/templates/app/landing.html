@@ -1,24 +1,17 @@
-<ion-view>
-    <style>
-    #landing {
-        background: url("img/auth/background.jpg");
-        height: 100%;
-        width: 100%;
-    }
-    
-    #landing img {
-        margin-top: 100px;
-    }
-    </style>
-    <ion-content id="landing">
-        <center>
-            <img src="img/auth/roofpik.png" width=40 height=60>
-            <h3>Roofpik</h3>
-        </center>
-    </ion-content>
+<ion-view class="pane">
+<ion-content>
+</ion-content>
+<style type="text/css">
+.pane{
+background:url('img/app/start.png') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+}
+</style>
     <script id="templates/loading.html" type="text/ng-template">
         <ion-spinner class="light"></ion-spinner>
         <br />
-        <span>Please wait a few seconds...</span>
+        <span>Please wait...</span>
     </script>
 </ion-view>
