@@ -115,5 +115,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       controller: 'PropertiesCtrl'
     });
 
+    $stateProvider.state('nearby', {
+      url: '/nearby',
+      templateUrl: 'templates/projects/nearby.html',
+      controller: 'nearbyCtrl'
+    });
+
     $urlRouterProvider.otherwise('/app-start');
 });

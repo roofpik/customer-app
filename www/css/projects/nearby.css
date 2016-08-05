@@ -1,0 +1,132 @@
+
+
+#nearby {
+  background-color: transparent!important;
+}
+#nearby .modal-card {
+  border-radius: 10px;
+  width: 90%;
+  margin: auto;
+  background-color: hsla(0,0%,20%,0.98);
+  margin-top: 20%;
+  height: auto;
+  /*opacity: 0.9;*/
+  padding: 25px 30px;
+}
+#nearby .nearby-title {
+  width: 100%;
+  text-align: center;
+  height: auto;
+  font-size: 18px;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+/*#nearby .peak-time .item {
+  padding: 10px;
+}
+#nearby .peak-time .item-content {
+  padding-left: 40px;
+}*/
+
+#nearby .search-bar {
+  padding-top: 10px;
+}
+#nearby .section-title {
+  color: #FFFFFF;
+}
+#nearby .peak-time .item {
+  background-color: transparent;
+  color: #FFFFFF;
+}
+
+#nearby .select-distance,
+#nearby .select-time {
+  text-align: center;
+  color: #FFFFFF;
+  padding-bottom: 15px;
+  border-bottom: 4px solid#FFFFFF;
+  margin-bottom: 15px; 
+}
+#nearby .selected-filter{
+  border-bottom: 4px solid red;
+}
+
+#nearby .search-bar-icon {
+  padding-left: 7px;
+  color: #F26551;
+  width: 15%;
+  background-color: #D3D1D0;text-align: center;
+  font-size: 25px;
+  padding: 5px 5px;
+  float: left;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+#nearby #filter-search-bar-input {
+  height: 35px;
+  padding: 5px 5px 5px 10px;
+  width: 85%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+#nearby .search-by {
+  margin-top: 10px;
+}
+#nearby .search-by .distance-value,
+#nearby .search-by .time-value {
+  text-align: center;
+}
+
+#nearby .search-by .distance-plus,
+#nearby .search-by .time-plus {
+  text-align: right;
+  padding-top: 15px;
+  color: #FFFFFF;
+}
+
+#nearby .search-by .distance-minus,
+#nearby .search-by .time-minus {
+  text-align: left;
+  padding-top: 15px;
+  color: #FFFFFF;
+}
+
+#nearby .search-by .circle-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #F05539;
+}
+#nearby .search-by .distance-value,
+#nearby .search-by .time-value {
+  background-color: #ffffff;
+  float: left;
+  width: 50%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+  padding: 10px 5px;
+  border-right: 1px solid #D3D1D0;
+  color: #F05539;
+}
+
+#nearby .search-by .distance-units,
+#nearby .search-by .time-units {
+  background-color: #ffffff;
+  float: left;
+  width: 50%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+  padding: 10px 5px;
+  color: #F05539;
+}
+#nearby .add-border-radius{
+  border-radius: 5px;
+}
+

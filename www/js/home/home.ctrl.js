@@ -38,6 +38,11 @@ app.controller('HomeCtrl', function($scope, $state, $ionicLoading, $timeout , $i
     window.open('http://www.roofpik.com');
   }
 
+
+  $scope.openNearby = function(){
+    $state.go('nearby');
+  }
+
 });
 
 

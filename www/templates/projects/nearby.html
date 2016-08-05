@@ -1,0 +1,65 @@
+<ion-view>
+<div class="bar bar-header bar-dark custom-bar">
+		<button class = "button button-clear icon ion-ios-arrow-left" ng-click="backRoute()"></button>
+	    <h1 class="title custom-title">NearBy</h1>
+	</div>
+    <ion-content id="nearby" class="has-header">
+        <div class="card modal-card padding">
+            <div class="nearby-title">Nearby</div>
+            <div class="location-search">
+                <div class="section-title">Location</div>
+                <div class="search-bar">
+                    <i class="ion-ios-search search-bar-icon"></i>
+                    <input type="text" id="filter-search-bar-input" placeholder="Search by location" ng-change="suggestProjectByLocation(selectedProjectLocation)" ng-model="selectedProjectLocation.loc">
+                </div>
+                <div id="location-suggestions" ng-hide="suggestedLocationSelected">
+                    <ul class="list">
+                        <li class="item" ng-repeat="locationSuggestion in locationSuggestions | filter : {name: selectedProjectLocation.loc}" ng-click="selectedNearByLocation(locationSuggestion); selectedProjectLocation.loc=locationSuggestion.name">
+                            <h2>{{locationSuggestion.name}}</h2>
+                            <p>{{locationSuggestion.address}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="search-by">
+                <div class="section-title">Search by</div>
+                <div class="search-by">
+                    <div class="row">
+                        <div class="col col-10"></div>
+                        <div class="col col-40 select-distance" ng-class="selectedNearByDistance?'selected-filter':''" ng-click="selectDistance()">Distance</div>
+                        <div class="col col-40 select-time" ng-class="selectedNearByTime?'selected-filter':''" ng-click="selectTime()">Time</div>
+                        <div class="col col-10"></div>
+                    </div>
+                    <div class="row select-value">
+                        <div class="col col-25 distance-minus" ng-click="minusDistanceTime()">
+                            <i class="icons ion-minus"></i>
+                        </div>
+                        <div class="col col-50">
+                            <div class="row">
+                                <div class="col col-40 distance-value" ng-show="selectedNearByDistance">{{selectedDistanceValue}}</div>
+                                <div class="col col-40 distance-value" ng-show="selectedNearByTime">{{selectedTimeValue}}</div>
+                                <div class="col col 60 distance-units" ng-show="selectedNearByDistance">Km</div>
+                                <div class="col col 60 distance-units" ng-show="selectedNearByTime">Min</div>
+                            </div>
+                        </div>
+                        <div class="col col-25 distance-plus" ng-click="addDistanceTime()">
+                            <i class="icons ion-plus"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-50">
+                    <button class="button button-small button-full button-assertive add-border-radius" ng-click="backRoute()">
+                        Cancel
+                    </button>
+                </div>
+                <div class="col col-50">
+                    <button ng-disabled="!showApply" class="button button-small button-full button-assertive add-border-radius" ng-click="applyNearbyFilters(peakTime)">
+                        Apply
+                    </button>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
