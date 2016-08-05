@@ -9,8 +9,8 @@
         <div class="scrollBar">
             <ion-scroll direction="x" style="width: 220%">
                 <div style="width: 140%; height:auto; display:inline-block;"">
-                    <img src="img/home/key-running-ad.jpg" class="SliderImg" id="imgOne">
-                    <img src="img/home/girl-child-edu.jpg" class="SliderImg">
+                    <img src="img/home/key-running-ad.jpg" class="SliderImg" id="imgOne" ng-click="goToRoofpik()">
+                    <img src="img/home/girl-child-edu.jpg" class="SliderImg" ng-click="goToRefer()">
                     </div>
                 
             </ion-scroll>
@@ -49,8 +49,8 @@
                 </div>
             </div>
         </div>
-        <div class="MenuItems refer-friend">
-            <div class="row">
+        <div class="MenuItems refer-friend" >
+            <div class="row" ng-click="goToRefer()">
                 <div class="col col-text">
                     <div class="menu-heading">
                         Refer A Friend

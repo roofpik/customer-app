@@ -1,0 +1,31 @@
+
+.refer .custom-card{
+    text-align: center;
+    padding-top:20px;
+}
+
+ .refer .referral-share{
+    text-align:center;
+    width:100%;
+ }
+
+
+.refer .referimage2{
+    position:absolute;
+}
+
+.refer .refer-code{
+    position:absolute;
+}
+
+
+.refer .btn-share{
+    position:absolute;
+    padding:6px 40px;
+}
+
+.refer .refer-code{
+    font-family: CabinSketch;
+    font-size: 30px;
+    color:#9e4dba;
+}

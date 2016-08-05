@@ -8,3 +8,10 @@
 @import url("home/side-menu.css");
 @import url("projects/review.css");
 @import url("projects/properties.css");
+@import url("user/refer.css");
+
+
+@font-face {
+font-family: CabinSketch;
+src: url("fonts/CabinSketch-Regular.otf") format("opentype");
+}

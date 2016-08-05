@@ -30,6 +30,14 @@ app.controller('HomeCtrl', function($scope, $state, $ionicLoading, $timeout , $i
         }, 500);
 	}
 
+  $scope.goToRefer = function(){
+    $state.go('refer');
+  }
+
+  $scope.goToRoofpik = function(){
+    window.open('http://www.roofpik.com');
+  }
+
 });
 
 
