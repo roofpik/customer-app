@@ -32,7 +32,8 @@ app.factory("AuthenticationService", function($http, $ionicPopup, $location, $ti
          window.localStorage.setItem("userUid", user.uid);
          $timeout(function(){
             $ionicLoading.hide();
-            $location.path('/app/home');
+            $state.go('app.home');
+            
          }, 0);
       }).catch(function(error) {
          $ionicLoading.hide();

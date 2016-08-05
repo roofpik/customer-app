@@ -1,20 +1,26 @@
-app.controller('selectLocationCtrl', function($scope, $state, $timeout){
+app.controller('selectLocationCtrl', function($scope, $state, $timeout, $ionicLoading) {
+    $ionicLoading.show();
+    $scope.goBack = function() {
+        $state.go('app.home');
+    }
+    var allLocations;
 
-	$scope.goBack = function(){
-		history.back();
-	}
+    $timeout(function() {
+        $scope.locations = [];
+        allLocations = JSON.parse(window.localStorage['allLocations'] || {});
+        angular.forEach(allLocations, function(val, key) {
+            $scope.locations.push(val);
+        });
+    }, 500)
 
-	$scope.locations = [];
+    $timeout(function() {
+        $ionicLoading.hide();
+    }, 2000)
 
-	var allLocations = JSON.parse(window.localStorage['allLocations'] || {});
-	console.log(allLocations);
-	angular.forEach(allLocations, function(val, key){
-		$scope.locations.push(val);
-	});
 
-	$scope.selectLocation = function(selLocation){
-		window.localStorage['selectedLocation'] = JSON.stringify(selLocation);
-		$state.go('app.home');
+    $scope.selectLocation = function(selLocation) {
+        window.localStorage['selectedLocation'] = JSON.stringify(allLocations[selLocation]);
+        $state.go('app.home');
 
-	}
+    }
 });

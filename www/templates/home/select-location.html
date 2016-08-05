@@ -1,22 +1,28 @@
-<ion-view class="select-location" cache-view="false">
-
-   <ion-header-bar class="bar-light" align-title="center">
-      <button class="icon ion-chevron-left button button-light" ng-click="goBack()"></button>
-      <h1 class="title">Select a Location</h1>
-   </ion-header-bar>
-
-   <ion-content class="has-header">
-      <div class="bar item-input-inset" id="selectLocationBar">
-         <label class="item-input-wrapper" id="selectLocationLabel">
-            <input type="search" placeholder="Search Location" ng-model="loc.query">
-            <i class="icon ion-android-search placeholder-icon" style="font-size: 1.8em;"></i>
-         </label>
-      </div>
-      <div class="list card select-location-list" ng-repeat="location in locations| filter:loc.query" ng-click="selectLocation(location)">
-         <div class="item item-icon-left">
-            <i class="icon ion-ios-location-outline" style="color: #F0563B"></i>
-            <h2>{{location.locationName}}</h2>
-         </div>
-      </div>
-   </ion-content>
+<ion-view class="select-location" cache-view="true">
+    <ion-header-bar class="bar-light" align-title="center">
+        <button class="icon ion-chevron-left button button-light" ng-click="goBack()"></button>
+        <h1 class="title">Select a Location</h1>
+    </ion-header-bar>
+    <div class="bar bar-subheader" style="border-top:1px #ccc solid">
+        <div class="bar item-input-inset" id="selectLocationBar">
+            <label class="item-input-wrapper" id="selectLocationLabel">
+                <input type="search" placeholder="Search Location" ng-model="loc.query">
+                <i class="icon ion-android-search placeholder-icon"></i>
+            </label>
+        </div>
+    </div>
+    <ion-content class="has-header has-subheader">
+        <ion-list>
+            <ion-item ng-repeat="location in locations| filter:loc.query" ng-click="selectLocation(location.locationId)">
+                <div class="row">
+                    <div class="col col-10">
+                        <i class="icon ion-ios-location-outline" style="color: #F0563B"></i>
+                    </div>
+                    <div class="col col-90">
+                        <h2>{{location.locationName}}</h2>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
 </ion-view>

@@ -19,16 +19,16 @@
     <!-- firebase includes -->
     <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
-    <!-- <script>
+    <script>
          // Initialize Firebase
-         var config = {
-            apiKey: "AIzaSyD_4bPp5HKryXDzaQwfRhqAU5SsSAdDIJ0",
-            authDomain: "roofpik-948d0.firebaseapp.com",
-            databaseURL: "https://roofpik-948d0.firebaseio.com",
-            storageBucket: "roofpik-948d0.appspot.com",
-         };
-         firebase.initializeApp(config);
-      </script> -->
+         // var config = {
+         //    apiKey: "AIzaSyD_4bPp5HKryXDzaQwfRhqAU5SsSAdDIJ0",
+         //    authDomain: "roofpik-948d0.firebaseapp.com",
+         //    databaseURL: "https://roofpik-948d0.firebaseio.com",
+         //    storageBucket: "roofpik-948d0.appspot.com",
+         // };
+         // firebase.initializeApp(config);
+      </script>
     <script>
     // Initialize Firebase
     var config = {
@@ -43,24 +43,19 @@
     <script src="js/app.js"></script>
     <script src="js/config.js"></script>
 
-    <!-- Directives -->
-    <script src="js/projects/project-rating-directive.js"></script>
-    <script src="js/projects/rating-directive.js"></script>
-
     <!-- Controllers -->
     <script src="js/app/app-start.ctrl.js"></script>
+    <script src="js/app/app-landing.ctrl.js"></script>
     <script src="js/app/intro-slider-ctrl.js"></script>
-    <script src="js/app/underconstruction-ctrl.js"></script>
-    <script src="js/app/update-ctrl.js"></script>
+    <script src="js/app/under-construction-ctrl.js"></script>
+    <script src="js/app/app-update-ctrl.js"></script>
     <script src="js/auth/authentication.service.js"></script>
     <script src="js/auth/login-ctrl.js"></script>
     <script src="js/auth/signup-ctrl.js"></script>
     <script src="js/auth/logout-ctrl.js"></script>
-    <script src="js/home/home-ctrl.js"></script>
-    <script src="js/home/app-ctrl.js"></script>
+    <script src="js/home/home.ctrl.js"></script>
+    <script src="js/home/side-menu.ctrl.js"></script>
     <script src="js/home/select-location-ctrl.js"></script>
-    <script src="js/home/project-search-ctrl.js"></script>
-    <script src="js/projects/review-ctrl.js"></script>
 </head>
 
 <body ng-app="starter">

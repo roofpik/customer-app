@@ -37,25 +37,11 @@
 	background-color: #F0563B;
 }
 
-#home-page .scrollBar ion-scroll div {
+
+.wide-as-needed img{
 	display:inline-block;
-	width:80%;
 }
 
-
-#home-page .wide-as-needed {
-	overflow: scroll;
-	white-space: nowrap;
-}
-#home-page .scroll {
-	min-width: 100%;
-
-}
-
-#home-page .scrollBar {
-	margin-top:5px;
-	position:relative;
-}
 
 #home-page .SliderImg {
 	width: 100%;

@@ -3,9 +3,13 @@
     .no-pager .slider-pager {
         display: none;
     }
+    
+    .show-pager .slider-pager {
+        display: block;
+    }
     </style>
     <ion-content id="full-content-slider" scroll="false">
-        <ion-slide-box on-slide-changed="slideChanged(index)" show-pager="true" ng-class="{'no-pager':pager}">
+        <ion-slide-box on-slide-changed="slideChanged(index)" show-pager="true" ng-class="pager? 'show-pager': 'no-pager'">
             <ion-slide>
                 <ion-content>
                     <div class="box background-white">
@@ -43,7 +47,7 @@
             </ion-slide>
         </ion-slide-box>
     </ion-content>
-    <ion-footer-bar ng-hide="pager">
+    <ion-footer-bar ng-show="pager">
         <div class="bar bar-footer bar-dark">
             <button ng-click="skipSlide()" class="button button-clear pull-left padding-right">Skip</button>
             <button ng-click="nextSlide($index)" class="button button-clear pull-right padding-right">Next</button>

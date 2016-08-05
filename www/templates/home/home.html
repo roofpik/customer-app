@@ -1,70 +1,59 @@
-<ion-view id="home-page" cache-view="false">
-  <ion-content has-header="true">
-    <div class="list top-search" id="searchProjectBar">
-      <label class="item item-input" id="projectSearchLabel" >
-        <input type="text" placeholder="Search Projects" ng-click="goToProjectSearch(1)" />
-        <i class="icon ion-android-search placeholder-icon home-page-search-icon"></i>
-      </label>
-    </div>
-    <div class="scrollBar">
-      <ion-scroll direction="x" class="wide-as-needed">
-        <div>
-          <img src="img/home/key-running-ad.jpg" class="SliderImg" id="imgOne">
+<ion-view id="home-page" cache-view="true">
+    <ion-content has-header="true">
+        <div class="list top-search" id="searchProjectBar">
+            <label class="item item-input" id="projectSearchLabel">
+                <input type="text" placeholder="Search Projects" ng-click="goToProjectSearch(1)" />
+                <i class="icon ion-search placeholder-icon home-page-search-icon"></i>
+            </label>
         </div>
-        <div>
-          <img src="img/home/girl-child-edu.jpg" class="SliderImg">
+        <div class="scrollBar">
+            <ion-scroll direction="x" class="wide-as-needed">
+              
+                    <img src="img/home/key-running-ad.jpg" class="SliderImg" id="imgOne">
+              
+                
+                    <img src="img/home/girl-child-edu.jpg" class="SliderImg">
+                
+            </ion-scroll>
         </div>
-      </ion-scroll>
-    </div>
-    <div class="reviewNearBy">
-        <button class="button icon-right button-assertive" id="orangebgcolor"  ng-click="neighbourhoodRoute()">BeeSocial&nbsp;&nbsp;<img src="img/home/beesocial.png" width=25 height=25/></button>
-        <button class="button icon-right button-calm bluebgcolor" ng-click="openNearby()">Nearby&nbsp;&nbsp;<img src="img/home/nearby.png" width=25 height=25/></button>
-    </div>
-    <div class="MenuItems">
-        <div class="row" ng-click="modal.show()">
-           <div class="col col-text">
-              <div class="menu-heading">
-                 Explore Projects
-              </div>
-              <div class="menu-text">
-                 Find detailed information about real estate projects at your fingertips here.
-              </div>
-           </div>
-           <div class="col">
-              <img src="img/home/explore-projects.jpg" />
-           </div>
+        <div class="reviewNearBy">
+            <button class="button icon-right button-assertive" id="orangebgcolor" ng-click="neighbourhoodRoute()">BeeSocial<img src="img/home/beesocial.png" width=25 height=25/></button>
+            <button class="button icon-right button-calm bluebgcolor" ng-click="openNearby()">Nearby<img src="img/home/nearby.png" width=25 height=25/></button>
         </div>
-     </div>
-     <div class="MenuItems">
-        <div class="row" ng-click="goToProjectSearch(2)">
-           <div class="col">
-              <img src="img/home/write-review.png" />
-           </div>
-           <div class="col col-text">
-              <div class="menu-heading">
-                 Write Review
-              </div>
-              <div class="menu-text">
-                 Read and write reviews on India's first reviewing platform for real estate.
-              </div>
-           </div>
+        <div class="MenuItems">
+            <div class="row" ng-click="modal.show()">
+                <div class="col col-text">
+                    <div class="menu-heading">
+                        Explore Projects
+                    </div>
+                    <div class="menu-text">
+                        Find detailed information about real estate projects at your fingertips here.
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="img/home/explore-projects.jpg" />
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="MenuItems">
-        <div class="row">
-           <div class="col col-text">
-              <div class="menu-heading">
-                 Refer a friend
-              </div>
-              <div class="menu-text">
-                Get friends and family to find the best property options by downloading our app.
-              </div>
-          </div>
-          <div class="col">
-              <img src="img/home/home_refer-a-friend.jpg" />
-           </div>
+        <div class="MenuItems">
+            <div class="row" ng-click="goToProjectSearch(2)">
+                <div class="col">
+                    <img src="img/home/write-review.png" />
+                </div>
+                <div class="col col-text">
+                    <div class="menu-heading">
+                        Write Review
+                    </div>
+                    <div class="menu-text">
+                        Read and write reviews on India's first reviewing platform for real estate.
+                    </div>
+                </div>
+            </div>
         </div>
-      <!-- <img src="img/home/home_refer-a-friend.jpg" /> -->
-    </div>
-  </ion-content>
+        <div class="MenuItems refer-friend">
+            <!-- <div class="row"> -->
+            <img src="img/home/home_refer-a-friend.jpg" />
+            <!-- </div> -->
+        </div>
+    </ion-content>
 </ion-view>
