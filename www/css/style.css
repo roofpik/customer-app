@@ -12,6 +12,13 @@
 @import url("user/refer.css");
 @import url("user/profile.css");
 
+@import url("project-details/amenities.css");
+@import url("project-details/gallery.css");
+@import url("project-details/global.css");
+@import url("project-details/nearme.css");
+@import url("project-details/overview.css");
+@import url("project-details/pricing.css");
+@import url("project-details/reviews.css");
 
 @font-face {
 font-family: CabinSketch;

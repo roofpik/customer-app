@@ -1,0 +1,385 @@
+/*
+.school-icon {
+   fill: black;
+}
+
+svg path {
+   fill: #4286f9 !important; 
+   border: 1px solid black;
+}*/
+
+/*svg path {
+   fill: green;
+}*/
+
+
+/*.svg path {
+  fill: #4D4D4E;
+}
+
+.svg.active path {
+  fill: #F26551;
+}*/
+
+/* Overview Content*/
+
+.overview-content .list > .item-image * {
+  font-weight: bold;
+  font-size: 15px; 
+}
+
+.overview-content .list > .item-image > .top-right {
+   position: absolute;
+   top: 0;
+   right: 5px;
+   color: white;
+}
+.overview-content .list > .item-image > .top-right > label:last-child {
+   display: block;
+   position: absolute;
+   right: 5px;
+}
+
+.overview-content .list > .item-image > .bottom {
+   position: absolute;
+   bottom: 0;
+   color: white;
+   padding: 0;
+   margin-bottom: 0 !important;
+   background: rgba(0, 0, 0, 0.5);
+}
+
+.overview-content .list > .item-image > .bottom > i{
+   font-size: 20px;
+   position: relative;
+   right: 15px;
+   bottom: -25px;
+}
+
+.overview-content .list > .item-image > .bottom > .col > span{
+   display: block;
+   text-align: left;
+   font-size: 15px;
+}
+
+.overview-content .list > .item-image > .bottom > .col > i { 
+   position: absolute;
+   right: 20px;
+   top: 5px;
+   font-size: 40px !important;
+   color: #ffffff !important;
+}
+
+.overview-content .list > .image-footer > .row > .col {
+   text-align: center;
+}
+
+.overview-content .list > .image-footer > .row > .col > i {
+   font-size: 30px;
+   color: #F26551;
+}
+
+.overview-content .list > .image-footer > .row > .col > span {
+   display: block;
+   font-size: 10px;
+}
+
+.overview-content .list > .image-footer > .footer-row {
+   margin-top: 20px;
+}
+
+.overview-content .list > .image-footer > .footer-row > div {
+   position: absolute;
+   right: 5px;
+}
+
+.overview-content .list > .image-footer > .footer-row > div > p {
+   font-weight: lighter;
+}
+
+.overview-content .list > .image-footer > .footer-row > div > p.green {
+   color: #70C38C;
+}
+
+.overview-content .list > .image-footer > .footer-row > div > p.dark {
+   color: black;
+   font-weight: 100;
+}
+
+.overview-content .list > .image-footer > .footer-row > div > p.blue {
+   color: #6995A8;
+}
+
+.overview-content .list > .image-footer > .footer-row > div > p.red {
+   color: #F26551;
+}
+
+.overview-content .list > .image-footer > .footer-row > div > p {
+   display: inline;
+}
+
+.overview-content .list > .item.project-status > .row > .col {
+   text-align: center;
+}
+
+.overview-content .list > .item.project-status > .row > .col > i {
+   display: block;
+}
+
+.overview-content .list > .item.project-status > .row > .col > span {
+   display: block;
+}
+
+.overview-content .list > .item.project-status > .row > .col > * {
+   position: absolute;
+   right: 30px;
+}
+
+.overview-content .list > .item > .icon {
+   letter-spacing: 5px;
+}
+
+.overview-content .list > .item > .icon.ion-ios-arrow-forward {
+   color: #F26551;
+}
+
+.overview-content .list > .item > .row {
+   margin-bottom: 5px;
+}
+
+.overview-content .list > .indexes-item > .row > .col > p {
+   font-size: 12px;
+   white-space: normal;
+}
+
+.overview-content .list > .indexes-item > .row {
+   margin-bottom: 50px;
+}
+
+/* Fixes The Indexes Rings For IPhone 5*/
+/* NOT NEEDED FOR NEW RINGS */
+/*@media(max-width: 320px) {
+   .overview-content .list > .indexes-item > .row {
+      margin-left: -26px;
+   }  
+}*/
+/* NEEDED FOR NOW NEW LIBRARY */
+@media(max-width: 320px) {
+   .overview-content .list > .indexes-item {
+      padding: 0;
+   }  
+}
+
+/* New P tag FOr Circle */
+
+.overview-content .list > .indexes-item {
+   padding: 0;
+   margin: 0;
+}
+
+.overview-content .list > .indexes-item > .row > .col {
+   text-align: left !important;
+}
+
+.overview-content .list > .indexes-item > .row > .col > div {
+   margin-bottom: -30px;
+}
+
+.overview-content .list > .indexes-item > .row > .col > p {
+   position: relative;
+   top: -36px;
+   left: 65px;
+   font-size: 12px;
+}
+
+.overview-content .list > .indexes-item > .row > .col > span {
+   font-size: 12px;
+   position: relative;
+   top: -15px;
+   left: 20px;
+}
+
+/*.overview-content .list > .indexes-item > .row > .col > .ring {
+   height: 100px;
+   width: 100px;
+   border: 5px solid;
+   border-radius: 50%;
+   text-align: center;
+   margin: auto;
+}*/
+
+/*.overview-content .list > .indexes-item > .row > .col > .ring > span {
+   position: relative;
+   top: 35px;
+}*/
+
+/*.overview-content .list > .indexes-item > .row > .col > .ring > p {
+   position: relative;
+   bottom: -90px;
+   white-space: normal;
+}*/
+
+
+
+.overview-content .list > div.fix-wrap {
+   white-space: normal;
+}
+
+.overview-content .list > .item > .rower > .badger {
+   position: relative;
+   top: 0;
+   left: 0;
+   border-radius: 4px;
+   background-color: #EF4C40;
+   color: white;
+   padding: 2px 5px;
+   margin: 5px;
+   display: inline-block;
+}
+
+.overview-content .list > .item.price > .row > .col:first-child {
+   text-align: left;
+}
+
+.overview-content .list > .item.price > .row > .col:last-child {
+   font-weight: bold;
+}
+
+.overview-content .list > .item.price > .row > .col:last-child > p.green {
+   color: #70C38C;
+}
+
+.overview-content .list > .item.price > .row > .col:last-child > p.blue {
+   color: #6995A8;
+}
+
+.overview-content .list > .item > p {
+   position: absolute;
+   right: 15px;
+   bottom: 5px;
+   font-size: 12px;
+}
+
+/*.overview-content .list > .header > p {
+   font-size: 16px;
+   padding-top: 10px;
+   padding-left: 15px;
+   font-weight: 100 !important;
+}*/
+
+/*.overview-content .list > .item.with-header {   
+   border-top:1px solid #B0E3EF;
+}*/
+
+.overview-content .list {
+   background-color: #ffffff;
+}
+
+
+/* Property Type */
+
+.overview-content .list > .item.pricing > .row {
+  margin-bottom: 15px;
+  margin-left: -10px;
+}
+.overview-content .list > .item.pricing > .row > button.icon {
+  position: absolute;
+  top: 20px;
+  height: 50px;
+  width: 50px;
+  background: transparent;
+  border-color: transparent;
+  color: #F26551;
+  font-size: 25px;
+  font-weight: bold;
+  /*border-radius: 50%; */
+  z-index: 100;
+}
+
+.overview-content .list > .item.pricing > .row > .col {
+  position: relative;
+  /*left: -30px;*/
+}
+
+.overview-content .list > .item.pricing > .row > .col > span {
+  white-space: normal;
+}
+
+.overview-content .list > .item.pricing > .row > button.ion-ios-arrow-back {
+  left: -10px;
+}
+
+.overview-content .list > .item.pricing > .row > button.ion-ios-arrow-forward {
+  right: -6px;
+}
+
+.overview-content .list > .item.pricing > .row > button.icon.empty {
+  color: lightgrey;
+}
+
+
+/* Address */
+
+.overview-content .list > .item.address > .row > .col > .row > p {
+   font-size: 15px;
+   font-weight: bold;
+}
+
+.overview-content .list > .item.address > .row > .col > .row:first-child > p {
+   font-size: 15px;
+   font-weight: 100;
+}
+
+.overview-content .list > .item.address > .row > .col > i {
+   font-size: 40px;
+}
+
+.overview-content .list > .item.address > .row > .col > span {
+   display: block;
+}
+
+/* Below Tags */
+
+.overview-content .list > .below-tags > .row > .col {
+   text-align: center;
+}
+
+.overview-content .list > .below-tags > .row > .col > span {
+   /*display: block;*/
+   margin-right: 5px;
+   height: 50px;
+   width: 50px;
+   text-align: center;
+   vertical-align: middle;
+}
+
+.overview-content .list > .below-tags > .row > .col:first-child > span:first-child > i{
+   margin-top: 12px;
+}
+
+.overview-content .list > .below-tags > .row > .col:last-child > .badge > i:first-child{
+   margin-top: 6px;
+}
+
+.overview-content .list > .below-tags > .row > .col > span > i{
+   display: block;
+}
+
+.overview-content .list > .below-tags > .row > .col > .badge {
+   border-radius: 5px;
+   text-align: center;
+}
+
+
+/* Image in right item */
+
+.overview-content .list > .item.item-icon-right {
+    min-height: 50px;
+}
+
+
+.overview-content .list > .item.item-icon-right > img {
+    position: absolute;
+    right: 15px;
+    top: 2px;
+}

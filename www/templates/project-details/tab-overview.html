@@ -1,0 +1,287 @@
+<ion-view class="projectDetails-view" view-title="Overview">
+  <data ng-include="'templates/project-details/header.html'"></data>
+  <ion-content class="has-header project-details overview-content">
+    <div class="list">
+      <div class="item item-image">
+         <img ng-src="{{project.images.main.url}}" alt="">
+         <div class="overlay"></div>
+         <div class="top-right">
+            <rating ng-hide="percentageReview.projectRating === 0" ng-model="rating.rate" max="rating.max" readonly="rating.readOnly"></rating>
+            <label ng-hide="percentageReview.reviews === 0" for="">({{percentageReview.reviews}} reviews)</label>
+            <label ng-hide="percentageReview.projectRating === 0" for="">{{percentageReview.projectRating | number: 1}} Rating</label>
+         </div>
+         <div class="bottom row">
+            <div class="col">
+               <span>{{project.projectName}},</span>
+               <span>{{project.projectDetails.address.landmark}}</span>
+               <!--<i ng-click="startGallery()" class="icon ion-image"></i>-->
+            </div>
+            <!--<i>1/8</i>  -->
+         </div>
+      </div>
+      <div class="header"><p>Property Type</p></div>
+      <div class="item image-footer with-header pricing">
+        <div class="frames" id="basicSly1">
+            <ul class="row">
+                <li 
+                  sly-horizontal-repeat
+                  class="col col-33" 
+                  ng-repeat="item in projectType | orderBy: '-status'">
+                  <img 
+                    class="c-icon"
+                    ng-if="item.status"
+                    ng-src="icons/{{item.type}}_color.png" alt="">
+                  <img 
+                    class="c-icon"
+                    ng-if="!item.status" 
+                    ng-src="icons/{{item.type}}.png" alt="">
+                  <p>{{item.type | camelCaseToHuman}}</p>
+                </li>
+                <!--<li class="col col-33">
+                  <img class="c-icon" ng-if="!project.projectDetails.projectType.apartment" src="icons/apartment.png" alt="">
+                  <img class="c-icon" ng-if="project.projectDetails.projectType.apartment" src="icons/apartment_color.png" alt="">
+                  <p>Apartment</p>
+                </li>
+                <li class="col col-33">
+                  <img class="c-icon" ng-if="!project.projectDetails.projectType.studio" src="icons/studio.png" alt="">
+                  <img class="c-icon" ng-if="project.projectDetails.projectType.studio" src="icons/studio_color.png" alt="">
+                  <p>Studio</p>
+                </li>
+                <li class="col col-33">
+                  <img class="c-icon" ng-if="!project.projectDetails.projectType.villa" src="icons/villa.png" alt="">
+                  <img class="c-icon" ng-if="project.projectDetails.projectType.villa" src="icons/villa_color.png" alt="">
+                  <p>Villa</p>
+                </li>
+                <li class="col col-33">
+                  <img class="c-icon" ng-if="!project.projectDetails.projectType.rowHouse" src="icons/rowHouse.png" alt="">
+                  <img class="c-icon" ng-if="project.projectDetails.projectType.rowHouse" src="icons/rowHouse_color.png" alt="">
+                  <p>Row House</p>
+                </li>
+                <li class="col col-33">
+                  <img class="c-icon" ng-if="!project.projectDetails.projectType.servicedApartment" src="icons/servicedApartment.png" alt="">
+                  <img class="c-icon" ng-if="project.projectDetails.projectType.servicedApartment" src="icons/servicedApartment_color.png" alt="">
+                  <p>Serviced Apartment</p>
+                </li>-->
+            </ul>
+        </div>
+        <div class="controls">
+          <button class="prevPage icon ion-ios-arrow-back"></button>
+          <button class="nextPage icon ion-ios-arrow-forward"></button>
+        </div>
+         <div class="row">
+        </div>
+         <div ng-if="accomodations" class="row footer-row">
+            <p>Accomodation</p>
+            <div>
+               <p ng-repeat="(key, value) in accomodations" class="dark">{{key}}{{$last ? '': ','}}</p>
+               <p>BHK</p>
+            </div>
+          </div>
+          <div ng-if="size" class="row footer-row">
+            <p>Size</p>
+            <div>
+               <p class="dark">{{size.min}} - {{size.max}}</p>
+               <p>sqft</p>
+            </div>
+          </div>
+          <div ng-if="project.projectDetails.completionDate.year" class="row footer-row">
+            <p>Completion</p>
+            <div>
+               <p class="dark">{{project.projectDetails.completionDate.year}}</p>
+            </div>
+          </div>
+          <div ng-if="project.projectStatus" class="row footer-row">
+            <p>Project Status</p>
+            <div>
+               <p class="red">{{project.projectStatus}}</p>
+            </div>
+          </div>
+      </div>
+      <div ng-if="project.other" class="item-divider c-item-divider"></div>
+      <div ng-if="project.other" class="header">
+        <p>Key Features</p>
+      </div>
+      <div ng-if="project.other" class="item with-header">
+        <div class="row1 auto-line-change-fix">
+          <div class="col1" ng-repeat="(key, value) in project.other">
+            <img 
+              class="c-icon-h"
+              ng-if="key != 'airConditioningInWaitingLounge' 
+                     && key != 'waitingLoungeInTower'
+                     && key != 'petFriendly'" 
+              ng-src="icons/{{key}}_color.png" alt="">
+            <img
+              class="c-icon-h"
+              ng-if="key == 'airConditioningInWaitingLounge'"
+              ng-src="icons/airConditioning_color.png" alt="">
+            <img
+              class="c-icon-h"
+              ng-if="key == 'waitingLoungeInTower'"
+              ng-src="icons/waitingLounge_color.png" alt="">
+            <img
+              class="c-icon-h"
+              ng-if="key == 'petFriendly'"
+              ng-src="icons/pets_color.png" alt="">
+            <p class="fix-white-space-wrap">{{key | camelCaseToHuman}}</p>
+          </div>
+        </div>
+      </div>
+      <div ng-if="project.displayCost" class="item-divider c-item-divider"></div>
+       <div ng-if="project.displayCost" class="header">
+          <p>Price Range</p>
+       </div>
+       <div ng-if="project.displayCost" class="item with-header price">
+          <div class="row">
+            <div class="col">
+              <p ng-if="project.displayCost.buy">Buy</p>
+              <p ng-if="project.displayCost.rent">Rental</p>
+            </div>
+            <div class="col">
+              <p ng-if="project.displayCost.buy" class="green">Rs. {{project.displayCost.buy.min | inrCurrencyFilter}} - Rs. {{project.displayCost.buy.max | inrCurrencyFilter}}</p>
+              <p ng-if="project.displayCost.rent" class="blue">Rs. {{project.displayCost.rent.min | inrCurrencyFilter}} - Rs. {{project.displayCost.rent.max | inrCurrencyFilter}}</p>
+            </div>
+          </div>
+       </div>
+       <div ng-if="project.projectDetails.address" class="item-divider c-item-divider"></div>
+       <div ng-if="project.projectDetails.address" class="header">
+          <p>Address</p>
+       </div>
+       <div ng-if="project.projectDetails.address" class="item with-header address">
+          <div class="row">
+            <div class="col col-70">
+              <div ng-if="project.projectDetails.address.addressLine1" class="row">
+                <p>{{project.projectDetails.address.addressLine1}},</p>
+              </div>
+              <div ng-if="project.projectDetails.address.addressLine2" class="row">
+                <p>{{project.projectDetails.address.addressLine2}},</p>
+              </div>
+              <div ng-if="project.projectDetails.address.cityName" class="row">
+                <p>{{project.projectDetails.address.cityName}}</p>
+              </div>
+            </div>
+            <!--<div class="col col-25">
+              <img class="c-icon-h" src="icons/mapview_grey.png" alt="">
+              <span>map view</span>
+            </div>-->
+          </div>
+       </div>
+       <div ng-if="project.standoutFeatures" class="item-divider c-item-divider"></div>
+       <div ng-if="project.standoutFeatures" class="header">
+          <p>Standout Features</p>
+       </div>
+       <div ng-if="project.standoutFeatures" class="item with-header fix-wrap">
+          <div class="rower">
+            <span class="badger" ng-repeat="feature in project.standoutFeatures">#{{feature.featureName}}</span>
+          </div>
+       </div>
+       <div ng-if="project.projectDetails" class="item-divider c-item-divider below-tags">
+          <div class="row">
+             <div ng-if="project.projectDetails.totalUnits" class="col col-50">
+                <span class="badge badge-dark"><i>{{project.projectDetails.totalUnits}}</i></span>
+                <span>Total Units</span>
+             </div>
+             <div ng-if="project.projectDetails.landArea" class="col col-50">
+                <span class="badge badge-dark">
+                    <i>{{project.projectDetails.landArea}}</i>
+                    <i>acres</i>
+                </span>
+                <span>Total Areas</span>
+             </div>
+          </div>
+       </div>
+       <div ng-if="isKeyStats" class="header">
+          <p>Key Stats</p>
+       </div>
+       <div ng-if="isKeyStats" class="item with-header indexes-item">
+          <div class="row">
+             <div class="col col-50">
+              <div
+                ng-if="project.keyStats.lifeStyle != 0"
+                round-progress
+                max="100"
+                current="project.keyStats.lifeStyle"
+                color="#DA2626"
+                bgcolor="#eaeaea"
+                radius="30"
+                stroke="5"
+                semi="false"
+                rounded="true"
+                clockwise="true"
+                responsive="false"
+                animation="easeInOutQuart"></div>
+              <span ng-if="project.keyStats.lifeStyle != 0">{{project.keyStats.lifeStyle}}%</span>
+              <p ng-if="project.keyStats.lifeStyle != 0">LifeStyle</p>
+              <div
+                ng-if="project.keyStats.luxury != 0"
+                round-progress
+                max="100"
+                current="project.keyStats.luxury"
+                color="#F29F1E"
+                bgcolor="#eaeaea"
+                radius="30"
+                stroke="5"
+                semi="false"
+                rounded="true"
+                clockwise="true"
+                responsive="false"
+                animation="easeInOutQuart"></div>
+              <span ng-if="project.keyStats.luxury != 0">{{project.keyStats.luxury}}%</span>
+              <p ng-if="project.keyStats.luxury != 0">Luxury</p>
+             </div>
+             <div class="col col-50">
+              <div
+                ng-if="project.keyStats.security != 0"
+                round-progress
+                max="100"
+                current="project.keyStats.security"
+                color="#1D607D"
+                bgcolor="#eaeaea"
+                radius="30"
+                stroke="5"
+                semi="false"
+                rounded="true"
+                clockwise="true"
+                responsive="false"
+                animation="easeInOutQuart"></div>
+              <span ng-if="project.keyStats.security != 0">{{project.keyStats.security}}%</span>
+              <p ng-if="project.keyStats.security != 0">Security</p>
+              <div
+                ng-if="project.keyStats.amenities != 0"
+                round-progress
+                max="100"
+                current="project.keyStats.amenities"
+                color="#1A9F48"
+                bgcolor="#eaeaea"
+                radius="30"
+                stroke="5"
+                semi="false"
+                rounded="true"
+                clockwise="true"
+                responsive="false"
+                animation="easeInOutQuart"></div>
+              <span ng-if="project.keyStats.amenities != 0">{{project.keyStats.amenities}}%</span>
+              <p ng-if="project.keyStats.amenities != 0">Amenities</p>
+             </div>
+          </div>
+       </div>
+       <div class="item-divider c-item-divider"></div>
+       <a class="item with-header item-icon-right" href="">
+          Neighbourhood
+          <img class="c-icon-h" src="icons/neighbourhood.png" alt="">
+       </a>
+       <div class="item-divider c-item-divider"></div>
+    </div> 
+  </ion-content>
+</ion-view>
+
+<script id="image.html" type="text/ng-template">
+	<div class="modal image-modal transparent" ng-click="closeModal()">
+		<ion-slide-box on-slide-changed="slideChanged(index)" 
+					   delegate-handle="gallery"
+					   show-pager="false">
+		<ion-slide ng-repeat="img in images">
+			<img ng-src="{{img.url}}" class="fullscreen-image" />
+		</ion-slide>
+		</ion-slide-box>
+	</div>
+</script>
