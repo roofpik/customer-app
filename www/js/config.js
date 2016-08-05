@@ -69,8 +69,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
         controller: 'sideMenuCtrl'
     });
 
-
-
     $stateProvider.state('app.home', {
         url: '/home',
         views: {
@@ -81,12 +79,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
     });
 
-
     $stateProvider.state('select-location', {
-            url: '/select-location',
-            templateUrl: 'templates/home/select-location.html',
-            controller: 'selectLocationCtrl'
-        });
+        url: '/select-location',
+        templateUrl: 'templates/home/select-location.html',
+        controller: 'selectLocationCtrl'
+    });
+
+    $stateProvider.state('project-search', {
+        url: '/project-search/:type',
+        templateUrl: 'templates/home/project-search.html',
+        controller: 'ProjectSearchCtrl'
+    });
 
     $urlRouterProvider.otherwise('/app-start');
 });
