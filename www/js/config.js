@@ -39,6 +39,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
         controller: 'appUpdateCtrl'
     });
 
+     $stateProvider.state('network', {
+        url: '/network',
+        templateUrl: 'templates/app/network.html',
+        controller: 'networkCtrl'
+    });
+
 
     //State for login
     $stateProvider.state('login', {

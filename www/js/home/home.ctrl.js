@@ -1,4 +1,4 @@
-app.controller('HomeCtrl', function($scope, $state, $ionicLoading, $timeout) {
+app.controller('HomeCtrl', function($scope, $state, $ionicLoading, $timeout , $ionicScrollDelegate) {
    $scope.data = {};
    $ionicLoading.show({
       template: 'Loading...'
@@ -6,6 +6,7 @@ app.controller('HomeCtrl', function($scope, $state, $ionicLoading, $timeout) {
 
     $timeout(function () {
       $ionicLoading.hide();
+      $ionicScrollDelegate.resize();
    }, 2000);
    
 
