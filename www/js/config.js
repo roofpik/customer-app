@@ -119,7 +119,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('review', {
         url: '/review/:id/:name/:landmark/:city',
         templateUrl: 'templates/projects/review.html',
-        controller: 'ReviewCtrl'
+        controller: 'ReviewCtrl',
+        resolve: {
+            currentAuth: function(AuthenticationService) {
+                return AuthenticationService.checkAuthentication();
+            }
+        }
     });
 
     $stateProvider.state('properties', {

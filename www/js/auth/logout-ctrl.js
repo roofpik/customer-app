@@ -1,4 +1,4 @@
-app.controller("LogoutCtrl", ['$scope', '$ionicHistory', '$timeout', '$location', '$state', function($scope, $ionicHistory, $timeout, $location, $state){
+app.controller("LogoutCtrl", ['$scope', 'AuthenticationService','$ionicHistory', '$timeout', '$location', '$state', function($scope, AuthenticationService, $ionicHistory, $timeout, $location, $state){
 
    $ionicHistory.clearHistory();
    $ionicHistory.clearCache();
@@ -11,5 +11,5 @@ app.controller("LogoutCtrl", ['$scope', '$ionicHistory', '$timeout', '$location'
    }
    $timeout(function () {
       $state.go("app-start");
-   }, 5000);
+   }, 6000);
 }])

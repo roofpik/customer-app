@@ -69,4 +69,9 @@ app.controller("SignupCtrl", function($scope, $http, $ionicPopup, $ionicHistory,
     $scope.goToLogin = function() {
         $state.go('login');
     }
+
+    $scope.goToHome = function(){
+      $state.go('app.home');
+   }
+
 });

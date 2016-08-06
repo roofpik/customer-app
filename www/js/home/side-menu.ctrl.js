@@ -1,4 +1,4 @@
-app.controller('sideMenuCtrl', function($scope, $state, $ionicLoading, $timeout) {
+app.controller('sideMenuCtrl',  function($scope, $state, $ionicLoading, $timeout, AuthenticationService) {
 
     if(checkLocalStorage('selectedLocation')){
         $scope.selectedLocation = JSON.parse(window.localStorage['selectedLocation'] || {});
@@ -25,7 +25,6 @@ app.controller('sideMenuCtrl', function($scope, $state, $ionicLoading, $timeout)
 
     $scope.logoutFunc = function() {
         console.log("called logoutFunc");
-        AuthenticationService.Logout();
         $state.go("logout");
     }
 

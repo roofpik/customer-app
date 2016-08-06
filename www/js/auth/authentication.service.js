@@ -91,6 +91,8 @@ app.factory("AuthenticationService", function($http, $ionicPopup, $location, $ti
                 title: "Not Logged In",
                 template: "Please login first to view the content"
             }).then(function(){
+                   $ionicHistory.clearHistory();
+   $ionicHistory.clearCache();
                  $state.go("login");
             });
                

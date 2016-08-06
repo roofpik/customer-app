@@ -1,4 +1,9 @@
 <ion-view  class="properties" cache-view="false">
+<style>
+.properties  .results{
+   width:40% !important;
+}
+</style>
    <ion-header-bar class="bar bar-header ">
       <button class="icon ion-chevron-left button button-light" ng-click="goToHome()"></button>
       <div class="results">{{resultsfound}} result<span ng-class="resultsfound>1?'show':'hide'">s</span></div>

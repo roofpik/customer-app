@@ -61,4 +61,8 @@ app.controller('LoginCtrl', ['$scope', 'AuthenticationService', '$ionicPopup', '
       $state.go('signup');
    }
 
+   $scope.goToHome = function(){
+      $state.go('app.home');
+   }
+
 }]);
