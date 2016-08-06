@@ -316,11 +316,11 @@ img.c-icon-2-h {
 }
 
 .tabs .tab-item .icon.overview-off {
-  background-image: url('../../icons/overview.png');
+  background-image: url('../../icons/overview_color.png');
 }
 
 .tabs .tab-item .icon.reviews-on {
-  background-image: url('../../icons/reviews_color.png');
+   background-image: url('../../icons/reviews.png');
 }
 
 .tabs .tab-item .icon.reviews-off {

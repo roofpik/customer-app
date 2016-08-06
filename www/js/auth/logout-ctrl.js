@@ -4,10 +4,10 @@ app.controller("LogoutCtrl", ['$scope', 'AuthenticationService','$ionicHistory',
    $ionicHistory.clearCache();
    localStorage.clear();
    try{
-   db.auth().signOut();
+   firebase.auth().signOut();
    }
    catch(e){
-      
+
    }
    $timeout(function () {
       $state.go("app-start");
