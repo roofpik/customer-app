@@ -120,7 +120,8 @@ app.controller('PropertiesCtrl', function($state,$scope, $timeout, $stateParams,
    }
 
    $scope.selectProject = function(value){
-      // console.log(value);
+      console.log(value);
+      $state.go('projectDetails.overview', {projectId:value.projectId});
    }
 
    $scope.goToHome = function(){

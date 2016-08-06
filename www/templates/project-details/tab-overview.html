@@ -3,7 +3,7 @@
   <ion-content class="has-header project-details overview-content">
     <div class="list">
       <div class="item item-image">
-         <img ng-src="{{project.images.main.url}}" alt="">
+         <img ng-src="{{project.images.main.original}}" alt="">
          <div class="overlay"></div>
          <div class="top-right">
             <rating ng-hide="percentageReview.projectRating === 0" ng-model="rating.rate" max="rating.max" readonly="rating.readOnly"></rating>
@@ -65,8 +65,8 @@
             </ul>
         </div>
         <div class="controls">
-          <button class="prevPage icon ion-ios-arrow-back"></button>
-          <button class="nextPage icon ion-ios-arrow-forward"></button>
+          <!-- <button class="prevPage icon ion-ios-arrow-back"></button> -->
+          <!-- <button class="nextPage icon ion-ios-arrow-forward"></button> -->
         </div>
          <div class="row">
         </div>
@@ -189,10 +189,10 @@
              </div>
           </div>
        </div>
-       <div ng-if="isKeyStats" class="header">
+       <div ng-if="isKeyStats" class="header" ng-hide="true">
           <p>Key Stats</p>
        </div>
-       <div ng-if="isKeyStats" class="item with-header indexes-item">
+       <div ng-if="isKeyStats" class="item with-header indexes-item" ng-hide="true">
           <div class="row">
              <div class="col col-50">
               <div
@@ -265,7 +265,7 @@
           </div>
        </div>
        <div class="item-divider c-item-divider"></div>
-       <a class="item with-header item-icon-right" href="">
+       <a class="item with-header item-icon-right" href="" ng-hide="true">
           Neighbourhood
           <img class="c-icon-h" src="icons/neighbourhood.png" alt="">
        </a>
