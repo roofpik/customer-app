@@ -1,6 +1,6 @@
-app.controller('sideMenuCtrl',  function($scope, $state, $ionicLoading, $timeout, AuthenticationService) {
+app.controller('sideMenuCtrl', function($scope, $state, $ionicLoading, $timeout, AuthenticationService) {
 
-    if(checkLocalStorage('selectedLocation')){
+    if (checkLocalStorage('selectedLocation')) {
         $scope.selectedLocation = JSON.parse(window.localStorage['selectedLocation'] || {});
     }
 
@@ -10,16 +10,16 @@ app.controller('sideMenuCtrl',  function($scope, $state, $ionicLoading, $timeout
 
     $scope.gotoLocation = function() {
         $ionicLoading.show();
-        $timeout(function(){
+        $timeout(function() {
             $ionicLoading.hide();
         }, 2000);
-        $timeout(function(){
+        $timeout(function() {
             $state.go('select-location');
         }, 500);
 
     }
 
-    $scope.myProfile = function(){
+    $scope.myProfile = function() {
         $state.go('profile');
     }
 
@@ -28,12 +28,20 @@ app.controller('sideMenuCtrl',  function($scope, $state, $ionicLoading, $timeout
         $state.go("logout");
     }
 
-    $scope.termsNcndtn = function(){
+    $scope.termsNcndtn = function() {
         $state.go('terms-n-conditions');
     }
 
-    $scope.privacyPolicy = function(){
+    $scope.privacyPolicy = function() {
         $state.go('privacy-policy');
+    }
+
+    $scope.writeReview = function() {
+        $state.go('project-search', { type: 'review' });
+    }
+
+    $scope.nearby = function() {
+        $state.go('nearby');
     }
 
 });

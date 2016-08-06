@@ -87,8 +87,6 @@ app.controller("profileCtrl", ['$scope', '$timeout', '$ionicLoading', '$cordovaC
                     var image = document.getElementById('myImage');
                     image.src = imageURI;
                     $scope.url = imageURI;
-                    alert(JSON.stringify(imageURI) + 'line number 283, imageURI');
-
                     resizeImage(imageURI);
 
                 }, function(err) {});
@@ -114,7 +112,6 @@ app.controller("profileCtrl", ['$scope', '$timeout', '$ionicLoading', '$cordovaC
 
                     $http.post("http://139.162.3.205/api/testupload", { path: dataURL })
                         .success(function(response) {
-
                             var updates1 = {};
                             updates1["users/data/" + $scope.uid + "/photoUrl"] = response.Message;
                             db.ref().update(updates1).then(function() {

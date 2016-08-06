@@ -121,7 +121,13 @@ app.controller('PropertiesCtrl', function($state,$scope, $timeout, $stateParams,
 
    $scope.selectProject = function(value){
       console.log(value);
-      $state.go('projectDetails.overview', {projectId:value.projectId});
+      $ionicLoading.show();
+      $timeout(function(){
+         $ionicLoading.hide();
+      }, 1000);
+      $timeout(function(){
+         $state.go('projectDetails.overview', {projectId:value.projectId});
+      }, 500);
    }
 
    $scope.goToHome = function(){
