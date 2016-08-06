@@ -1,4 +1,13 @@
 <ion-view class="projectDetails-view" title="Reviews">
+<style>
+  #writeReview {
+        background-color: #444;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+  }
+  </style>
    <data ng-include="'templates/project-details/header.html'"></data>
    <ion-content class="has-header project-details reviews-content">
       <div class="list">
@@ -159,6 +168,9 @@
               <div class="item-divider c-item-divider"></div>
           </div>
          <div class="item-divider c-item-divider"></div>
+        <div class="card padding" id="writeReview" ng-click="takeToReview()">
+         Write a review
+       </div>
       </div>
    </ion-content>
 </ion-view>

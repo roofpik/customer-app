@@ -23,12 +23,18 @@ app.controller('ProjectSearchCtrl', function($scope, $state, $timeout, $statePar
     }, 2000)
 
     $scope.selectProject = function(project){
-        console.log(project);
-        if(type == 'review'){
-            $state.go('review', {id:project.projectId, name: project.projectName, landmark: project.projectDetails.address.landmark, city: project.projectDetails.address.cityId});
-        } else {
-            $state.go('projectDetails.overview', {projectId:project.projectId});
-        }
+        $ionicLoading.show();
+        $timeout(function(){
+            $ionicLoading.hide();
+        }, 1000);
+        $timeout(function(){
+            console.log(project);
+            if(type == 'review'){
+                $state.go('review', {id:project.projectId, name: project.projectName, landmark: project.projectDetails.address.landmark, city: project.projectDetails.address.cityId});
+            } else {
+                $state.go('projectDetails.overview', {projectId:project.projectId});
+            }
+        }, 500);
     };
 
     $scope.goBack = function(){

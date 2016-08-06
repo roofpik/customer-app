@@ -3,7 +3,13 @@ app
     
 })
 
-.controller('overviewCtrl', function(PricingFilterService, $ionicModal, $ionicSlideBoxDelegate, $stateParams, $state, $rootScope, $scope, projectData, projectReview, $ionicLoading, $ionicHistory) {
+.controller('overviewCtrl', function(PricingFilterService, $ionicModal, $ionicSlideBoxDelegate, $stateParams, $state, $rootScope, $scope, projectData, projectReview, $ionicLoading, $ionicHistory, $timeout) {
+    
+    $ionicLoading.show();
+    $timeout(function(){
+        $ionicLoading.hide();
+    }, 1000);
+
     if($rootScope.project === {} || $rootScope.project === null || $rootScope.project === undefined) {
         $ionicHistory.goBack();
         //$state.go('project-search');
@@ -38,6 +44,18 @@ app
             }
         }
     });
+
+    $scope.takeToReview = function(){
+        $ionicLoading.show();
+        $timeout(function(){
+            $ionicLoading.hide();
+        }, 1000);
+        console.log($rootScope.project);
+        $timeout(function(){
+            $state.go('review', {id:$rootScope.project.projectId, name: $rootScope.project.projectName, landmark: $rootScope.project.projectDetails.address.landmark, city: $rootScope.project.projectDetails.address.cityId});
+        }, 500);
+    }
+
     $rootScope.goBackToSearch = function() {
         $ionicHistory.goBack();
         //$state.go('project-search');
@@ -255,7 +273,13 @@ app
 
 })
 
-.controller('reviewsCtrl', function($state, $scope, $rootScope, $ionicHistory) {
+.controller('reviewsCtrl', function($state, $scope, $rootScope, $ionicHistory, $ionicLoading) {
+
+        $ionicLoading.show();
+    $timeout(function(){
+        $ionicLoading.hide();
+    }, 1000);
+    
     if($rootScope.project === {} || $rootScope.project === null || $rootScope.project === undefined) {
         $ionicHistory.goBack();
         //$state.go('project-search');
@@ -316,6 +340,17 @@ app
         // if(clone.width() > element.width) {
         //     console.log('#projectReview-'+value);
         // }
+    }
+
+    $scope.takeToReview = function(){
+        $ionicLoading.show();
+        $timeout(function(){
+            $ionicLoading.hide();
+        }, 1000);
+        console.log($rootScope.project);
+        $timeout(function(){
+            $state.go('review', {id:$rootScope.project.projectId, name: $rootScope.project.projectName, landmark: $rootScope.project.projectDetails.address.landmark, city: $rootScope.project.projectDetails.address.cityId});
+        }, 500);
     }
 })
 

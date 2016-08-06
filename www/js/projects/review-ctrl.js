@@ -1,4 +1,9 @@
-app.controller('ReviewCtrl', function($scope, $state, $stateParams, $ionicPopup, $ionicLoading, $timeout){
+app.controller('ReviewCtrl', function($scope, $state, $stateParams, $ionicPopup, $ionicLoading, $timeout, $ionicHistory){
+
+  $ionicLoading.show();
+  $timeout(function(){
+    $ionicLoading.hide();
+  }, 1000);
 
   $scope.projectId = $stateParams.id;
 	$scope.projectName = $stateParams.name;
@@ -426,7 +431,14 @@ app.controller('ReviewCtrl', function($scope, $state, $stateParams, $ionicPopup,
     })
   }
   $scope.goBack = function(){
-    $state.go('project-search', {type: 'review'});
+      $ionicLoading.show();
+      $timeout(function(){
+        $ionicLoading.hide();
+      }, 1000);
+      $timeout(function(){
+          $ionicHistory.goBack();
+      }, 500);
+    
   }
 
 });
