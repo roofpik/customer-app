@@ -1,7 +1,8 @@
 <ion-view id="signupform" scroll="false">
-   <form name="signupForm" novalidate>
+
       <!-- TODO: form validations -->
       <ion-content >
+         <form name="signupForm" novalidate>
          <div id="detailsform">
             <center>
                <img src="img/auth/roofpik.png">
@@ -31,6 +32,11 @@
          <div id="askforaccount" ng-click="goToLogin()">
             Already have an account? <a id="bluecolor" ><strong>Login</strong></a>
          </div>
+            </form>
       </ion-content>
-   </form>
+
+   <ion-footer-bar  align-title="center" class="bar-dark" ng-click="goToHome()">
+  <h4 class="title">No Thanks, Take me Home</h4>
+
+</ion-footer-bar>
 </ion-view>

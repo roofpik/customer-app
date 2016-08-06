@@ -1,10 +1,12 @@
-app.controller('LoginCtrl', ['$scope', 'AuthenticationService', '$ionicPopup', '$state', function($scope, AuthenticationService, $ionicPopup, $state){
+app.controller('LoginCtrl', ['$scope', 'AuthenticationService', '$ionicPopup', '$state', '$ionicLoading' , function($scope, AuthenticationService, $ionicPopup, $state, $ionicLoading){
 
 	// AuthenticationService.Logout();
 	$scope.user = {
       userEmail: '',
       userPassword: '',
    }
+
+   $ionicLoading.hide();
 
 	$scope.loginEmail = function(){
       AuthenticationService.LoginEmail($scope.user.userEmail, $scope.user.userPassword, function(result){

@@ -1,6 +1,5 @@
 app.controller('HomeCtrl', function($scope, $state, $ionicLoading, $timeout , $ionicScrollDelegate) {
    $scope.data = {};
-  
 
   localStorage.removeItem('filteredProjectList');
 	$scope.goToProjectSearch = function(val){
@@ -37,6 +36,10 @@ app.controller('HomeCtrl', function($scope, $state, $ionicLoading, $timeout , $i
 
   $scope.openNearby = function(){
     $state.go('nearby');
+  }
+
+  $scope.neighbourhoodRoute = function(){
+     $state.go('bee-social');
   }
 
 });

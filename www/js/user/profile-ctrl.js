@@ -1,15 +1,15 @@
 app.controller("profileCtrl", ['$scope', '$timeout', '$ionicLoading', '$cordovaCamera', '$http', '$ionicPopup', '$state', function($scope, $timeout, $ionicLoading, $cordovaCamera, $http, $ionicPopup, $state) {
     $ionicLoading.show({
-        template: 'Loading...'
+        template: 'Loading'
     });
 
     $scope.myGoBack = function() {
-        history.back();
+        $state.go('app.home');
     }
 
     $timeout(function() {
         $ionicLoading.hide();
-    }, 10000);
+    }, 2000);
 
     $scope.showMobileVerify = false;
     $scope.showOTPfield = false;

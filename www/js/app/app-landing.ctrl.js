@@ -58,7 +58,8 @@ app.controller('appLandingCtrl', function($scope, $timeout, $ionicHistory, $ioni
             $state.go('app.home');
         } else {
             $ionicLoading.hide();
-            $state.go('signup')
+            $state.go('app.home');
+           // $state.go('signup')
         }
     }
 

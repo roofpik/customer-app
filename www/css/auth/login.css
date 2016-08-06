@@ -24,11 +24,14 @@
 
 #loginform #formdetails #forgotpassword{
 	text-align:center;
+	padding:0 5px;
+	font-size: 0.9em;
+
 }
 
 #loginform #askforaccount {
-	font-size: 1.2em;
-	margin-top: 20px;
+	font-size: 0.95em;
+	margin-top: 10px;
 	padding:10px 0;
 	text-align: center;
 }
@@ -47,3 +50,12 @@
 	margin:20px 0 0;
 	padding:10px 0;
 }
+
+#loginform #formdetails .item-input{
+	padding:4px 0 4px 16px !important;
+}
+
+#loginform #formdetails .button{
+	min-height: 40px !important;
+}
+

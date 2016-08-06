@@ -87,8 +87,13 @@ app.factory("AuthenticationService", function($http, $ionicPopup, $location, $ti
             if (user) {
 
             } else {
-                console.log("no login");
-                $location.path("/login");
+                $ionicPopup.alert({
+                title: "Not Logged In",
+                template: "Please login first to view the content"
+            }).then(function(){
+                 $state.go("login");
+            });
+               
             }
         });
     }

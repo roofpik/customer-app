@@ -2,9 +2,9 @@
     <ion-content id="loginform">
         <div id="formdetails">
             <center>
-                <img src="img/auth/roofpik.png">
+                <img src="img/auth/roofpik.png" style=" height:48px;">
             </center>
-            <h3 style="text-align: center">Roofpik</h3>
+            <h4 style="text-align: center">Roofpik</h4>
             <div class="list list-inset">
                 <label class="item item-input ion-ios-email-outline" id="formborder1">
                     <input type="email" placeholder="Email Address" class="login-roofpik" ng-model="user.userEmail">
@@ -22,4 +22,8 @@
             Don't have an account? <a id="bluecolor"><strong>Create one</strong></a>
         </div>
     </ion-content>
+    <ion-footer-bar  align-title="center" class="bar-dark" ng-click="goToHome()">
+  <h4 class="title">No Thanks, Take me Home</h4>
+
+</ion-footer-bar>
 </ion-view>
