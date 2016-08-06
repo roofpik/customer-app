@@ -8,15 +8,23 @@ app.controller('PropertiesCtrl', function($state,$scope, $timeout, $stateParams,
       $ionicLoading.hide();
    }, 1000);
 
-   console.log($stateParams);
+   // console.log($stateParams);
    $scope.location = JSON.parse(window.localStorage['selectedLocation']|| {}).cityName;
 
    $scope.allProjects = JSON.parse(window.localStorage['allDisplayData'] || {});
+   var hasFilteredPropertyList = checkLocalStorage('filteredProjectList');
+   // console.log(hasFilteredPropertyList);
+   // console.log(JSON.parse(window.localStorage['filteredProjectList']));
+   if(hasFilteredPropertyList){
+      $scope.projectList = JSON.parse(window.localStorage['filteredProjectList'] || {});
+      // console.log($scope.projectList);
+   }
 
    $scope.resultsfound = 0;
    $scope.results= [];
 
    angular.forEach($scope.allProjects, function(value, key){
+      // console.log(value);
       if($stateParams.from == 1){
          value.showInList = true;
          $scope.resultsfound++;
@@ -34,90 +42,41 @@ app.controller('PropertiesCtrl', function($state,$scope, $timeout, $stateParams,
             var rangeRent = convertCurrency(value.rentMin, value.rentMax);
             value.rangeRent = rangeRent;
          }
-         console.log(value);
+         // console.log(value);
          $scope.results.push(value);
+      } else if($stateParams.from == 2){
+         // console.log(value.showInList);
+         if(value.showInList == undefined){
+            for(x in $scope.projectList){
+               // console.log(value.projectId, $scope.projectList[x]);
+               if(value.projectId == $scope.projectList[x]){
+                  value.showInList = true;
+                  $scope.resultsfound++;
+               }
+            }
+            if(value.showInList == undefined){
+               value.showInList = false;
+            }
+         }
+         if((value.buyMin == 0) || (value.buyMax ==0)){
+            value.showBuyRange = false;
+         } else {
+            value.showBuyRange = true;
+            var rangeBuy = convertCurrency(value.buyMin, value.buyMax);
+            value.rangeBuy = rangeBuy;
+         }
+         if((value.rentMin == 0) || (value.rentMax ==0)){
+            value.showRentRange = false;
+         } else {
+            value.showRentRange = true;
+            var rangeRent = convertCurrency(value.rentMin, value.rentMax);
+            value.rangeRent = rangeRent;
+         }
+         $scope.results.push(value);
+      }else {
+         // console.log($stateParams.from == 2);
       }
    });
-
-
-   // $scope.sortType     = 'projectName';
-   // $scope.sortReverse  = false;
-
-   // $scope.location = JSON.parse(window.localStorage['selectedLocation']|| {}).cityName;
-
-   // var buyOrRent = $stateParams.buyOrRent;
-   // console.log(buyOrRent);
-
-   // $scope.projectList = JSON.parse(localStorage.getItem('filteredProjectList'));
-   // console.log($scope.projectList );
-   // $scope.resultsfound = 0;
-   // $scope.results= [];
-
-   // $scope.allProjects = JSON.parse(window.localStorage['allDisplayData'] || {});
-   // console.log($scope.allProjects);
-
-   // var num = 0;
-   // var count = 0;
-
-   // angular.forEach($scope.allProjects, function(value, key){
-   //    if($stateParams.from == 1){
-   //       if(value.showInList == undefined){
-   //          for(x in $scope.projectList){
-   //             if(value.projectId == $scope.projectList[x]){
-   //                value.showInList = true;
-   //                $scope.resultsfound++;
-   //             }
-   //          }
-   //          if(value.showInList == undefined){
-   //             value.showInList = false;
-   //          }
-   //       }
-   //       var range = convertCurrency(value[buyOrRent+"Min"], value[buyOrRent+"Max"]);
-   //       value.range = range;
-   //       $scope.results.push(value);
-
-   //    } else if( $stateParams.from == 2){
-   //       console.log(value);
-   //       if(value[buyOrRent]){
-   //          if(value.showInList == undefined){
-   //             value.showInList = true;
-   //             $scope.resultsfound++;
-   //          }
-   //          var range = convertCurrency(value[buyOrRent+"Min"], value[buyOrRent+"Max"]);
-   //          value.range = range;
-   //          $scope.results.push(value);
-   //       }
-   //    } else if( $stateParams.from == 3){
-   //       if(value.showInList == undefined){
-   //          for(x in $scope.projectList){
-   //             if(value.projectId == $scope.projectList[x]){
-   //                value.showInList = true;
-   //                $scope.resultsfound++;
-   //             }
-   //          }
-   //          if(value.showInList == undefined){
-   //             value.showInList = false;
-   //          }
-   //       }
-   //       var range = convertCurrency(value[buyOrRent+"Min"], value[buyOrRent+"Max"]);
-   //       value.range = range;
-   //       $scope.results.push(value);
-   //    } else if($stateParams.from == 4){
-   //       if(count == 0){
-   //          $scope.results = JSON.parse(window.localStorage['results']);
-   //          angular.forEach($scope.results, function(value, key){
-   //             if(value.showInList == true){
-   //                $scope.resultsfound++;
-   //             }
-   //          })
-   //       }
-   //       count++;
-   //    }
-   //    num++;
-   //    if(num == Object.keys($scope.allProjects).length){
-   //       window.localStorage['results'] = JSON.stringify($scope.results);
-   //    }
-   // })
 
    function convertCurrency(value1, value2){
       value1Len = getlength(value1);

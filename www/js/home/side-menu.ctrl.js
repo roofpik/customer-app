@@ -28,4 +28,13 @@ app.controller('sideMenuCtrl', function($scope, $state, $ionicLoading, $timeout)
         AuthenticationService.Logout();
         $state.go("logout");
     }
+
+    $scope.termsNcndtn = function(){
+        $state.go('terms-n-conditions');
+    }
+
+    $scope.privacyPolicy = function(){
+        $state.go('privacy-policy');
+    }
+
 });
