@@ -4,6 +4,14 @@ app.controller('sideMenuCtrl', function($scope, $state, $ionicLoading, $timeout,
         $scope.selectedLocation = JSON.parse(window.localStorage['selectedLocation'] || {});
     }
 
+
+    if(checkLocalStorage('userUid')){
+        $scope.ifNotLogin = false;
+    }
+    else{
+        $scope.ifNotLogin = true;
+    }
+
     $scope.referFriendRoute = function() {
         $state.go('refer');
     }
@@ -42,6 +50,10 @@ app.controller('sideMenuCtrl', function($scope, $state, $ionicLoading, $timeout,
 
     $scope.nearby = function() {
         $state.go('nearby');
+    }
+
+    $scope.signup = function(){
+        $state.go('signup');
     }
 
 });

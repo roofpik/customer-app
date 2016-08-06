@@ -1,6 +1,6 @@
-app.controller('HomeCtrl', function($scope, $state, $ionicLoading, $timeout , $ionicScrollDelegate) {
+app.controller('HomeCtrl', function($scope, $state, $ionicLoading, $timeout , $ionicSlideBoxDelegate) {
    $scope.data = {};
-
+   $ionicSlideBoxDelegate.update();
   localStorage.removeItem('filteredProjectList');
 	$scope.goToProjectSearch = function(val){
         $ionicLoading.show();
@@ -30,7 +30,7 @@ app.controller('HomeCtrl', function($scope, $state, $ionicLoading, $timeout , $i
   }
 
   $scope.goToRoofpik = function(){
-    window.open('http://www.roofpik.com');
+    window.open('http://www.roofpik.com',  '_system', 'location=yes');
   }
 
 

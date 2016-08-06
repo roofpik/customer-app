@@ -57,7 +57,7 @@ app
     }
 
     $rootScope.goBackToSearch = function() {
-        $ionicHistory.goBack();
+        $state.go('app.home');
         //$state.go('project-search');
         $rootScope.project = {};
         $rootScope.projectReview = {};

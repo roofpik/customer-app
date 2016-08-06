@@ -88,9 +88,9 @@ app.controller('IntroSliderCtrl', ['$scope', '$ionicSlideBoxDelegate', '$state',
     }
 
     $scope.nextSlide = function() {
-        if ($ionicSlideBoxDelegate.currentIndex() < 3) {
+        
             $ionicSlideBoxDelegate.next();
-        } else {}
+        
     }
 
     $scope.slideChanged = function() {

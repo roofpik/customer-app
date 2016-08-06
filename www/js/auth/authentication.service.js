@@ -16,7 +16,10 @@ app.factory("AuthenticationService", function($http, $ionicPopup, $location, $ti
         var newPostKey = db.ref().child('userLogin').push().key;
         firebase.auth().signInWithEmailAndPassword(email, password).then(function(user) {
             db.ref().child("users").child("data").child(user.uid).on("value", function(snapshot) {
+                console.log(snapshot.val());
+             //   window.localStorage['userName'] = JSON.stringify(snapshot.val().name);
                 window.localStorage.setItem("userName", snapshot.val().name);
+                console.log(window.localStorage.getItem('userName'));
                 window.localStorage.setItem("userEmail", email);
                 window.localStorage.setItem("userUid", user.uid);
                 var userlogin = {
@@ -31,7 +34,9 @@ app.factory("AuthenticationService", function($http, $ionicPopup, $location, $ti
             });
             $timeout(function() {
                 $ionicLoading.hide();
-                $state.go('app.home');
+                // $ionicHistory.clearHistory();
+                // $ionicHistory.clearCache();
+                $state.go('landing');
             }, 0);
         }).catch(function(error) {
             $ionicLoading.hide();
@@ -88,14 +93,14 @@ app.factory("AuthenticationService", function($http, $ionicPopup, $location, $ti
 
             } else {
                 $ionicPopup.alert({
-                title: "Not Logged In",
-                template: "Please login first to view the content"
-            }).then(function(){
-                   $ionicHistory.clearHistory();
-   $ionicHistory.clearCache();
-                 $state.go("login");
-            });
-               
+                    title: "Not Logged In",
+                    template: "Please login first to view the content"
+                }).then(function() {
+                    $ionicHistory.clearHistory();
+                    $ionicHistory.clearCache();
+                    $state.go("signup");
+                });
+
             }
         });
     }

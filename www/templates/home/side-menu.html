@@ -23,6 +23,9 @@
       </ion-header-bar>
       <ion-content>
          <ion-list>
+         <ion-item menu-close ng-click="signup()" ng-show="ifNotLogin">
+               Signup / Login
+            </ion-item>
             <ion-item menu-close ng-click="writeReview()">
                Write Review
             </ion-item>
@@ -42,7 +45,7 @@
             <ion-item menu-close ng-click="termsNcndtn()">
                Terms and Conditions
             </ion-item>
-            <ion-item menu-close ng-click="logoutFunc()">
+            <ion-item menu-close ng-click="logoutFunc()" ng-hide="ifNotLogin">
                Logout
             </ion-item>
          </ion-list>

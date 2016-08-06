@@ -23,6 +23,7 @@ app.controller('ProjectSearchCtrl', function($scope, $state, $timeout, $statePar
     }, 2000)
 
     $scope.selectProject = function(project){
+        window.localStorage['fromview'] == JSON.stringify(1) ;
         $ionicLoading.show();
         $timeout(function(){
             $ionicLoading.hide();

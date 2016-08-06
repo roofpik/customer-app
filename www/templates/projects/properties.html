@@ -3,6 +3,24 @@
 .properties  .results{
    width:40% !important;
 }
+
+.overlay1{
+       background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.overlay2{
+       background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: 160px;
+    left: 0;
+}
 </style>
    <ion-header-bar class="bar bar-header ">
       <button class="icon ion-chevron-left button button-light" ng-click="goToHome()"></button>
@@ -18,8 +36,10 @@
          <ion-item ng-repeat="project in results | orderBy:sortType:sortReverse " ng-show="project.showInList" style="margin: 0px 0px -1px 0px;padding:0px;" ng-click="selectProject(project)">
             <div class="image">
                <div id="img-cont" >
-                  <div class="overlay"></div>
-                  <img src="{{project.imageUrl}}" id="img1" style="display:inline-block;">
+                  
+                  <img src="{{project.imageUrl}}" id="img1" style="display:inline-block; box-shadow: 0px 3px 5px 0px rgba(66,66,66,0.3)">
+                  <div class="overlay2"></div>
+                  <div class="overlay1"></div>
                </div>
                <span class="project-name"> <strong>{{project.projectName}}, {{project.landmark}}</strong></span>
                <h3>
