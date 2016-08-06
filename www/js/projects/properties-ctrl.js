@@ -1,4 +1,4 @@
-app.controller('PropertiesCtrl', function($state,$scope, $timeout, $stateParams, $ionicModal, $ionicLoading) {
+app.controller('PropertiesCtrl', function($state,$scope, $timeout, $stateParams, $ionicModal, $ionicLoading, $ionicHistory) {
 
    $ionicLoading.show({
       template: 'Loading...'
@@ -125,7 +125,7 @@ app.controller('PropertiesCtrl', function($state,$scope, $timeout, $stateParams,
    }
 
    $scope.goToHome = function(){
-      $state.go('app.home');
+      $ionicHistory.goBack();
    }
 
 });

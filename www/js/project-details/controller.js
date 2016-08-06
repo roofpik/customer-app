@@ -1,12 +1,12 @@
 app
-.controller('tabCtrl', function($stateParams, $state, $rootScope, $scope, projectData, projectReview, $ionicLoading) {
+.controller('tabCtrl', function($stateParams, $state, $rootScope, $scope, projectData, projectReview, $ionicLoading, $ionicHistory) {
     
 })
 
-.controller('overviewCtrl', function(PricingFilterService, $ionicModal, $ionicSlideBoxDelegate, $stateParams, $state, $rootScope, $scope, projectData, projectReview, $ionicLoading) {
+.controller('overviewCtrl', function(PricingFilterService, $ionicModal, $ionicSlideBoxDelegate, $stateParams, $state, $rootScope, $scope, projectData, projectReview, $ionicLoading, $ionicHistory) {
     if($rootScope.project === {} || $rootScope.project === null || $rootScope.project === undefined) {
-        
-        $state.go('project-search');
+        $ionicHistory.goBack();
+        //$state.go('project-search');
         return;
     }
     $ionicLoading.hide().then(function(){
@@ -39,7 +39,8 @@ app
         }
     });
     $rootScope.goBackToSearch = function() {
-        $state.go('project-search');
+        $ionicHistory.goBack();
+        //$state.go('project-search');
         $rootScope.project = {};
         $rootScope.projectReview = {};
         $rootScope.percentageReview = {};
@@ -254,9 +255,10 @@ app
 
 })
 
-.controller('reviewsCtrl', function($state, $scope, $rootScope) {
+.controller('reviewsCtrl', function($state, $scope, $rootScope, $ionicHistory) {
     if($rootScope.project === {} || $rootScope.project === null || $rootScope.project === undefined) {
-        $state.go('project-search');
+        $ionicHistory.goBack();
+        //$state.go('project-search');
         return;
     }
     console.log($rootScope.project);
@@ -317,9 +319,10 @@ app
     }
 })
 
-.controller('pricingCtrl', function($state, $scope, $rootScope, PricingFilterService, $ionicLoading) {
+.controller('pricingCtrl', function($state, $scope, $rootScope, PricingFilterService, $ionicLoading, $ionicHistory) {
     if($rootScope.project === {} || $rootScope.project === null || $rootScope.project === undefined) {
-        $state.go('project-search');
+        $ionicHistory.goBack();
+      //  $state.go('project-search');
         return;
     }
     function isPricing() {
@@ -349,9 +352,10 @@ app
     }
 })
 
-.controller('amenitiesCtrl', function($state, $scope, $rootScope) {
+.controller('amenitiesCtrl', function($state, $scope, $rootScope, $ionicHistory) {
     if($rootScope.project === {} || $rootScope.project === null || $rootScope.project === undefined) {
-        $state.go('project-search');
+        $ionicHistory.goBack();
+      //  $state.go('project-search');
         return;
     }
     $scope.clubHouse = {
@@ -387,9 +391,10 @@ app
     console.log($scope.specifications);
 })
 
-.controller('nearmeCtrl', function($state, $rootScope, $scope, $ionicPopup, $ionicModal) {
+.controller('nearmeCtrl', function($state, $rootScope, $scope, $ionicPopup, $ionicModal, $ionicHistory) {
     if($rootScope.project === {} || $rootScope.project === null || $rootScope.project === undefined) {
-        $state.go('project-search');
+        $ionicHistory.goBack();
+       // $state.go('project-search');
         return;
     }
     $scope.nearme = $rootScope.project.nearMe;
