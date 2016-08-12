@@ -114,10 +114,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 
 
-
-
-
     // State For Project Details
+
+    $stateProvider.state("residential-review", {
+        url:'/residential-review',
+        templateUrl: 'templates/reviews/residential-review.html',
+        controller: 'residentialReviewCtrl'
+    })
 
 
     $urlRouterProvider.otherwise('/app-start');
