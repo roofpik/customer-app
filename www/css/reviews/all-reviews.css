@@ -2,15 +2,50 @@
     background-color: #F5F7F7;
 }
 
-.residential-review .questions {
-  color:#333333;
-  text-align: center;
-}
-
 .residential-review .review-params {
 	background-color:#F5F7F7;
 } 
 
 .residential-review .resident, .residential-review .nonResident {
-  width:50px;
+  width:45px;
+}
+
+.residential-review .display-style {
+  width: 94%;
+  margin: 0 auto 10px auto;
+}
+
+.residential-review .review-title label {
+  padding:0px;
+  border: 1px solid #18AFD1;
+}
+
+.residential-review .review-title label input {
+  padding: 0 5px;
+}
+
+.residential-review .project-review label{
+    height: 120px;
+    border: 1px solid #18AFD1;
+    border-radius: 3px;
+    margin: 0 auto;
+}
+
+.residential-review .project-review textarea{
+    line-height: 21px;
+    margin-top: 60px;
+}
+
+.residential-review .ans{
+	border:1px solid #ccc;
+	text-align:center;
+}
+
+.residential-review .kids, .residential-review .pets, .residential-review .singles, .residential-review .elders, .residential-review .family{
+    width: 32px;
+    height: 48px;
+}
+
+.residential-review #row-title{
+  font-size:1.1em;
 }

@@ -5,17 +5,17 @@ app.directive('ionicRatings',ionicRatings);
     return {
       restrict: 'AE',
       replace: true,
-      template: '<div class="text-center ionic_ratings">' +
-        '<span class="icon {{iconOff}} ionic_rating_icon_off" ng-style="iconOffColor" ng-click="ratingsClicked(1)" style="font-size:33px;margin:0 2%;" ng-show="rating < 1" ng-class="{\'read_only\':(readOnly)}"></span>' +
-        '<span class="icon {{iconOn}} ionic_rating_icon_on" ng-style="iconOnColor" ng-click="ratingsUnClicked(1)" style="font-size:33px;margin:0 2%;" ng-show="rating > 0" ng-class="{\'read_only\':(readOnly)}"></span>' +
-        '<span class="icon {{iconOff}} ionic_rating_icon_off" ng-style="iconOffColor" ng-click="ratingsClicked(2)" style="font-size:33px;margin:0 2%;" ng-show="rating < 2" ng-class="{\'read_only\':(readOnly)}"></span>' +
-        '<span class="icon {{iconOn}} ionic_rating_icon_on" ng-style="iconOnColor" ng-click="ratingsUnClicked(2)" style="font-size:33px;margin:0 2%;" ng-show="rating > 1" ng-class="{\'read_only\':(readOnly)}"></span>' +
-        '<span class="icon {{iconOff}} ionic_rating_icon_off" ng-style="iconOffColor" ng-click="ratingsClicked(3)" style="font-size:33px;margin:0 2%;" ng-show="rating < 3" ng-class="{\'read_only\':(readOnly)}"></span>' +
-        '<span class="icon {{iconOn}} ionic_rating_icon_on" ng-style="iconOnColor" ng-click="ratingsUnClicked(3)" style="font-size:33px;margin:0 2%;" ng-show="rating > 2" ng-class="{\'read_only\':(readOnly)}"></span>' +
-        '<span class="icon {{iconOff}} ionic_rating_icon_off" ng-style="iconOffColor" ng-click="ratingsClicked(4)" style="font-size:33px;margin:0 2%;" ng-show="rating < 4" ng-class="{\'read_only\':(readOnly)}"></span>' +
-        '<span class="icon {{iconOn}} ionic_rating_icon_on" ng-style="iconOnColor" ng-click="ratingsUnClicked(4)" style="font-size:33px;margin:0 2%;" ng-show="rating > 3" ng-class="{\'read_only\':(readOnly)}"></span>' +
-        '<span class="icon {{iconOff}} ionic_rating_icon_off" ng-style="iconOffColor" ng-click="ratingsClicked(5)" style="font-size:33px;margin:0 2%;" ng-show="rating < 5" ng-class="{\'read_only\':(readOnly)}"></span>' +
-        '<span class="icon {{iconOn}} ionic_rating_icon_on" ng-style="iconOnColor" ng-click="ratingsUnClicked(5)" style="font-size:33px;margin:0 2%;" ng-show="rating > 4" ng-class="{\'read_only\':(readOnly)}"></span>' +
+      template: '<div class="ionic_ratings">' +
+        '<span class="icon {{iconOff}} ionic_rating_icon_off" ng-style="iconOffColor" ng-click="ratingsClicked(1)" style="font-size:25px;margin:0 3px;" ng-show="rating < 1" ng-class="{\'read_only\':(readOnly)}"></span>' +
+        '<span class="icon {{iconOn}} ionic_rating_icon_on" ng-style="iconOnColor" ng-click="ratingsUnClicked(1)" style="font-size:25px;margin:0 3px;" ng-show="rating > 0" ng-class="{\'read_only\':(readOnly)}"></span>' +
+        '<span class="icon {{iconOff}} ionic_rating_icon_off" ng-style="iconOffColor" ng-click="ratingsClicked(2)" style="font-size:25px;margin:0 3px;" ng-show="rating < 2" ng-class="{\'read_only\':(readOnly)}"></span>' +
+        '<span class="icon {{iconOn}} ionic_rating_icon_on" ng-style="iconOnColor" ng-click="ratingsUnClicked(2)" style="font-size:25px;margin:0 3px;" ng-show="rating > 1" ng-class="{\'read_only\':(readOnly)}"></span>' +
+        '<span class="icon {{iconOff}} ionic_rating_icon_off" ng-style="iconOffColor" ng-click="ratingsClicked(3)" style="font-size:25px;margin:0 3px;" ng-show="rating < 3" ng-class="{\'read_only\':(readOnly)}"></span>' +
+        '<span class="icon {{iconOn}} ionic_rating_icon_on" ng-style="iconOnColor" ng-click="ratingsUnClicked(3)" style="font-size:25px;margin:0 3px;" ng-show="rating > 2" ng-class="{\'read_only\':(readOnly)}"></span>' +
+        '<span class="icon {{iconOff}} ionic_rating_icon_off" ng-style="iconOffColor" ng-click="ratingsClicked(4)" style="font-size:25px;margin:0 3px;" ng-show="rating < 4" ng-class="{\'read_only\':(readOnly)}"></span>' +
+        '<span class="icon {{iconOn}} ionic_rating_icon_on" ng-style="iconOnColor" ng-click="ratingsUnClicked(4)" style="font-size:25px;margin:0 3px;" ng-show="rating > 3" ng-class="{\'read_only\':(readOnly)}"></span>' +
+        '<span class="icon {{iconOff}} ionic_rating_icon_off" ng-style="iconOffColor" ng-click="ratingsClicked(5)" style="font-size:25px;margin:0 3px;" ng-show="rating < 5" ng-class="{\'read_only\':(readOnly)}"></span>' +
+        '<span class="icon {{iconOn}} ionic_rating_icon_on" ng-style="iconOnColor" ng-click="ratingsUnClicked(5)" style="font-size:25px;margin:0 3px;" ng-show="rating > 4" ng-class="{\'read_only\':(readOnly)}"></span>' +
         '</div>',
       scope: {
         ratingsObj: '=ratingsobj'
