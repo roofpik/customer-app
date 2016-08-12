@@ -1,0 +1,16 @@
+.residential-review .residential-review-content {
+    background-color: #F5F7F7;
+}
+
+.residential-review .questions {
+  color:#333333;
+  text-align: center;
+}
+
+.residential-review .review-params {
+	background-color:#F5F7F7;
+} 
+
+.residential-review .resident, .residential-review .nonResident {
+  width:50px;
+}

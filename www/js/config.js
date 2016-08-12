@@ -163,78 +163,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     });
 
-
-
-
-
-    // State For Project Details
-
-    $stateProvider
-        .state('projectDetails', {
-            url: '/project-details',
-            abstract: true,
-            templateUrl: 'templates/project-details/tabs.html',
-        })
-
-    .state('projectDetails.overview', {
-        url: '/overview',
-        views: {
-            'tab-overview': {
-                templateUrl: 'templates/project-details/tab-overview.html',
-                controller: 'overviewCtrl'
-            }
-        },
-        params: {
-            projectId: null
-        },
-        resolve: {
-            projectData: function($stateParams, $state, ProjectDetailsService, $ionicLoading) {
-                return ProjectDetailsService.getProjectDetail($stateParams.projectId);
-            },
-            projectReview: function($stateParams, $state, ProjectDetailsService, $ionicLoading) {
-                return ProjectDetailsService.getReviews($stateParams.projectId);
-            }
-        }
-    })
-
-    .state('projectDetails.pricing', {
-        url: '/pricing',
-        views: {
-            'tab-pricing': {
-                templateUrl: 'templates/project-details/tab-pricing.html',
-                controller: 'pricingCtrl'
-            }
-        }
-    })
-
-    .state('projectDetails.reviews', {
-        url: '/reviews',
-        views: {
-            'tab-reviews': {
-                templateUrl: 'templates/project-details/tab-reviews.html',
-                controller: 'reviewsCtrl'
-            }
-        }
-    })
-
-    .state('projectDetails.amenities', {
-        url: '/amenities',
-        views: {
-            'tab-amenities': {
-                templateUrl: 'templates/project-details/tab-amenities.html',
-                controller: 'amenitiesCtrl'
-            }
-        }
-    })
-
-    .state('projectDetails.nearme', {
-        url: '/nearme',
-        views: {
-            'tab-nearme': {
-                templateUrl: 'templates/project-details/tab-nearme.html',
-                controller: 'nearmeCtrl'
-            }
-        }
+    $stateProvider.state("residential-review", {
+        url:'/residential-review',
+        templateUrl: 'templates/reviews/residential-review.html',
+        controller: 'residentialReviewCtrl'
     })
 
     $urlRouterProvider.otherwise('/app-start');

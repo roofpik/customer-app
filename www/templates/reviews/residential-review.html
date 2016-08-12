@@ -1,0 +1,31 @@
+<ion-view class="residential-review" cache-view="true">
+<style>
+img{
+transform: translateZ(0);
+}
+</style>
+	<ion-header-bar class="bar-light" align-title="center">
+		<button class="icon ion-chevron-left button button-light" ng-click="goBack()"></button>
+	</ion-header-bar>
+	<ion-content class="residential-review-content has-header padding has-footer">
+		<div class="review-params">
+			<div class="questions">
+				<div class="row" id="identity">
+					<div class="col col-20"><p>You are</p></div>
+					<div class="col" ng-click="selectIdentity(item.id, $index)" ng-repeat="item in identities">
+						<img ng-src="{{item.imgsrc}}" class="{{item.id}}"/>
+						<p>{{item.name}}</p>
+					</div>
+				</div>
+			</div>
+			<div class="project-rating">
+				<p class="heading">Project Rating</p>
+				<ionic-ratings ratingsobj='ratingsObject1'></ionic-ratings>
+				<div class="showRating" ng-show="project.rating">Your rating:  <span class="comment">{{project.comment}}</span></div>
+			</div>
+		</div>
+	</ion-content>
+	<ion-footer-bar align-title="center" class="bar-dark" ng-click="submitReview()">
+	  <h1 class="title">Submit</h1>
+	</ion-footer-bar>
+</ion-view>
