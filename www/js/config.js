@@ -46,14 +46,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     });
 
 
-    $stateProvider.state('bee-social', {
-        url: '/bee-social',
-        templateUrl: 'templates/app/bee-social.html',
-        controller: 'beeSocialCtrl'
-    });
-
-
-
+   
     //State for login
     $stateProvider.state('login', {
         url: '/login',
@@ -104,40 +97,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
     });
 
-    $stateProvider.state('select-location', {
-        url: '/select-location',
-        templateUrl: 'templates/home/select-location.html',
-        controller: 'selectLocationCtrl'
-    });
+   
 
-    $stateProvider.state('project-search', {
-        url: '/project-search/:type',
-        templateUrl: 'templates/home/project-search.html',
-        controller: 'ProjectSearchCtrl'
-    });
-
-    $stateProvider.state('review', {
-        url: '/review/:id/:name/:landmark/:city',
-        templateUrl: 'templates/projects/review.html',
-        controller: 'ReviewCtrl',
-        resolve: {
-            currentAuth: function(AuthenticationService) {
-                return AuthenticationService.checkAuthentication();
-            }
-        }
-    });
-
-    $stateProvider.state('properties', {
-        url: '/properties/:from',
-        templateUrl: 'templates/projects/properties.html',
-        controller: 'PropertiesCtrl'
-    });
-
-    $stateProvider.state('nearby', {
-        url: '/nearby',
-        templateUrl: 'templates/projects/nearby.html',
-        controller: 'nearbyCtrl'
-    });
 
     $stateProvider.state('terms-n-conditions', {
         url: '/terms-n-conditions',
@@ -151,17 +112,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
         controller: 'privacyPolicyCtrl'
     });
 
-    $stateProvider.state("profile", {
-        url: '/profile',
-        templateUrl: 'templates/user/profile.html',
-        controller: 'profileCtrl',
-        resolve: {
-            currentAuth: function(AuthenticationService) {
-                return AuthenticationService.checkAuthentication();
-            }
-        }
-
-    });
 
 
 
@@ -169,73 +119,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     // State For Project Details
 
-    $stateProvider
-        .state('projectDetails', {
-            url: '/project-details',
-            abstract: true,
-            templateUrl: 'templates/project-details/tabs.html',
-        })
-
-    .state('projectDetails.overview', {
-        url: '/overview',
-        views: {
-            'tab-overview': {
-                templateUrl: 'templates/project-details/tab-overview.html',
-                controller: 'overviewCtrl'
-            }
-        },
-        params: {
-            projectId: null
-        },
-        resolve: {
-            projectData: function($stateParams, $state, ProjectDetailsService, $ionicLoading) {
-                return ProjectDetailsService.getProjectDetail($stateParams.projectId);
-            },
-            projectReview: function($stateParams, $state, ProjectDetailsService, $ionicLoading) {
-                return ProjectDetailsService.getReviews($stateParams.projectId);
-            }
-        }
-    })
-
-    .state('projectDetails.pricing', {
-        url: '/pricing',
-        views: {
-            'tab-pricing': {
-                templateUrl: 'templates/project-details/tab-pricing.html',
-                controller: 'pricingCtrl'
-            }
-        }
-    })
-
-    .state('projectDetails.reviews', {
-        url: '/reviews',
-        views: {
-            'tab-reviews': {
-                templateUrl: 'templates/project-details/tab-reviews.html',
-                controller: 'reviewsCtrl'
-            }
-        }
-    })
-
-    .state('projectDetails.amenities', {
-        url: '/amenities',
-        views: {
-            'tab-amenities': {
-                templateUrl: 'templates/project-details/tab-amenities.html',
-                controller: 'amenitiesCtrl'
-            }
-        }
-    })
-
-    .state('projectDetails.nearme', {
-        url: '/nearme',
-        views: {
-            'tab-nearme': {
-                templateUrl: 'templates/project-details/tab-nearme.html',
-                controller: 'nearmeCtrl'
-            }
-        }
-    })
 
     $urlRouterProvider.otherwise('/app-start');
 });
