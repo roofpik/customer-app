@@ -12,7 +12,7 @@
 
 .residential-review .display-style {
   width: 94%;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 15px auto;
 }
 
 .residential-review .review-title label {
@@ -41,11 +41,26 @@
 	text-align:center;
 }
 
+.residential-review .selected{
+  border:1px solid #18AFD1;
+  text-align:center;
+}
+
 .residential-review .kids, .residential-review .pets, .residential-review .singles, .residential-review .elders, .residential-review .family{
     width: 32px;
     height: 48px;
 }
 
 .residential-review #row-title{
-  font-size:1.1em;
+  font-size:1.13em;
+  margin-left:2px;
+  color: #000;
+}
+
+.residential-review #rating-title{
+  margin-left:15px;
+}
+
+.residential-review #comments {
+  color:#000;
 }

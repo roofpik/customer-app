@@ -1,11 +1,16 @@
-app.controller('residentialReviewCtrl', function($scope){
+app.controller('residentialReviewCtrl', function($scope, $ionicPopup){
 
-	$scope.project = {};
+	$scope.review = {};
 
 	$scope.identities = [
 		{id: 'resident', name: 'Resident', imgsrc:'img/review/resident_grey.png'},
 		{id: 'nonResident', name: 'Non Resident', imgsrc:'img/review/nonResident_grey.png'},
 	];
+
+	$scope.residentY = false;
+	$scope.nonResident = false;
+
+	$scope.comment = ['Poor', 'Average', 'Good', 'Very Good', 'Excellent'];
 
 	$scope.selectIdentity = function(val, index){
 		angular.forEach($scope.identities, function(value, key){
@@ -34,7 +39,9 @@ app.controller('residentialReviewCtrl', function($scope){
 	};
 
 	$scope.ratingsCallback1 = function(rating) {
-		$scope.project.rating = rating;
+		$scope.review.rating = rating;
+		$scope.mainComment = $scope.comment[rating-1];
+		console.log($scope.mainComment);
 	};
 
 	$scope.recommend = [
@@ -57,6 +64,8 @@ app.controller('residentialReviewCtrl', function($scope){
 		}
 	}
 
+	$scope.security = {};
+
 	$scope.ratingsObject2= {
 		iconOn: 'ion-record',
 		iconOff: 'ion-ios-circle-outline',
@@ -71,8 +80,11 @@ app.controller('residentialReviewCtrl', function($scope){
 	};
 
 	$scope.ratingsCallback2 = function(rating) {
-		$scope.project.rating = rating;
+		$scope.security.rating = rating;
+		$scope.security.comment = $scope.comment[rating-1];
 	};
+
+	$scope.amenities = {};
 
 	$scope.ratingsObject3= {
 		iconOn: 'ion-record',
@@ -88,8 +100,11 @@ app.controller('residentialReviewCtrl', function($scope){
 	};
 
 	$scope.ratingsCallback3 = function(rating) {
-		$scope.project.rating = rating;
+		$scope.amenities.rating = rating;
+		$scope.amenities.comment = $scope.comment[rating-1];
 	};
+
+	$scope.openAndGreenAreas = {};
 
 	$scope.ratingsObject4= {
 		iconOn: 'ion-record',
@@ -105,8 +120,11 @@ app.controller('residentialReviewCtrl', function($scope){
 	};
 
 	$scope.ratingsCallback4 = function(rating) {
-		$scope.project.rating = rating;
+		$scope.openAndGreenAreas.rating = rating;
+		$scope.openAndGreenAreas.comment = $scope.comment[rating-1];
 	};
+
+	$scope.electricityAndWaterSupply = {};
 
 	$scope.ratingsObject5= {
 		iconOn: 'ion-record',
@@ -122,8 +140,71 @@ app.controller('residentialReviewCtrl', function($scope){
 	};
 
 	$scope.ratingsCallback5 = function(rating) {
-		$scope.project.rating = rating;
+		$scope.electricityAndWaterSupply.rating = rating;
+		$scope.electricityAndWaterSupply.comment = $scope.comment[rating-1];
 	};
 
+	$scope.getConvenient = function(value){
+		$scope.review.convenientlyLocated = value;
+		console.log($scope.review.convenientlyLocated);
+	}
+
+	$scope.publicTransport = function(value){
+		$scope.review.easyAccessToPublicTransport = value;
+		console.log($scope.review.easyAccessToPublicTransport);
+	}
+
+	$scope.submitReview = function(){
+		if($scope.residentY == true){
+			$scope.review.customerType = 'resident';
+		} else if($scope.nonResidentY = true){
+			$scope.review.customerType = 'nonResident';
+		}
+		if($scope.review.recommendedFor == undefined){
+			$scope.review.recommendedFor = {};
+		}
+
+	    angular.forEach($scope.recommend, function(value, key){
+	      if($scope[value.id+'Y'] == true){
+	        $scope.review.recommendedFor[value.id] = true;
+	      }
+	    });		
+
+	    $scope.review.time = new Date().getTime();
+	    // $scope.review.customerId = window.localStorage.getItem("userUid");
+	    // $scope.review.customerName = window.localStorage.getItem("userName");
+	    $scope.review.display = false;
+	    $scope.review.verified = false;
+	    if($scope.review.ratings == undefined){
+	    	$scope.review.ratings = {};
+	    }
+	    if($scope.security.rating != 0 && $scope.security.rating != undefined){
+	      $scope.review.ratings.security = $scope.security.rating;
+	    }
+	    if($scope.amenities.rating != 0 && $scope.amenities.rating != undefined){
+	      $scope.review.ratings.amenities = $scope.amenities.rating;
+	    }
+	    if($scope.openAndGreenAreas.rating != 0 && $scope.openAndGreenAreas.rating != undefined){
+	      $scope.review.ratings.openAndGreenAreas = $scope.openAndGreenAreas.rating;
+	    }
+	    if($scope.electricityAndWaterSupply.rating != 0 && $scope.electricityAndWaterSupply.rating != undefined){
+	      $scope.review.ratings.electricityAndWaterSupply = $scope.electricityAndWaterSupply.rating;
+	    }
+
+	    if(Object.keys($scope.review.recommendedFor).length == 0){
+	      delete $scope.review.recommendedFor;
+	    }
+	    console.log($scope.review.ratings);
+	    console.log(Object.keys($scope.review.ratings).length);
+	    if(Object.keys($scope.review.ratings).length == 0){
+	      delete $scope.review.ratings;
+	    }
+	    console.log($scope.review);
+	    if(($scope.review.customerType == undefined) || ($scope.review.rating==0)  || $scope.review.reviewTitle==undefined || $scope.review.reviewTitle.length ==0){
+	    	$ionicPopup.alert({
+	    		template:'Cannot Submit Review'
+	    	})
+	    }
+	}
 
 });
