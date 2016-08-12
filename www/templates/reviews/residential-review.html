@@ -9,48 +9,52 @@ transform: translateZ(0);
 	</ion-header-bar>
 	<ion-content class="residential-review-content has-header padding has-footer">
 		<div class="review-params">
-			<div class="display-style">
-				<div class="row" id="identity">
-					<div class="col col-20">
-						<p  id="row-title">You are</p>
-					</div>
-					<div class="col" ng-click="selectIdentity(item.id, $index)" ng-repeat="item in identities" style="text-align:center;">
-						<img ng-src="{{item.imgsrc}}" class="{{item.id}}"/>
-						<p>{{item.name}}</p>
-					</div>
+			<div class="display-style row">
+				<div class="col col-20">
+					<p  id="row-title" style="margin-left:-8px;">You are</p>
+				</div>
+				<div class="col" ng-click="selectIdentity(item.id, $index)" ng-repeat="item in identities" style="text-align:center;">
+					<img ng-src="{{item.imgsrc}}" class="{{item.id}}"/>
+					<p>{{item.name}}</p>
 				</div>
 			</div>
 			<div class="display-style">
 				<p  id="row-title">Project Rating</p>
-				<ionic-ratings ratingsobj='ratingsObject1'></ionic-ratings>
-				<!-- <div class="showRating" ng-show="project.rating">Your rating:  <span class="comment">{{project.comment}}</span></div> -->
+				<div class="row">
+					<div class="col col-75">
+		            	<ionic-ratings ratingsobj='ratingsObject1'></ionic-ratings>
+		            </div>
+		            <div class="col col-25" id="comments">
+		            	{{mainComment}}
+					</div>
+				</div>
 			</div>
 			<div class="review-title display-style">
 				<p  id="row-title">Review Title</p>
 				<label class="item item-input item-stacked-label">
-					<input type="text" ng-model="project.reviewTitle">
+					<input type="text" ng-model="review.reviewTitle">
 				</label>
 			</div>
 			<div class="project-review display-style">
 				<p  id="row-title">Write a review</p>
 				<label class="item item-input">
-	            	<textarea rows="8" cols="50"  placeholder="Type here(Optional)" ng-model="project.review" required></textarea>
+	            	<textarea rows="8" cols="50"  placeholder="Type here(Optional)" ng-model="review.review" required></textarea>
 	            </label>
 			</div>
 			<div class="display-style">
 				<p  id="row-title">Is the project conveniently located?</p>
 				<div class="row">
-					<div class="col ans">Yes</div>
-					<div class="col ans">No</div>
-					<div class="col ans">Not Sure</div>
+					<div class="col ans" ng-click="getConvenient('yes')" ng-class="review.convenientlyLocated=='yes'?'selected':'notSelected'">Yes</div>
+					<div class="col ans" ng-click="getConvenient('no')" ng-class="review.convenientlyLocated=='no'?'selected':'notSelected'">No</div>
+					<div class="col ans" ng-click="getConvenient('notSure')" ng-class="review.convenientlyLocated=='notSure'?'selected':'notSelected'">Not Sure</div>
 				</div>
 			</div>
 			<div class="display-style">
 				<p  id="row-title">Easy access to public transport?</p>
 				<div class="row">
-					<div class="col ans">Yes</div>
-					<div class="col ans">No</div>
-					<div class="col ans">Not Sure</div>
+					<div class="col ans" ng-click="publicTransport('yes')" ng-class="review.easyAccessToPublicTransport=='yes'?'selected':'notSelected'">Yes</div>
+					<div class="col ans" ng-click="publicTransport('no')" ng-class="review.easyAccessToPublicTransport=='no'?'selected':'notSelected'">No</div>
+					<div class="col ans" ng-click="publicTransport('notSure')" ng-class="review.easyAccessToPublicTransport=='notSure'?'selected':'notSelected'">Not Sure</div>
 				</div>
 			</div>
 			<div class="display-style">
@@ -69,46 +73,46 @@ transform: translateZ(0);
 					<p id="row-title">How would you rate the following?</p>
 				</div>
 				<div class="ratings">
-					<p>Security</p>
+					<p id="rating-title">Security</p>
 					<div class="row">
 						<div class="col col-75">
 			            	<ionic-ratings ratingsobj='ratingsObject2'></ionic-ratings>
 			            </div>
-			            <div class="col col-25">
+			            <div class="col col-25" id="comments">
 			            	{{security.comment}}
 						</div>
 					</div>
 				</div>
 				<div class="ratings">
-					<p>Amenities</p>
+					<p id="rating-title">Amenities</p>
 					<div class="row">
 						<div class="col col-75">
 			            	<ionic-ratings ratingsobj='ratingsObject3'></ionic-ratings>
 			            </div>
-			            <div class="col col-25">
-			            	{{security.comment}}
+			            <div class="col col-25" id="comments">
+			            	{{amenities.comment}}
 						</div>
 					</div>
 				</div>
 				<div class="ratings">
-					<p>Open and Green Areas</p>
+					<p id="rating-title">Open and Green Areas</p>
 					<div class="row">
 						<div class="col col-75">
 			            	<ionic-ratings ratingsobj='ratingsObject4'></ionic-ratings>
 			            </div>
-			            <div class="col col-25">
-			            	{{security.comment}}
+			            <div class="col col-25" id="comments">
+			            	{{openAndGreenAreas.comment}}
 						</div>
 					</div>
 				</div>
 				<div class="ratings">
-					<p>Electricity and Water Supply</p>
+					<p id="rating-title">Electricity and Water Supply</p>
 					<div class="row">
 						<div class="col col-75">
 			            	<ionic-ratings ratingsobj='ratingsObject5'></ionic-ratings>
 			            </div>
-			            <div class="col col-25">
-			            	{{security.comment}}
+			            <div class="col col-25" id="comments">
+			            	{{electricityAndWaterSupply.comment}}
 						</div>
 					</div>
 				</div>
