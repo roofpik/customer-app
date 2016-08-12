@@ -114,12 +114,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 
 
-    // State For Project Details
+    // State For Reviews
 
     $stateProvider.state("residential-review", {
         url:'/residential-review',
         templateUrl: 'templates/reviews/residential-review.html',
         controller: 'residentialReviewCtrl'
+    })
+
+    $stateProvider.state("commercial-review", {
+        url:'/commercial-review',
+        templateUrl: 'templates/reviews/commercial-review.html',
+        controller: 'commercialReviewCtrl'
     })
 
 

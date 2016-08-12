@@ -1,4 +1,4 @@
-<ion-view class="residential-review" cache-view="true">
+<ion-view class="commercial-review" cache-view="true">
 <style>
 img{
 transform: translateZ(0);
@@ -7,17 +7,8 @@ transform: translateZ(0);
 	<ion-header-bar class="bar-light" align-title="center">
 		<button class="icon ion-chevron-left button button-light" ng-click="goBack()"></button>
 	</ion-header-bar>
-	<ion-content class="residential-review-content has-header padding has-footer">
+	<ion-content class="commercial-review-content has-header padding has-footer">
 		<div class="review-params">
-			<div class="display-style row">
-				<div class="col col-20">
-					<p  id="row-title" style="margin-left:-8px;">You are</p>
-				</div>
-				<div class="col" ng-click="selectIdentity(item.id, $index)" ng-repeat="item in identities" style="text-align:center;">
-					<img ng-src="{{item.imgsrc}}" class="{{item.id}}"/>
-					<p>{{item.name}}</p>
-				</div>
-			</div>
 			<div class="display-style">
 				<p  id="row-title">Project Rating</p>
 				<div class="row">
@@ -58,14 +49,11 @@ transform: translateZ(0);
 				</div>
 			</div>
 			<div class="display-style">
+				<p  id="row-title">Do you have restaurants/cafes nearby?</p>
 				<div class="row">
-					<p id="row-title">Would you recommend this for?</p>
-				</div>
-				<div class="row" id="closeby">
-					<div class="col" ng-click="selectRecommendedFor(item.id, $index)" ng-repeat="item in recommend">
-						<img ng-src="{{item.imgsrc}}" class="{{item.id}} recommendations"/>
-						<p>{{item.name}}</p>
-					</div>
+					<div class="col ans" ng-click="nearby('yes')" ng-class="review.restaurantCafeNearby=='yes'?'selected':'notSelected'">Yes</div>
+					<div class="col ans" ng-click="nearby('no')" ng-class="review.restaurantCafeNearby=='no'?'selected':'notSelected'">No</div>
+					<div class="col ans" ng-click="nearby('notSure')" ng-class="review.restaurantCafeNearby=='notSure'?'selected':'notSelected'">Not Sure</div>
 				</div>
 			</div>
 			<div class="display-style">
@@ -73,46 +61,46 @@ transform: translateZ(0);
 					<p id="row-title">How would you rate the following?</p>
 				</div>
 				<div class="ratings">
-					<p id="rating-title">Security</p>
+					<p id="rating-title">Parking Availability</p>
 					<div class="row">
 						<div class="col col-75">
 			            	<ionic-ratings ratingsobj='ratingsObject2'></ionic-ratings>
 			            </div>
 			            <div class="col col-25" id="comments">
-			            	{{security.comment}}
+			            	{{parkingAvailability.comment}}
 						</div>
 					</div>
 				</div>
 				<div class="ratings">
-					<p id="rating-title">Amenities</p>
+					<p id="rating-title">Cleanliness</p>
 					<div class="row">
 						<div class="col col-75">
 			            	<ionic-ratings ratingsobj='ratingsObject3'></ionic-ratings>
 			            </div>
 			            <div class="col col-25" id="comments">
-			            	{{amenities.comment}}
+			            	{{cleanliness.comment}}
 						</div>
 					</div>
 				</div>
 				<div class="ratings">
-					<p id="rating-title">Open and Green Areas</p>
+					<p id="rating-title">Lift Waiting Time</p>
 					<div class="row">
 						<div class="col col-75">
 			            	<ionic-ratings ratingsobj='ratingsObject4'></ionic-ratings>
 			            </div>
 			            <div class="col col-25" id="comments">
-			            	{{openAndGreenAreas.comment}}
+			            	{{liftWaitingTime.comment}}
 						</div>
 					</div>
 				</div>
 				<div class="ratings">
-					<p id="rating-title">Electricity and Water Supply</p>
+					<p id="rating-title">Security</p>
 					<div class="row">
 						<div class="col col-75">
 			            	<ionic-ratings ratingsobj='ratingsObject5'></ionic-ratings>
 			            </div>
 			            <div class="col col-25" id="comments">
-			            	{{electricityAndWaterSupply.comment}}
+			            	{{security.comment}}
 						</div>
 					</div>
 				</div>

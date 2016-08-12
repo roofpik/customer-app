@@ -1,3 +1,4 @@
+/*Residential reviews*/
 .residential-review .residential-review-content {
     background-color: #F5F7F7;
 }
@@ -64,3 +65,72 @@
 .residential-review #comments {
   color:#000;
 }
+
+/*commercial reviews*/
+.commercial-review .commercial-review-content {
+    background-color: #F5F7F7;
+}
+
+.commercial-review .review-params {
+  background-color:#F5F7F7;
+} 
+
+.commercial-review .resident, .commercial-review .nonResident {
+  width:45px;
+}
+
+.commercial-review .display-style {
+  width: 94%;
+  margin: 0 auto 15px auto;
+}
+
+.commercial-review .review-title label {
+  padding:0px;
+  border: 1px solid #18AFD1;
+}
+
+.commercial-review .review-title label input {
+  padding: 0 5px;
+}
+
+.commercial-review .project-review label{
+    height: 120px;
+    border: 1px solid #18AFD1;
+    border-radius: 3px;
+    margin: 0 auto;
+}
+
+.commercial-review .project-review textarea{
+    line-height: 21px;
+    margin-top: 60px;
+}
+
+.commercial-review .ans{
+  border:1px solid #ccc;
+  text-align:center;
+}
+
+.commercial-review .selected{
+  border:1px solid #18AFD1;
+  text-align:center;
+}
+
+.commercial-review .kids, .commercial-review .pets, .commercial-review .singles, .commercial-review .elders, .commercial-review .family{
+    width: 32px;
+    height: 48px;
+}
+
+.commercial-review #row-title{
+  font-size:1.13em;
+  margin-left:2px;
+  color: #000;
+}
+
+.commercial-review #rating-title{
+  margin-left:15px;
+}
+
+.commercial-review #comments {
+  color:#000;
+}
+
