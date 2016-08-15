@@ -286,3 +286,19 @@
   color:#000;
 }
 
+.locality-review #closeby .col{
+  text-align:center;
+}
+
+.locality-review .school{
+  width:50px;
+}
+
+.locality-review .market{
+  width:50px;
+}
+
+.locality-review .hospital{
+  width:50px;
+}
+

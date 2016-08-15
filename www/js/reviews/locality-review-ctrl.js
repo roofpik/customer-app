@@ -2,6 +2,28 @@ app.controller('localityReviewCtrl', function($scope, $ionicPopup){
 
 	$scope.review = {};
 
+	$scope.hospitalY = false;
+	$scope.marketY = false;
+	$scope.schoolY = false;
+
+	$scope.closeBy = [
+		{id: 'school', name: 'Good Schools', imgsrc: 'img/review/school_grey.png'},
+		{id: 'market', name: 'Market', imgsrc: 'img/review/market_grey.png'},
+		{id: 'hospital', name: 'Good Hospitals', imgsrc: 'img/review/hospital_grey.png'}
+	];
+
+	$scope.selectCloseby = function(val, index){
+		console.log(val, index);
+		type = val+'Y';
+		console.log($scope[type]);
+		$scope[type] = !$scope[type];
+		if($scope[type]){
+			$scope.closeBy[index].imgsrc = 'img/review/'+val+'.png';
+		}else {
+			$scope.closeBy[index].imgsrc = 'img/review/'+val+'_grey.png';
+		}
+	}
+
 	$scope.comment = ['Poor', 'Average', 'Good', 'Very Good', 'Excellent'];
 
 	$scope.ratingsObject1= {
@@ -124,6 +146,18 @@ app.controller('localityReviewCtrl', function($scope, $ionicPopup){
 	    }
 	    if($scope.electricityandWaterSupply.rating != 0 && $scope.electricityandWaterSupply.rating != undefined){
 	      $scope.review.ratings.electricityandWaterSupply = $scope.electricityandWaterSupply.rating;
+	    }
+
+	    if($scope.review.closeBy == undefined){
+	    	$scope.review.closeBy = {};
+	    }
+	    angular.forEach($scope.closeBy, function(value, key){
+	      if($scope[value.id+'Y'] == true){
+	        $scope.review.closeBy[value.id] = true;
+	      }
+	    });
+	    if(Object.keys($scope.review.closeBy).length == 0){
+	      delete $scope.review.closeBy;
 	    }
 	    console.log($scope.review.ratings);
 	    console.log(Object.keys($scope.review.ratings).length);
