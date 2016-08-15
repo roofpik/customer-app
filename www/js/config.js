@@ -128,6 +128,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
         controller: 'commercialReviewCtrl'
     })
 
+    $stateProvider.state("pg-review", {
+        url:'/pg-review',
+        templateUrl: 'templates/reviews/pg-review.html',
+        controller: 'pgReviewCtrl'
+    })
+
+    $stateProvider.state("locality-review", {
+        url:'/locality-review',
+        templateUrl: 'templates/reviews/locality-review.html',
+        controller: 'localityReviewCtrl'
+    })
 
     $urlRouterProvider.otherwise('/app-start');
 });

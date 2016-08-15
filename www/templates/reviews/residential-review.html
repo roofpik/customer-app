@@ -19,7 +19,7 @@ transform: translateZ(0);
 				</div>
 			</div>
 			<div class="display-style">
-				<p  id="row-title">Project Rating</p>
+				<p  id="row-title">Overall Rating</p>
 				<div class="row">
 					<div class="col col-75">
 		            	<ionic-ratings ratingsobj='ratingsObject1'></ionic-ratings>
@@ -44,28 +44,17 @@ transform: translateZ(0);
 			<div class="display-style">
 				<p  id="row-title">Is the project conveniently located?</p>
 				<div class="row">
-					<div class="col ans" ng-click="getConvenient('yes')" ng-class="review.convenientlyLocated=='yes'?'selected':'notSelected'">Yes</div>
-					<div class="col ans" ng-click="getConvenient('no')" ng-class="review.convenientlyLocated=='no'?'selected':'notSelected'">No</div>
-					<div class="col ans" ng-click="getConvenient('notSure')" ng-class="review.convenientlyLocated=='notSure'?'selected':'notSelected'">Not Sure</div>
+					<div class="col ans" ng-click="getConvenient('yes')" ng-class="review.convenientlyLocated=='yes'?'yesSelected':'notSelected'">Yes</div>
+					<div class="col ans" ng-click="getConvenient('no')" ng-class="review.convenientlyLocated=='no'?'noSelected':'notSelected'">No</div>
+					<div class="col ans" ng-click="getConvenient('notSure')" ng-class="review.convenientlyLocated=='notSure'?'notSureSelected':'notSelected'">Not Sure</div>
 				</div>
 			</div>
 			<div class="display-style">
 				<p  id="row-title">Do you have easy access to public transport?</p>
 				<div class="row">
-					<div class="col ans" ng-click="publicTransport('yes')" ng-class="review.easyAccessToPublicTransport=='yes'?'selected':'notSelected'">Yes</div>
-					<div class="col ans" ng-click="publicTransport('no')" ng-class="review.easyAccessToPublicTransport=='no'?'selected':'notSelected'">No</div>
-					<div class="col ans" ng-click="publicTransport('notSure')" ng-class="review.easyAccessToPublicTransport=='notSure'?'selected':'notSelected'">Not Sure</div>
-				</div>
-			</div>
-			<div class="display-style">
-				<div class="row">
-					<p id="row-title">Would you recommend this for?</p>
-				</div>
-				<div class="row" id="closeby">
-					<div class="col" ng-click="selectRecommendedFor(item.id, $index)" ng-repeat="item in recommend">
-						<img ng-src="{{item.imgsrc}}" class="{{item.id}} recommendations"/>
-						<p>{{item.name}}</p>
-					</div>
+					<div class="col ans" ng-click="publicTransport('yes')" ng-class="review.easyAccessToPublicTransport=='yes'?'yesSelected':'notSelected'">Yes</div>
+					<div class="col ans" ng-click="publicTransport('no')" ng-class="review.easyAccessToPublicTransport=='no'?'noSelected':'notSelected'">No</div>
+					<div class="col ans" ng-click="publicTransport('notSure')" ng-class="review.easyAccessToPublicTransport=='notSure'?'notSureSelected':'notSelected'">Not Sure</div>
 				</div>
 			</div>
 			<div class="display-style">
@@ -114,6 +103,17 @@ transform: translateZ(0);
 			            <div class="col col-25" id="comments">
 			            	{{electricityAndWaterSupply.comment}}
 						</div>
+					</div>
+				</div>
+			</div>
+			<div class="display-style">
+				<div class="row">
+					<p id="row-title">Would you recommend this for?</p>
+				</div>
+				<div class="row" id="closeby">
+					<div class="col" ng-click="selectRecommendedFor(item.id, $index)" ng-repeat="item in recommend">
+						<img ng-src="{{item.imgsrc}}" class="{{item.id}} recommendations"/>
+						<p>{{item.name}}</p>
 					</div>
 				</div>
 			</div>

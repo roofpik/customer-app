@@ -42,9 +42,20 @@
 	text-align:center;
 }
 
-.residential-review .selected{
-  border:1px solid #18AFD1;
+.residential-review .yesSelected{
+  border:1px solid #33CD5F;
+  background-color: #c1f0cf;
   text-align:center;
+}
+.residential-review .noSelected{
+  border:1px solid #EF473A;
+  background-color:#fbd3d0;
+  text-align:center;
+}
+.residential-review .notSureSelected{
+    border: 1px solid #4dd2ff;
+    background-color: #ccf2ff;
+    text-align: center;
 }
 
 .residential-review .kids, .residential-review .pets, .residential-review .singles, .residential-review .elders, .residential-review .family{
@@ -74,10 +85,6 @@
 .commercial-review .review-params {
   background-color:#F5F7F7;
 } 
-
-.commercial-review .resident, .commercial-review .nonResident {
-  width:45px;
-}
 
 .commercial-review .display-style {
   width: 94%;
@@ -110,15 +117,22 @@
   text-align:center;
 }
 
-.commercial-review .selected{
-  border:1px solid #18AFD1;
+.commercial-review .yesSelected{
+  border:1px solid #33CD5F;
+  background-color:#c1f0cf;
   text-align:center;
 }
-
-.commercial-review .kids, .commercial-review .pets, .commercial-review .singles, .commercial-review .elders, .commercial-review .family{
-    width: 32px;
-    height: 48px;
+.commercial-review .noSelected{
+  border:1px solid #EF473A;
+  background-color:#fbd3d0;
+  text-align:center;
 }
+.commercial-review .notSureSelected{
+    border: 1px solid #4dd2ff;
+    background-color: #ccf2ff;
+    text-align: center;
+}
+
 
 .commercial-review #row-title{
   font-size:1.13em;
@@ -131,6 +145,144 @@
 }
 
 .commercial-review #comments {
+  color:#000;
+}
+
+/*pg reviews*/
+.pg-review .pg-review-content {
+    background-color: #F5F7F7;
+}
+
+.pg-review .review-params {
+  background-color:#F5F7F7;
+} 
+.pg-review .display-style {
+  width: 94%;
+  margin: 0 auto 15px auto;
+}
+
+.pg-review .review-title label , .pg-review .customerInfo label {
+  padding:0px;
+  border: 1px solid #18AFD1;
+}
+
+.pg-review .review-title label input, .pg-review .customerInfo label input {
+  padding: 0 5px;
+}
+
+.pg-review .project-review label{
+    height: 120px;
+    border: 1px solid #18AFD1;
+    border-radius: 3px;
+    margin: 0 auto;
+}
+
+.pg-review .project-review textarea{
+    line-height: 21px;
+    margin-top: 60px;
+}
+
+.pg-review .ans{
+  border:1px solid #ccc;
+  text-align:center;
+}
+
+.pg-review .yesSelected{
+  border:1px solid #33CD5F;
+  background-color:#c1f0cf;
+  text-align:center;
+}
+.pg-review .noSelected{
+  border:1px solid #EF473A;
+  background-color:#fbd3d0;
+  text-align:center;
+}
+.pg-review .notSureSelected{
+    border: 1px solid #4dd2ff;
+    background-color: #ccf2ff;
+    text-align: center;
+}
+
+.pg-review #row-title{
+  font-size:1.13em;
+  margin-left:2px;
+  color: #000;
+}
+
+.pg-review #rating-title{
+  margin-left:15px;
+}
+
+.pg-review #comments {
+  color:#000;
+}
+
+/*locality reviews*/
+.locality-review .locality-review-content {
+    background-color: #F5F7F7;
+}
+
+.locality-review .review-params {
+  background-color:#F5F7F7;
+} 
+.locality-review .display-style {
+  width: 94%;
+  margin: 0 auto 15px auto;
+}
+
+.locality-review .review-title label , .locality-review .customerInfo label {
+  padding:0px;
+  border: 1px solid #18AFD1;
+}
+
+.locality-review .review-title label input, .locality-review .customerInfo label input {
+  padding: 0 5px;
+}
+
+.locality-review .project-review label{
+    height: 120px;
+    border: 1px solid #18AFD1;
+    border-radius: 3px;
+    margin: 0 auto;
+}
+
+.locality-review .project-review textarea{
+    line-height: 21px;
+    margin-top: 60px;
+}
+
+.locality-review .ans{
+  border:1px solid #ccc;
+  text-align:center;
+}
+
+.locality-review .yesSelected{
+  border:1px solid #33CD5F;
+  background-color:#c1f0cf;
+  text-align:center;
+}
+.locality-review .noSelected{
+  border:1px solid #EF473A;
+  background-color:#fbd3d0;
+  text-align:center;
+}
+.locality-review .notSureSelected{
+    border: 1px solid #4dd2ff;
+    background-color: #ccf2ff;
+    text-align: center;
+}
+
+.locality-review #row-title{
+  font-size:1.13em;
+  margin-left:2px;
+  color: #000;
+}
+
+.locality-review #rating-title{
+  margin-left:15px;
+}
+
+.locality-review #comments {
   color:#000;
 }
 

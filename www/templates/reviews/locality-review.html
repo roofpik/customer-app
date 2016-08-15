@@ -1,4 +1,4 @@
-<ion-view class="commercial-review" cache-view="true">
+<ion-view class="locality-review" cache-view="true">
 <style>
 img{
 transform: translateZ(0);
@@ -7,8 +7,26 @@ transform: translateZ(0);
 	<ion-header-bar class="bar-light" align-title="center">
 		<button class="icon ion-chevron-left button button-light" ng-click="goBack()"></button>
 	</ion-header-bar>
-	<ion-content class="commercial-review-content has-header padding has-footer">
+	<ion-content class="locality-review-content has-header padding has-footer">
 		<div class="review-params">
+			<div class="display-style customerInfo">
+				<p  id="row-title">Customer Name</p>
+				<label class="item item-input item-stacked-label">
+					<input type="text" ng-model="review.customerName">
+				</label>
+			</div>
+			<div class="display-style customerInfo">
+				<p  id="row-title">Mobile Number</p>
+				<label class="item item-input item-stacked-label">
+					<input type="number" ng-model="review.mobileNumber">
+				</label>
+			</div>
+			<div class="display-style customerInfo">
+				<p  id="row-title">Email</p>
+				<label class="item item-input item-stacked-label">
+					<input type="email" ng-model="review.email">
+				</label>
+			</div>
 			<div class="display-style">
 				<p  id="row-title">Overall Rating</p>
 				<div class="row">
@@ -33,74 +51,50 @@ transform: translateZ(0);
 	            </label>
 			</div>
 			<div class="display-style">
-				<p  id="row-title">Is the project conveniently located?</p>
-				<div class="row">
-					<div class="col ans" ng-click="getConvenient('yes')" ng-class="review.convenientlyLocated=='yes'?'yesSelected':'notSelected'">Yes</div>
-					<div class="col ans" ng-click="getConvenient('no')" ng-class="review.convenientlyLocated=='no'?'noSelected':'notSelected'">No</div>
-					<div class="col ans" ng-click="getConvenient('notSure')" ng-class="review.convenientlyLocated=='notSure'?'notSureSelected':'notSelected'">Not Sure</div>
-				</div>
-			</div>
-			<div class="display-style">
-				<p  id="row-title">Do you have easy access to public transport?</p>
-				<div class="row">
-					<div class="col ans" ng-click="publicTransport('yes')" ng-class="review.easyAccessToPublicTransport=='yes'?'yesSelected':'notSelected'">Yes</div>
-					<div class="col ans" ng-click="publicTransport('no')" ng-class="review.easyAccessToPublicTransport=='no'?'noSelected':'notSelected'">No</div>
-					<div class="col ans" ng-click="publicTransport('notSure')" ng-class="review.easyAccessToPublicTransport=='notSure'?'notSureSelected':'notSelected'">Not Sure</div>
-				</div>
-			</div>
-			<div class="display-style">
-				<p  id="row-title">Do you have restaurants/cafes nearby?</p>
-				<div class="row">
-					<div class="col ans" ng-click="nearby('yes')" ng-class="review.restaurantCafeNearby=='yes'?'yesSelected':'notSelected'">Yes</div>
-					<div class="col ans" ng-click="nearby('no')" ng-class="review.restaurantCafeNearby=='no'?'noSelected':'notSelected'">No</div>
-					<div class="col ans" ng-click="nearby('notSure')" ng-class="review.restaurantCafeNearby=='notSure'?'notSureSelected':'notSelected'">Not Sure</div>
-				</div>
-			</div>
-			<div class="display-style">
 				<div class="row">
 					<p id="row-title">How would you rate the following?</p>
-				</div>
-				<div class="ratings">
-					<p id="rating-title">Parking Availability</p>
-					<div class="row">
-						<div class="col col-75">
-			            	<ionic-ratings ratingsobj='ratingsObject2'></ionic-ratings>
-			            </div>
-			            <div class="col col-25" id="comments">
-			            	{{parkingAvailability.comment}}
-						</div>
-					</div>
-				</div>
-				<div class="ratings">
-					<p id="rating-title">Cleanliness</p>
-					<div class="row">
-						<div class="col col-75">
-			            	<ionic-ratings ratingsobj='ratingsObject3'></ionic-ratings>
-			            </div>
-			            <div class="col col-25" id="comments">
-			            	{{cleanliness.comment}}
-						</div>
-					</div>
-				</div>
-				<div class="ratings">
-					<p id="rating-title">Lift Waiting Time</p>
-					<div class="row">
-						<div class="col col-75">
-			            	<ionic-ratings ratingsobj='ratingsObject4'></ionic-ratings>
-			            </div>
-			            <div class="col col-25" id="comments">
-			            	{{liftWaitingTime.comment}}
-						</div>
-					</div>
 				</div>
 				<div class="ratings">
 					<p id="rating-title">Security</p>
 					<div class="row">
 						<div class="col col-75">
-			            	<ionic-ratings ratingsobj='ratingsObject5'></ionic-ratings>
+			            	<ionic-ratings ratingsobj='ratingsObject2'></ionic-ratings>
 			            </div>
 			            <div class="col col-25" id="comments">
 			            	{{security.comment}}
+						</div>
+					</div>
+				</div>
+				<div class="ratings">
+					<p id="rating-title">Infrastructure</p>
+					<div class="row">
+						<div class="col col-75">
+			            	<ionic-ratings ratingsobj='ratingsObject3'></ionic-ratings>
+			            </div>
+			            <div class="col col-25" id="comments">
+			            	{{infrastructure.comment}}
+						</div>
+					</div>
+				</div>
+				<div class="ratings">
+					<p id="rating-title">Parks, Open and Green Areas</p>
+					<div class="row">
+						<div class="col col-75">
+			            	<ionic-ratings ratingsobj='ratingsObject4'></ionic-ratings>
+			            </div>
+			            <div class="col col-25" id="comments">
+			            	{{parksOpenandGreenAreas.comment}}
+						</div>
+					</div>
+				</div>
+				<div class="ratings">
+					<p id="rating-title">Electricity and Water Supply</p>
+					<div class="row">
+						<div class="col col-75">
+			            	<ionic-ratings ratingsobj='ratingsObject5'></ionic-ratings>
+			            </div>
+			            <div class="col col-25" id="comments">
+			            	{{electricityandWaterSupply.comment}}
 						</div>
 					</div>
 				</div>
