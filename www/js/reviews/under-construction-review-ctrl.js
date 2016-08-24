@@ -1,30 +1,29 @@
-app.controller('localityReviewCtrl', function($scope, $ionicPopup){
+app.controller('underConstructionReviewCtrl', function($scope, $ionicPopup){
 
 	$scope.review = {};
 
-	$scope.hospitalY = false;
-	$scope.marketY = false;
-	$scope.schoolY = false;
-
-	$scope.closeBy = [
-		{id: 'school', name: 'Good Schools', imgsrc: 'img/review/school_grey.png'},
-		{id: 'market', name: 'Market', imgsrc: 'img/review/market_grey.png'},
-		{id: 'hospital', name: 'Good Hospitals', imgsrc: 'img/review/hospital_grey.png'}
+	$scope.identities = [
+		{id: 'owner', name: 'Owner', imgsrc:'img/review/owner_grey.png'},
+		{id: 'other', name: 'Other', imgsrc:'img/review/other_grey.png'},
 	];
 
-	$scope.selectCloseby = function(val, index){
-		console.log(val, index);
-		type = val+'Y';
-		console.log($scope[type]);
-		$scope[type] = !$scope[type];
-		if($scope[type]){
-			$scope.closeBy[index].imgsrc = 'img/review/'+val+'.png';
-		}else {
-			$scope.closeBy[index].imgsrc = 'img/review/'+val+'_grey.png';
-		}
-	}
+	$scope.residentY = false;
+	$scope.nonResident = false;
 
 	$scope.comment = ['Poor', 'Average', 'Good', 'Very Good', 'Excellent'];
+
+	$scope.selectIdentity = function(val, index){
+		angular.forEach($scope.identities, function(value, key){
+			if(val == value.id){
+				$scope[val+'Y'] = true;
+				$scope.identities[key].imgsrc = 'img/review/'+value.id+'.png';
+			} else {
+				$scope[value.id+'Y'] = false;
+				$scope.identities[key].imgsrc = 'img/review/'+value.id+'_grey.png';
+			}
+		});
+		console.log($scope.ownerY, $scope.otherY);
+	}
 
 	$scope.ratingsObject1= {
 		iconOn: 'ion-record',
@@ -45,7 +44,7 @@ app.controller('localityReviewCtrl', function($scope, $ionicPopup){
 		console.log($scope.mainComment);
 	};
 
-	$scope.safetyAndSecurity = {};
+	$scope.clubhouseAmenities = {};
 
 	$scope.ratingsObject2= {
 		iconOn: 'ion-record',
@@ -61,11 +60,11 @@ app.controller('localityReviewCtrl', function($scope, $ionicPopup){
 	};
 
 	$scope.ratingsCallback2 = function(rating) {
-		$scope.safetyAndSecurity.rating = rating;
-		$scope.safetyAndSecurity.comment = $scope.comment[rating-1];
+		$scope.clubhouseAmenities.rating = rating;
+		$scope.clubhouseAmenities.comment = $scope.comment[rating-1];
 	};
 
-	$scope.infrastructure = {};
+	$scope.openGreenAreas = {};
 
 	$scope.ratingsObject3= {
 		iconOn: 'ion-record',
@@ -81,11 +80,11 @@ app.controller('localityReviewCtrl', function($scope, $ionicPopup){
 	};
 
 	$scope.ratingsCallback3 = function(rating) {
-		$scope.infrastructure.rating = rating;
-		$scope.infrastructure.comment = $scope.comment[rating-1];
+		$scope.openGreenAreas.rating = rating;
+		$scope.openGreenAreas.comment = $scope.comment[rating-1];
 	};
 
-	$scope.parksOpenandGreenAreas = {};
+	$scope.valueForMoney = {};
 
 	$scope.ratingsObject4= {
 		iconOn: 'ion-record',
@@ -101,11 +100,11 @@ app.controller('localityReviewCtrl', function($scope, $ionicPopup){
 	};
 
 	$scope.ratingsCallback4 = function(rating) {
-		$scope.parksOpenandGreenAreas.rating = rating;
-		$scope.parksOpenandGreenAreas.comment = $scope.comment[rating-1];
+		$scope.valueForMoney.rating = rating;
+		$scope.valueForMoney.comment = $scope.comment[rating-1];
 	};
 
-	$scope.electricityandWaterSupply = {};
+	$scope.rentOnInvestment = {};
 
 	$scope.ratingsObject5= {
 		iconOn: 'ion-record',
@@ -121,12 +120,58 @@ app.controller('localityReviewCtrl', function($scope, $ionicPopup){
 	};
 
 	$scope.ratingsCallback5 = function(rating) {
-		$scope.electricityandWaterSupply.rating = rating;
-		$scope.electricityandWaterSupply.comment = $scope.comment[rating-1];
+		$scope.rentOnInvestment.rating = rating;
+		$scope.rentOnInvestment.comment = $scope.comment[rating-1];
+	};
+
+	$scope.location = {};
+
+	$scope.ratingsObject6= {
+		iconOn: 'ion-record',
+		iconOff: 'ion-ios-circle-outline',
+		iconOnColor: '#F26551',
+		iconOffColor: '#18AFD1',
+		rating: 0,
+		minRating: 0,
+		readOnly:false,
+		callback: function(rating) { 
+		 	$scope.ratingsCallback6(rating);
+		}
+	};
+
+	$scope.ratingsCallback6 = function(rating) {
+		$scope.location.rating = rating;
+		$scope.location.comment = $scope.comment[rating-1];
+	};
+
+	$scope.currentConnectivity = {};
+
+	$scope.ratingsObject7= {
+		iconOn: 'ion-record',
+		iconOff: 'ion-ios-circle-outline',
+		iconOnColor: '#F26551',
+		iconOffColor: '#18AFD1',
+		rating: 0,
+		minRating: 0,
+		readOnly:false,
+		callback: function(rating) { 
+		 	$scope.ratingsCallback7(rating);
+		}
+	};
+
+	$scope.ratingsCallback7 = function(rating) {
+		$scope.currentConnectivity.rating = rating;
+		$scope.currentConnectivity.comment = $scope.comment[rating-1];
 	};
 
 
 	$scope.submitReview = function(){
+		if($scope.ownerY == true){
+			$scope.review.customerType = 'owner';
+		} else if($scope.otherY = true){
+			$scope.review.customerType = 'other';
+		}
+
 	    $scope.review.time = new Date().getTime();
 	    // $scope.review.customerId = window.localStorage.getItem("userUid");
 	    // $scope.review.customerName = window.localStorage.getItem("userName");
@@ -135,37 +180,32 @@ app.controller('localityReviewCtrl', function($scope, $ionicPopup){
 	    if($scope.review.ratings == undefined){
 	    	$scope.review.ratings = {};
 	    }
-	    if($scope.safetyAndSecurity.rating != 0 && $scope.safetyAndSecurity.rating != undefined){
-	      $scope.review.ratings.safetyAndSecurity = $scope.safetyAndSecurity.rating;
+	    if($scope.clubhouseAmenities.rating != 0 && $scope.clubhouseAmenities.rating != undefined){
+	      $scope.review.ratings.clubhouseAmenities = $scope.clubhouseAmenities.rating;
 	    }
-	    if($scope.infrastructure.rating != 0 && $scope.infrastructure.rating != undefined){
-	      $scope.review.ratings.infrastructure = $scope.infrastructure.rating;
+	    if($scope.openGreenAreas.rating != 0 && $scope.openGreenAreas.rating != undefined){
+	      $scope.review.ratings.openGreenAreas = $scope.openGreenAreas.rating;
 	    }
-	    if($scope.parksOpenandGreenAreas.rating != 0 && $scope.parksOpenandGreenAreas.rating != undefined){
-	      $scope.review.ratings.parksOpenandGreenAreas = $scope.parksOpenandGreenAreas.rating;
+	    if($scope.valueForMoney.rating != 0 && $scope.valueForMoney.rating != undefined){
+	      $scope.review.ratings.valueForMoney = $scope.valueForMoney.rating;
 	    }
-	    if($scope.electricityandWaterSupply.rating != 0 && $scope.electricityandWaterSupply.rating != undefined){
-	      $scope.review.ratings.electricityandWaterSupply = $scope.electricityandWaterSupply.rating;
+	    if($scope.rentOnInvestment.rating != 0 && $scope.rentOnInvestment.rating != undefined){
+	      $scope.review.ratings.rentOnInvestment = $scope.rentOnInvestment.rating;
+	    }
+		if($scope.location.rating != 0 && $scope.location.rating != undefined){
+	    	$scope.review.ratings.location = $scope.location.rating;
+	    }
+		if($scope.currentConnectivity.rating != 0 && $scope.currentConnectivity.rating != undefined){
+	    	$scope.review.ratings.currentConnectivity = $scope.currentConnectivity.rating;
 	    }
 
-	    if($scope.review.closeBy == undefined){
-	    	$scope.review.closeBy = {};
-	    }
-	    angular.forEach($scope.closeBy, function(value, key){
-	      if($scope[value.id+'Y'] == true){
-	        $scope.review.closeBy[value.id] = true;
-	      }
-	    });
-	    if(Object.keys($scope.review.closeBy).length == 0){
-	      delete $scope.review.closeBy;
-	    }
 	    console.log($scope.review.ratings);
 	    console.log(Object.keys($scope.review.ratings).length);
 	    if(Object.keys($scope.review.ratings).length == 0){
 	      delete $scope.review.ratings;
 	    }
 	    console.log($scope.review);
-	    if(($scope.review.rating==0)  || $scope.review.reviewTitle==undefined || $scope.review.reviewTitle.length ==0){
+	    if(($scope.review.customerType == undefined) || ($scope.review.rating==0)  || $scope.review.reviewTitle==undefined || $scope.review.reviewTitle.length ==0){
 	    	$ionicPopup.alert({
 	    		template:'Cannot Submit Review'
 	    	})
@@ -173,9 +213,8 @@ app.controller('localityReviewCtrl', function($scope, $ionicPopup){
 	}
 
 	$scope.suggestions = [
-		'Public Transport', 'Traffic', 'Noise and Air Pollution', 'Quality of Roads', 'Electricity Supply', 'Water supply', 'Drainage', 'Street Lights', 'Parks' 
+		'Layout of the Apartment', 'Clubhouse', 'Current Access from the Main Road', 'Current Connectivity', 'Infrastructure', 'Value for Money', 'Construction Schedule'
 	];
-
 
 	$scope.showInfo = function(){
 		$scope.showSuggestions = true;

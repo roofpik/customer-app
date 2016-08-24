@@ -104,7 +104,7 @@ app.controller('residentialReviewCtrl', function($scope, $ionicPopup){
 		$scope.amenities.comment = $scope.comment[rating-1];
 	};
 
-	$scope.openAndGreenAreas = {};
+	$scope.openGreenAreas = {};
 
 	$scope.ratingsObject4= {
 		iconOn: 'ion-record',
@@ -120,8 +120,8 @@ app.controller('residentialReviewCtrl', function($scope, $ionicPopup){
 	};
 
 	$scope.ratingsCallback4 = function(rating) {
-		$scope.openAndGreenAreas.rating = rating;
-		$scope.openAndGreenAreas.comment = $scope.comment[rating-1];
+		$scope.openGreenAreas.rating = rating;
+		$scope.openGreenAreas.comment = $scope.comment[rating-1];
 	};
 
 	$scope.electricityAndWaterSupply = {};
@@ -142,6 +142,26 @@ app.controller('residentialReviewCtrl', function($scope, $ionicPopup){
 	$scope.ratingsCallback5 = function(rating) {
 		$scope.electricityAndWaterSupply.rating = rating;
 		$scope.electricityAndWaterSupply.comment = $scope.comment[rating-1];
+	};
+
+	$scope.convenienceOfHousemaids = {};
+
+	$scope.ratingsObject6= {
+		iconOn: 'ion-record',
+		iconOff: 'ion-ios-circle-outline',
+		iconOnColor: '#F26551',
+		iconOffColor: '#18AFD1',
+		rating: 0,
+		minRating: 0,
+		readOnly:false,
+		callback: function(rating) { 
+		 	$scope.ratingsCallback6(rating);
+		}
+	};
+
+	$scope.ratingsCallback6 = function(rating) {
+		$scope.convenienceOfHousemaids.rating = rating;
+		$scope.convenienceOfHousemaids.comment = $scope.comment[rating-1];
 	};
 
 	$scope.getConvenient = function(value){
@@ -184,11 +204,14 @@ app.controller('residentialReviewCtrl', function($scope, $ionicPopup){
 	    if($scope.amenities.rating != 0 && $scope.amenities.rating != undefined){
 	      $scope.review.ratings.amenities = $scope.amenities.rating;
 	    }
-	    if($scope.openAndGreenAreas.rating != 0 && $scope.openAndGreenAreas.rating != undefined){
-	      $scope.review.ratings.openAndGreenAreas = $scope.openAndGreenAreas.rating;
+	    if($scope.openGreenAreas.rating != 0 && $scope.openGreenAreas.rating != undefined){
+	      $scope.review.ratings.openGreenAreas = $scope.openGreenAreas.rating;
 	    }
 	    if($scope.electricityAndWaterSupply.rating != 0 && $scope.electricityAndWaterSupply.rating != undefined){
 	      $scope.review.ratings.electricityAndWaterSupply = $scope.electricityAndWaterSupply.rating;
+	    }
+		if($scope.convenienceOfHousemaids.rating != 0 && $scope.convenienceOfHousemaids.rating != undefined){
+	    	$scope.review.ratings.convenienceOfHousemaids = $scope.convenienceOfHousemaids.rating;
 	    }
 
 	    if(Object.keys($scope.review.recommendedFor).length == 0){
@@ -205,6 +228,56 @@ app.controller('residentialReviewCtrl', function($scope, $ionicPopup){
 	    		template:'Cannot Submit Review'
 	    	})
 	    }
+	}
+
+	$scope.suggestions = [
+		'Layout of the Apartment', 'Quality of Lifts', 'Security', 'Clubhouse', 'Access from the Main Road', 'Maintenance', 'Parking', 'Kids Play Area', 'Senior Citizen Friendly', 'Facilities', 'Traffic and Noise Pollution', 'Services Within the Community'
+	];
+
+	$scope.showInfo = function(){
+		$scope.showSuggestions = true;
+		// $scope.modal.show();
+	}
+
+	$scope.closeInfo = function(){
+		$scope.showSuggestions = false;
+	}
+
+	$scope.showValue = function(){
+		if($scope.review.review){
+			var i = $scope.review.review.length;
+			var str = $scope.review.review;
+			var res = str.charAt(i-1);
+			console.log(res);
+			var num = $scope.review.review.split(" ").length - 1;
+			console.log(num);
+			if(num< 9){
+				$scope.showMsg1 = true;
+				$scope.showMsg2 = false;
+				$scope.showMsg3 = false;
+				$scope.showMsg4 = false;
+			} else if (num >= 9 && num < 39){
+				$scope.showMsg1 = false;
+				$scope.showMsg2 = true;
+				$scope.showMsg3 = false;
+				$scope.showMsg4 = false;				
+			} else if (num >= 39 && num < 69){
+				$scope.showMsg1 = false;
+				$scope.showMsg2 = false;
+				$scope.showMsg3 = true;
+				$scope.showMsg4 = false;				
+			} else if( num >= 69){
+				$scope.showMsg1 = false;
+				$scope.showMsg2 = false;
+				$scope.showMsg3 = false;
+				$scope.showMsg4 = true;				
+			}
+			// if(num < 9){
+			// 	$scope.showLessMsg = true;
+			// } else {
+			// 	$scope.showLessMsg = false;
+			// }
+		}
 	}
 
 });

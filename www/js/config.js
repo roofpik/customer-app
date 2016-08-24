@@ -122,6 +122,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
         controller: 'residentialReviewCtrl'
     })
 
+    $stateProvider.state("under-construction-review", {
+        url:'/under-construction-review',
+        templateUrl: 'templates/reviews/under-construction-review.html',
+        controller: 'underConstructionReviewCtrl'
+    })
+
     $stateProvider.state("commercial-review", {
         url:'/commercial-review',
         templateUrl: 'templates/reviews/commercial-review.html',

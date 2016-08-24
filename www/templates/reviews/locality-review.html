@@ -9,24 +9,6 @@ transform: translateZ(0);
 	</ion-header-bar>
 	<ion-content class="locality-review-content has-header padding has-footer">
 		<div class="review-params">
-			<div class="display-style customerInfo">
-				<p  id="row-title">Customer Name</p>
-				<label class="item item-input item-stacked-label">
-					<input type="text" ng-model="review.customerName">
-				</label>
-			</div>
-			<div class="display-style customerInfo">
-				<p  id="row-title">Mobile Number</p>
-				<label class="item item-input item-stacked-label">
-					<input type="number" ng-model="review.mobileNumber">
-				</label>
-			</div>
-			<div class="display-style customerInfo">
-				<p  id="row-title">Email</p>
-				<label class="item item-input item-stacked-label">
-					<input type="email" ng-model="review.email">
-				</label>
-			</div>
 			<div class="display-style">
 				<p  id="row-title">Overall Rating</p>
 				<div class="row">
@@ -38,21 +20,25 @@ transform: translateZ(0);
 					</div>
 				</div>
 			</div>
+            <div class="project-review display-style" id="infoIcon">
+                <p id="row-title">What do you like/dislike about this locality?<i class="icon ion-information-circled" ng-click="showInfo()"></i></p>
+                <label class="item item-input">
+                    <textarea rows="8" cols="50" placeholder="Type here" ng-model="review.review" ng-change="showValue()" required></textarea>
+                </label>
+            </div>
+            <p class="reviewMsg" ng-show="showMsg1">Write more than 10 words to earn &#8377; 50</p>
+            <p class="reviewMsg" ng-show="showMsg2">Write more than 40 words to earn &#8377; 75</p>
+            <p class="reviewMsg" ng-show="showMsg3">Write more than 70 words to earn &#8377; 100</p>
+            <p class="reviewMsg" ng-show="showMsg4">Write more than 100 words to earn &#8377; 125</p>
 			<div class="review-title display-style">
 				<p id="row-title">Review Title</p>
 				<label class="item item-input item-stacked-label">
 					<input type="text" ng-model="review.reviewTitle">
 				</label>
 			</div>
-			<div class="project-review display-style">
-				<p id="row-title">Write a review</p>
-				<label class="item item-input">
-	            	<textarea rows="8" cols="50"  placeholder="Type here(Optional)" ng-model="review.review" required></textarea>
-	            </label>
-			</div>
 
 			<div class="display-style">
-				<p id="row-title">Do you have following close by:</p>
+				<p id="row-title">Do you have following close by?</p>
 				<div class="row" id="closeby">
 					<div class="col" ng-click="selectCloseby(item.id, $index)" ng-repeat="item in closeBy">
 						<img ng-src="{{item.imgsrc}}" class="{{item.id}}"/>
@@ -66,18 +52,19 @@ transform: translateZ(0);
 					<p id="row-title">How would you rate the following?</p>
 				</div>
 				<div class="ratings">
-					<p id="rating-title">Security</p>
+					<p id="rating-title">Safety and Security</p>
 					<div class="row">
 						<div class="col col-75">
 			            	<ionic-ratings ratingsobj='ratingsObject2'></ionic-ratings>
 			            </div>
 			            <div class="col col-25" id="comments">
-			            	{{security.comment}}
+			            	{{safetyAndSecurity.comment}}
 						</div>
 					</div>
 				</div>
 				<div class="ratings">
 					<p id="rating-title">Infrastructure</p>
+					<p style="font-size: 0.85em;padding-left: 15px;margin-top: -10px;">(Road, Drainage, Street Lights etc)</p>
 					<div class="row">
 						<div class="col col-75">
 			            	<ionic-ratings ratingsobj='ratingsObject3'></ionic-ratings>
@@ -112,6 +99,12 @@ transform: translateZ(0);
 			</div>
 		</div>
 	</ion-content>
+    <div id="infoBox" scroll="true" ng-show="showSuggestions">
+        <i class="icon ion-close-circled" style="float: right;color: grey;font-size: 26px;margin-top: -8px;margin-right: -12px;" ng-click="closeInfo()"></i>
+        <div ng-repeat="suggestion in suggestions" style="margin:10px;">
+            {{suggestion}}
+        </div>
+    </div>
 	<ion-footer-bar align-title="center" class="bar-dark" ng-click="submitReview()">
 	  <h1 class="title">Submit</h1>
 	</ion-footer-bar>
