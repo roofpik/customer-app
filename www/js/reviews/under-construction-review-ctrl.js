@@ -1,5 +1,7 @@
-app.controller('underConstructionReviewCtrl', function($scope, $ionicPopup){
+app.controller('underConstructionReviewCtrl', function($scope, $ionicPopup, $stateParams){
 
+	// $scope.projectName = $stateParams.projectName;
+	$scope.projectName = "Vipul Greens";
 	$scope.review = {};
 
 	$scope.identities = [
@@ -7,8 +9,8 @@ app.controller('underConstructionReviewCtrl', function($scope, $ionicPopup){
 		{id: 'other', name: 'Other', imgsrc:'img/review/other_grey.png'},
 	];
 
-	$scope.residentY = false;
-	$scope.nonResident = false;
+	$scope.ownerY = false;
+	$scope.otherY = false;
 
 	$scope.comment = ['Poor', 'Average', 'Good', 'Very Good', 'Excellent'];
 
@@ -168,7 +170,7 @@ app.controller('underConstructionReviewCtrl', function($scope, $ionicPopup){
 	$scope.submitReview = function(){
 		if($scope.ownerY == true){
 			$scope.review.customerType = 'owner';
-		} else if($scope.otherY = true){
+		} else if($scope.otherY == true){
 			$scope.review.customerType = 'other';
 		}
 
@@ -205,7 +207,7 @@ app.controller('underConstructionReviewCtrl', function($scope, $ionicPopup){
 	      delete $scope.review.ratings;
 	    }
 	    console.log($scope.review);
-	    if(($scope.review.customerType == undefined) || ($scope.review.rating==0)  || $scope.review.reviewTitle==undefined || $scope.review.reviewTitle.length ==0){
+	    if(($scope.review.customerType == undefined) || ($scope.review.rating==0)){
 	    	$ionicPopup.alert({
 	    		template:'Cannot Submit Review'
 	    	})
@@ -231,34 +233,8 @@ app.controller('underConstructionReviewCtrl', function($scope, $ionicPopup){
 			var str = $scope.review.review;
 			var res = str.charAt(i-1);
 			console.log(res);
-			var num = $scope.review.review.split(" ").length - 1;
-			console.log(num);
-			if(num< 9){
-				$scope.showMsg1 = true;
-				$scope.showMsg2 = false;
-				$scope.showMsg3 = false;
-				$scope.showMsg4 = false;
-			} else if (num >= 9 && num < 39){
-				$scope.showMsg1 = false;
-				$scope.showMsg2 = true;
-				$scope.showMsg3 = false;
-				$scope.showMsg4 = false;				
-			} else if (num >= 39 && num < 69){
-				$scope.showMsg1 = false;
-				$scope.showMsg2 = false;
-				$scope.showMsg3 = true;
-				$scope.showMsg4 = false;				
-			} else if( num >= 69){
-				$scope.showMsg1 = false;
-				$scope.showMsg2 = false;
-				$scope.showMsg3 = false;
-				$scope.showMsg4 = true;				
-			}
-			// if(num < 9){
-			// 	$scope.showLessMsg = true;
-			// } else {
-			// 	$scope.showLessMsg = false;
-			// }
+			$scope.num = $scope.review.review.split(" ").length - 1;
+			console.log($scope.num);
 		}
 	}
 

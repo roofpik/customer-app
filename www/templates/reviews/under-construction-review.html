@@ -6,6 +6,7 @@
     </style>
     <ion-header-bar class="bar-light" align-title="center">
         <button class="icon ion-chevron-left button button-light" ng-click="goBack()"></button>
+        <h1 class="title">{{projectName}}</h1>
     </ion-header-bar>
     <ion-content class="under-construction-review-content has-header padding has-footer">
         <div class="review-params">
@@ -22,7 +23,7 @@
                 <p id="row-title">Overall Rating</p>
                 <div class="row">
                     <div class="col col-75">
-                        <ionic-ratings ratingsobj='ratingsObject1'></ionic-ratings>
+                        <ionic-ratings ratingsobj='ratingsObject1' style="margin-left:-15px;"></ionic-ratings>
                     </div>
                     <div class="col col-25" id="comments">
                         {{mainComment}}
@@ -35,10 +36,7 @@
                     <textarea rows="8" cols="50" placeholder="Type here" ng-model="review.review" ng-change="showValue()" required></textarea>
                 </label>
             </div>
-            <p class="reviewMsg" ng-show="showMsg1">Write more than 10 words to earn &#8377; 50</p>
-            <p class="reviewMsg" ng-show="showMsg2">Write more than 40 words to earn &#8377; 75</p>
-            <p class="reviewMsg" ng-show="showMsg3">Write more than 70 words to earn &#8377; 100</p>
-            <p class="reviewMsg" ng-show="showMsg4">Write more than 100 words to earn &#8377; 125</p>
+            <div class="reviewMsg" ng-show="num">{{num+1}} word<span ng-class="num > 0? 'show':'hide'">s</span></div>
             <div class="review-title display-style">
                 <p id="row-title">Review Title</p>
                 <label class="item item-input item-stacked-label">

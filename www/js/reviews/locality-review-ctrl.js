@@ -1,4 +1,7 @@
-app.controller('localityReviewCtrl', function($scope, $ionicPopup){
+app.controller('localityReviewCtrl', function($scope, $ionicPopup, $stateParams){
+
+	// $scope.localityName = $stateParams.localityName;
+	$scope.localityName = "Sohna Road";
 
 	$scope.review = {};
 
@@ -165,7 +168,7 @@ app.controller('localityReviewCtrl', function($scope, $ionicPopup){
 	      delete $scope.review.ratings;
 	    }
 	    console.log($scope.review);
-	    if(($scope.review.rating==0)  || $scope.review.reviewTitle==undefined || $scope.review.reviewTitle.length ==0){
+	    if($scope.review.rating==0){
 	    	$ionicPopup.alert({
 	    		template:'Cannot Submit Review'
 	    	})
@@ -192,34 +195,8 @@ app.controller('localityReviewCtrl', function($scope, $ionicPopup){
 			var str = $scope.review.review;
 			var res = str.charAt(i-1);
 			console.log(res);
-			var num = $scope.review.review.split(" ").length - 1;
-			console.log(num);
-			if(num< 9){
-				$scope.showMsg1 = true;
-				$scope.showMsg2 = false;
-				$scope.showMsg3 = false;
-				$scope.showMsg4 = false;
-			} else if (num >= 9 && num < 39){
-				$scope.showMsg1 = false;
-				$scope.showMsg2 = true;
-				$scope.showMsg3 = false;
-				$scope.showMsg4 = false;				
-			} else if (num >= 39 && num < 69){
-				$scope.showMsg1 = false;
-				$scope.showMsg2 = false;
-				$scope.showMsg3 = true;
-				$scope.showMsg4 = false;				
-			} else if( num >= 69){
-				$scope.showMsg1 = false;
-				$scope.showMsg2 = false;
-				$scope.showMsg3 = false;
-				$scope.showMsg4 = true;				
-			}
-			// if(num < 9){
-			// 	$scope.showLessMsg = true;
-			// } else {
-			// 	$scope.showLessMsg = false;
-			// }
+			$scope.num = $scope.review.review.split(" ").length - 1;
+			console.log($scope.num);
 		}
 	}
 

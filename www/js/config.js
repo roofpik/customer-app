@@ -117,13 +117,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
     // State For Reviews
 
     $stateProvider.state("residential-review", {
-        url:'/residential-review',
+        url:'/residential-review/:projectName',
         templateUrl: 'templates/reviews/residential-review.html',
         controller: 'residentialReviewCtrl'
     })
 
     $stateProvider.state("under-construction-review", {
-        url:'/under-construction-review',
+        url:'/under-construction-review/:projectName',
         templateUrl: 'templates/reviews/under-construction-review.html',
         controller: 'underConstructionReviewCtrl'
     })
@@ -141,7 +141,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
     $stateProvider.state("locality-review", {
-        url:'/locality-review',
+        url:'/locality-review/:localityName',
         templateUrl: 'templates/reviews/locality-review.html',
         controller: 'localityReviewCtrl'
     })
